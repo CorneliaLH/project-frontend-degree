@@ -17,6 +17,7 @@ export function Home() {
           });
     }}>Login</button>
     <button onClick={()=>{
+        
         let service = new ScheduleService();
         service.getSchedule().then((response) => {
             
@@ -24,8 +25,22 @@ export function Home() {
           });
     }}>Schedule</button>
      <button onClick={()=>{
+        let schedulePost = {
+            title:"Title of the Opera", 
+            when:"September-October 2020",
+            where:"Sydney Opera House",
+            conductor:"Waving Astick",
+            role:"Don José",
+            image_url:"http://image.se",
+            read_more:"http://theTicketSalesList", 
+            date_remove:"2020-11-01",
+            repetoire:"Opera",
+            composer:"Georges Bizet",
+            opera:"Carmen",
+            display_repetoire:true      
+        }
         let service = new ScheduleService();
-        service.postSchedule().then((response) => {
+        service.postSchedule(schedulePost).then((response) => {
             
           console.log(response)
           });
@@ -38,8 +53,17 @@ export function Home() {
           });
     }}>Get media</button>
       <button onClick={()=>{
+        let mediaPost = 
+        {
+            title:"Name of News, video or audio", 
+            description:"Croissant gingerbread gummi bears icing cookie croissant shortbread. Bonbon lollipop jujubes gingerbread bear claw bear claw muffin lollipop brownie. Cheesecake candy canes caramels marzipan bear claw icing topping donut tart. Candy macaroon bonbon danish jelly-o ice cream muffin ice cream muffin.",
+            type:"News/Video/Audio",
+            media_url:"http://linkto.com",
+            date_pub:"Date"
+        }
+        
         let service = new MediaService();
-        service.postMedia().then((response) => {
+        service.postMedia(mediaPost).then((response) => {
             
           console.log(response)
           });

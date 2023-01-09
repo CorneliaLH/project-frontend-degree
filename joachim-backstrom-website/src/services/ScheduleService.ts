@@ -1,4 +1,6 @@
 import axios from "axios";
+import { IScheduleConcert } from "../models/IScheduleConcert";
+import { IScheduleOpera } from "../models/IScheduleOpera";
 
 export class ScheduleService {
     async getSchedule() {
@@ -8,23 +10,10 @@ export class ScheduleService {
         return response.data;
       }
 
-      async postSchedule() {
+      async postSchedule(schedulePost: IScheduleOpera | IScheduleConcert) {
         let response = await axios.post<any>(
           "http://localhost:3000/schedule/add",
-          {
-            title:"Title of the Opera", 
-            when:"September-October 2020",
-            where:"Sydney Opera House",
-            conductor:"Waving Astick",
-            role:"Don José",
-            image_url:"http://image.se",
-            read_more:"http://theTicketSalesList", 
-            date_remove:"2020-11-01",
-            repetoire:"Opera",
-            composer:"Georges Bizet",
-            opera:"Carmen",
-            display_repetoire:true      
-        },
+          schedulePost,
     
           { headers: { "Content-Type": "application/json" } }
         );
