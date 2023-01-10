@@ -1,72 +1,102 @@
-import { ScheduleService } from "../../services/ScheduleService";
-import { UserService } from "../../services/UserService";
-import { MediaService } from "../../services/MediaService";
 import "./sass/home.css";
-export function Home() {
+import imagelight from "../../images/logo-light2.svg";
+import arrowdown from "../../images/arrow-down.svg";
+import joachimBio from "../../images/joachimredigerad.jpg";
+import { Link } from "react-router-dom";
+import {
+  JSXElementConstructor,
+  ReactElement,
+  ReactFragment,
+  ReactPortal,
+  useEffect,
+  useState,
+} from "react";
+import { ScheduleService } from "../../services/ScheduleService";
+import { ISchedule } from "../../models/ISchedule";
 
-    return <><button onClick={()=>{
-        let service = new UserService();
-        let user = {userName:"Joachim122", password:"Password123"}
-        service.postLogIn(user).then((response) => {
-            
-            if (response.status === "ok") {
-             console.log("Namn finns")
-            } else {
-              alert("Användare finns inte, försök gärna igen!");
-            }
-          });
-    }}>Login</button>
-    <button onClick={()=>{
-        
-        let service = new ScheduleService();
-        service.getSchedule().then((response) => {
-            
-          console.log(response)
-          });
-    }}>Schedule</button>
-     <button onClick={()=>{
-        let schedulePost = {
-            title:"Title of the Opera", 
-            when:"September-October 2020",
-            where:"Sydney Opera House",
-            conductor:"Waving Astick",
-            role:"Don José",
-            image_url:"http://image.se",
-            read_more:"http://theTicketSalesList", 
-            date_remove:"2020-11-01",
-            repetoire:"Opera",
-            composer:"Georges Bizet",
-            opera:"Carmen",
-            display_repetoire:true      
-        }
-        let service = new ScheduleService();
-        service.postSchedule(schedulePost).then((response) => {
-            
-          console.log(response)
-          });
-    }}>Post New Schedule</button>
-     <button onClick={()=>{
-        let service = new MediaService();
-        service.getMedia().then((response) => {
-            
-          console.log(response)
-          });
-    }}>Get media</button>
-      <button onClick={()=>{
-        let mediaPost = 
-        {
-            title:"Name of News, video or audio", 
-            description:"Croissant gingerbread gummi bears icing cookie croissant shortbread. Bonbon lollipop jujubes gingerbread bear claw bear claw muffin lollipop brownie. Cheesecake candy canes caramels marzipan bear claw icing topping donut tart. Candy macaroon bonbon danish jelly-o ice cream muffin ice cream muffin.",
-            type:"News/Video/Audio",
-            media_url:"http://linkto.com",
-            date_pub:"Date"
-        }
-        
-        let service = new MediaService();
-        service.postMedia(mediaPost).then((response) => {
-            
-          console.log(response)
-          });
-    }}>Post Media</button>
+export function Home() {
+  //Changing nav menu color to white
+  const [scheduleList, setScheduleList] = useState<ISchedule[]>([]);
+
+  useEffect(() => {
+    let navlinks = document.querySelectorAll<HTMLElement>(".nav-menu-link");
+    let icon = document.querySelector<HTMLImageElement>("#image-logo");
+    for (let i = 0; i < navlinks.length; i++) {
+      navlinks[i].style.color = "white";
+    }
+    if (icon != null) {
+      icon.src = imagelight;
+    }
+  }, []);
+
+  useEffect(() => {
+    let service = new ScheduleService();
+    service.getSchedule().then((response) => {
+      setScheduleList(response);
+      // for (let i = 0; i < response.length; i++) {
+      // return response.map(
+      //   item => {
+      //     <article className='schedule-article'>
+      //       <h2>{item.title}</h2>
+      //     </article>;
+      //   }
+
+      //   console.log(response[i]);
+      //   let scheduleNew = (
+      //     <article className='schedule-article'>
+      //       <h2>{response[i].title}</h2>
+      //     </article>
+      //   );
+      //   setSchedule(scheduleNew);
+      // }
+    });
+  }, []);
+
+  return (
+    <>
+      <div className='container-page'>
+        <div className='hero-image'>
+          <img id='arrow-down' src={arrowdown} alt='arrow down' />
+        </div>
+        <section className='container-bio'>
+          <div className='container-home-image'>
+            <img id='home-image' src={joachimBio} alt='Joachim Bäckström' />
+          </div>
+
+          <article className='container-bio-text'>
+            <div className='container-bio-quote'>
+              <div className='quoteOne'></div>
+              <q className='quote'>
+                LOREM IPSUM <br /> LOREM <br />
+                LOREM IPSUM LOREM IPSUM <br /> LOREM <br />
+                LOREM IPSUM
+              </q>
+              <div className='quoteTwo'></div>
+              <p className='quote-author'>Author Authorsson</p>
+            </div>
+            <p className='home-biography'>
+              Gingerbread topping brownie cookie jelly-o jelly-o sugar plum
+              lemon drops. Biscuit cupcake cotton candy icing gummies gummies.
+              Tiramisu dragée ice cream powder cotton candy cookie lemon drops.
+              Dessert cake cake donut shortbread lemon drops. Wafer chocolate
+              bar danish cookie halvah powder brownie.
+            </p>
+            <button className='secondary-button'>
+              {" "}
+              <Link to={"/biography"}>Read more</Link>
+            </button>
+          </article>
+        </section>
+        <div className='container-home-schedule'>
+          {scheduleList.map((item) => {
+            return (
+              <>
+                <h2 key={item._id}>{item.title}</h2>
+              </>
+            );
+          })}
+        </div>
+      </div>
     </>
+  );
 }
