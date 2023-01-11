@@ -54,7 +54,12 @@ export function Layout() {
         <Outlet></Outlet>
       </main>
       <footer>
-        <section>footer</section>
+        <section className='container-footer'>
+          <article>
+            <p className='contact-footer'>Contact information to agent</p>
+            <p className='copyright'>Copyright 2023</p>
+          </article>
+        </section>
       </footer>
     </>
   );

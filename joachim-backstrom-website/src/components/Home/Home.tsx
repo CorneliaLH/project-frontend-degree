@@ -3,16 +3,10 @@ import imagelight from "../../images/logo-light2.svg";
 import arrowdown from "../../images/arrow-down.svg";
 import joachimBio from "../../images/joachimredigerad.jpg";
 import { Link } from "react-router-dom";
-import {
-  JSXElementConstructor,
-  ReactElement,
-  ReactFragment,
-  ReactPortal,
-  useEffect,
-  useState,
-} from "react";
+import { useEffect, useState } from "react";
 import { ScheduleService } from "../../services/ScheduleService";
 import { ISchedule } from "../../models/ISchedule";
+import quoteImageBanner from "../../images/notes.svg";
 
 export function Home() {
   //Changing nav menu color to white
@@ -33,22 +27,6 @@ export function Home() {
     let service = new ScheduleService();
     service.getSchedule().then((response) => {
       setScheduleList(response);
-      // for (let i = 0; i < response.length; i++) {
-      // return response.map(
-      //   item => {
-      //     <article className='schedule-article'>
-      //       <h2>{item.title}</h2>
-      //     </article>;
-      //   }
-
-      //   console.log(response[i]);
-      //   let scheduleNew = (
-      //     <article className='schedule-article'>
-      //       <h2>{response[i].title}</h2>
-      //     </article>
-      //   );
-      //   setSchedule(scheduleNew);
-      // }
     });
   }, []);
 
@@ -87,14 +65,39 @@ export function Home() {
             </button>
           </article>
         </section>
-        <div className='container-home-schedule'>
-          {scheduleList.map((item) => {
-            return (
-              <>
-                <h2 key={item._id}>{item.title}</h2>
-              </>
-            );
-          })}
+        <div className='container-home-schedule'></div>
+        <div className='container-home-schedule-filter'>
+          <h2 className='heading2'>Schedule</h2>
+          <div className='home-schedule-cards-container'>
+            {scheduleList.map((item) => {
+              return (
+                <a
+                  key={item._id}
+                  className='home-schedule-card'
+                  href={item.read_more}
+                >
+                  <h3>{item.title}</h3>
+                  <p>{item.when}</p>
+                  <p>Conductor: {item.conductor}</p>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+        <div className='home-quote-banner'>
+          <div className='container-icons-quote-banner'>
+            <img src={quoteImageBanner} alt='Music notes' />
+          </div>
+          <div className='container-bio-quote'>
+            <div className='quoteOne'></div>
+            <q className='quote'>
+              LOREM IPSUM <br /> LOREM <br />
+              LOREM IPSUM LOREM IPSUM <br /> LOREM <br />
+              LOREM IPSUM
+            </q>
+            <div className='quoteTwo'></div>
+            <p className='quote-author'>Author Authorsson</p>
+          </div>
         </div>
       </div>
     </>

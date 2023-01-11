@@ -3,7 +3,7 @@
 .container-page {
   width: 100%;
   height: fit-content;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
 
@@ -45,7 +45,7 @@
 
 .container-bio {
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   background-color: $primary-background-color;
   display: flex;
   justify-content: space-evenly;
@@ -69,77 +69,149 @@
     justify-content: center;
     align-items: center;
 
-    .container-bio-quote {
-      width: 50%;
-      .quoteOne {
-        position: relative;
-        bottom: -20px;
-        left: -20px;
-        width: 40px;
-        height: 40px;
-        background-image: url(../../../images/quote.svg);
-        z-index: 1;
-      }
-
-      .quoteTwo {
-        position: relative;
-        top: -20px;
-        right: -100px;
-        width: 40px;
-        height: 40px;
-        transform: rotate(180deg);
-        background-image: url(../../../images/quote.svg);
-      }
-
-      .quote {
-        position: relative;
-        z-index: 2;
-        font-size: $font-size-body;
-        color: $font-color-light;
-        &::before {
-          content: none;
-        }
-        &::after {
-          content: none;
-        }
-      }
-
-      .quote-author {
-        width: 100%;
-        text-align: right;
-        margin: 0;
-        font-size: $font-size-body-small;
-        font-style: italic;
-        position: relative;
-        top: -20px;
-        color: $font-color-light;
-      }
-    }
-
     .home-biography {
       column-count: 2;
       font-size: $font-size-body-small;
       color: $font-color-light;
+      padding-bottom: 20px;
     }
+  }
+}
+
+.container-bio-quote {
+  width: 50%;
+  .quoteOne {
+    position: relative;
+    bottom: -20px;
+    left: -20px;
+    width: 40px;
+    height: 40px;
+    background-image: url(../../../images/quote.svg);
+    z-index: 1;
+  }
+
+  .quoteTwo {
+    position: relative;
+    top: -20px;
+    right: -100px;
+    width: 40px;
+    height: 40px;
+    transform: rotate(180deg);
+    background-image: url(../../../images/quote.svg);
+  }
+
+  .quote {
+    position: relative;
+    z-index: 2;
+    font-size: $font-size-body;
+    color: $font-color-light;
+    &::before {
+      content: none;
+    }
+    &::after {
+      content: none;
+    }
+  }
+
+  .quote-author {
+    width: 100%;
+    text-align: right;
+    margin: 0;
+    font-size: $font-size-body-small;
+    font-style: italic;
+    position: relative;
+    top: -20px;
+    color: $font-color-light;
   }
 }
 
 .container-home-schedule {
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   background-image: url(../../../images/valkyrian-kungliga-operan-web-markus-garder.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  position: relative;
+  position: absolute;
+}
 
-  &::after {
-    content: "";
-    position: absolute;
+.container-home-schedule-filter {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($color: #ffffff, $alpha: 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .home-schedule-cards-container {
+    flex-basis: 90%;
+    position: relative;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba($color: #ffffff, $alpha: 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    .home-schedule-card {
+      text-decoration: none;
+      box-sizing: border-box;
+      width: 25%;
+      color: $font-color-dark;
+      border-radius: 10px;
+      box-shadow: $box-shadow-standard;
+      padding: 20px 10px 20px 10px;
+      background-color: rgba($color: #ffffff, $alpha: 0.8);
+      min-height: 70%;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: flex-start;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+
+      h3 {
+        margin: 0;
+        font-size: $font-size-body;
+        color: $highlight-color;
+      }
+
+      p {
+        font-size: $font-size-body-small;
+      }
+    }
+  }
+}
+
+.home-quote-banner {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  width: 100%;
+  background-color: $primary-background-color;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  position: relative;
+  z-index: 4;
+  padding-right: 20px;
+  .container-icons-quote-banner {
+    flex-basis: 45%;
+    margin-right: 5%;
+    img {
+      height: 60vh;
+    }
   }
 }
