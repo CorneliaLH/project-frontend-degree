@@ -76,9 +76,18 @@ export function Home() {
                   className='home-schedule-card'
                   href={item.read_more}
                 >
-                  <h3>{item.title}</h3>
-                  <p>{item.when}</p>
-                  <p>Conductor: {item.conductor}</p>
+                  <img
+                    className='home-schedule-image'
+                    src={require("../../images/schedule-test.jpg")}
+                    alt='image-opera'
+                  />
+                  <article className='home-schedule-card-text'>
+                    <h3>{item.title}</h3>
+                    <p className='home-schedule-card-text-p1'>{item.when}</p>
+                    <p className='home-schedule-card-text-p2'>
+                      Conductor: {item.conductor}
+                    </p>
+                  </article>
                 </a>
               );
             })}

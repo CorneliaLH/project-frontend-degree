@@ -70,6 +70,7 @@
     align-items: center;
 
     .home-biography {
+      width: 80%;
       column-count: 2;
       font-size: $font-size-body-small;
       color: $font-color-light;
@@ -93,7 +94,7 @@
   .quoteTwo {
     position: relative;
     top: -20px;
-    right: -100px;
+    right: -155px;
     width: 40px;
     height: 40px;
     transform: rotate(180deg);
@@ -103,7 +104,7 @@
   .quote {
     position: relative;
     z-index: 2;
-    font-size: $font-size-body;
+    font-size: $font-size-heading2;
     color: $font-color-light;
     &::before {
       content: none;
@@ -127,9 +128,9 @@
 
 .container-home-schedule {
   width: 100%;
-  height: 80vh;
+  height: 100vh;
   background-image: url(../../../images/valkyrian-kungliga-operan-web-markus-garder.jpg);
-  background-position: center;
+  background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
@@ -138,7 +139,7 @@
 .container-home-schedule-filter {
   position: relative;
   width: 100%;
-  height: 80vh;
+  height: 100vh;
   margin: 0;
   padding: 0;
   top: 0;
@@ -151,15 +152,21 @@
   align-items: center;
   flex-direction: column;
 
+  .heading2 {
+    padding-top: 50px;
+  }
+
   .home-schedule-cards-container {
-    flex-basis: 90%;
+    width: 95%;
     position: relative;
     top: 0;
     left: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 100%;
+    height: 80%;
+    padding-left: 30px;
+    padding-right: 30px;
     .home-schedule-card {
       text-decoration: none;
       box-sizing: border-box;
@@ -167,9 +174,9 @@
       color: $font-color-dark;
       border-radius: 10px;
       box-shadow: $box-shadow-standard;
-      padding: 20px 10px 20px 10px;
       background-color: rgba($color: #ffffff, $alpha: 0.8);
       min-height: 70%;
+
       height: fit-content;
       display: flex;
       flex-direction: column;
@@ -180,14 +187,41 @@
         transform: scale(1.02);
       }
 
-      h3 {
-        margin: 0;
-        font-size: $font-size-body;
-        color: $highlight-color;
+      .home-schedule-image {
+        width: 100%;
+        display: block;
+        min-height: 50%;
+        object-fit: cover;
+        border-radius: 10px 10px 0px 0px;
+        border: none;
       }
 
-      p {
-        font-size: $font-size-body-small;
+      .home-schedule-card-text {
+        width: 100%;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        h3 {
+          margin: 0;
+          font-size: $font-size-body;
+          color: $highlight-color;
+        }
+
+        .home-schedule-card-text-p1 {
+          width: 70%;
+          text-align: center;
+          font-weight: bold;
+          font-size: $font-size-body;
+          color: $font-color-dark;
+        }
+
+        .home-schedule-card-text-p2 {
+          font-size: $font-size-body-small;
+          color: $font-color-dark;
+          font-style: italic;
+        }
       }
     }
   }
@@ -199,7 +233,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 40vh;
+  height: 50vh;
   width: 100%;
   background-color: $primary-background-color;
   padding-bottom: 20px;

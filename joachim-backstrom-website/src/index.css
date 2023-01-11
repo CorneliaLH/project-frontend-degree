@@ -9,6 +9,23 @@ body {
   font-weight: 300;
 }
 
+.primary-button {
+  border-radius: 10px;
+  width: fit-content;
+  padding: 5px 15px 5px 15px;
+  background-color: #636a7e;
+  border: none;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0px 8px 24px 0px rgba(149, 157, 165, 0, 3);
+}
+
+.primary-button a {
+  color: #252f40;
+  text-decoration: none;
+  color: white;
+}
+
 .secondary-button {
   border-radius: 10px;
   width: fit-content;
@@ -25,6 +42,7 @@ body {
   text-decoration: none;
 }
 
+.primary-button:hover,
 .secondary-button:hover {
   transform: scale(1.02);
 }
@@ -37,4 +55,10 @@ body {
 .heading2 {
   font-size: 24px;
   color: #252f40;
+}
+
+.page-separator {
+  height: 10vh;
+  width: 100%;
+  background-color: #636a7e;
 }
