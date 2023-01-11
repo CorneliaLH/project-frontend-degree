@@ -36,13 +36,13 @@ export function Home() {
         <div className='hero-image'>
           <img id='arrow-down' src={arrowdown} alt='arrow down' />
         </div>
-        <section className='container-bio'>
+        <section className='container-home-bio'>
           <div className='container-home-image'>
             <img id='home-image' src={joachimBio} alt='Joachim Bäckström' />
           </div>
 
-          <article className='container-bio-text'>
-            <div className='container-bio-quote'>
+          <article className='container-home-bio-text'>
+            <div className='container-home-bio-quote'>
               <div className='quoteOne'></div>
               <q className='quote'>
                 LOREM IPSUM <br /> LOREM <br />
@@ -97,7 +97,7 @@ export function Home() {
           <div className='container-icons-quote-banner'>
             <img src={quoteImageBanner} alt='Music notes' />
           </div>
-          <div className='container-bio-quote'>
+          <div className='container-home-bio-quote'>
             <div className='quoteOne'></div>
             <q className='quote'>
               LOREM IPSUM <br /> LOREM <br />

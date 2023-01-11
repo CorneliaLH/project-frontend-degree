@@ -44,7 +44,7 @@ export function Schedule() {
           <div className='container-cards'>
             {renderedList.map((item) => {
               return (
-                <article key={item._id} id='schedule-card'>
+                <article key={item._id} className='schedule-card'>
                   <div className='container-schedule-card-when'>
                     <p className='schedule-card-when'>{item.when}</p>
                   </div>

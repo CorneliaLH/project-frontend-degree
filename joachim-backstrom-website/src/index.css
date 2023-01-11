@@ -57,6 +57,20 @@ body {
   color: #252f40;
 }
 
+.heading3 {
+  font-size: 18px;
+  color: #793c43;
+}
+
+.heading4 {
+  font-size: 18px;
+  color: #636a7e;
+}
+
+.bold-text {
+  font-weight: 600;
+}
+
 .page-separator {
   height: 10vh;
   width: 100%;
