@@ -34,7 +34,7 @@ export function Layout() {
             </li>
             <li>
               <a className='nav-menu-link' href='/Repetoire'>
-                Repetoire
+                Repertoire
               </a>
             </li>
             <li>
