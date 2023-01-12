@@ -38,7 +38,13 @@ export function Home() {
         </div>
         <section className='container-home-bio'>
           <div className='container-home-image'>
-            <img id='home-image' src={joachimBio} alt='Joachim Bäckström' />
+            <img
+              id='home-image'
+              src={joachimBio}
+              alt='Joachim Bäckström'
+              width='600'
+              height='593'
+            />
           </div>
 
           <article className='container-home-bio-text'>
@@ -80,6 +86,8 @@ export function Home() {
                     className='home-schedule-image'
                     src={require("../../images/schedule-test.jpg")}
                     alt='image-opera'
+                    width='640'
+                    height='360'
                   />
                   <article className='home-schedule-card-text'>
                     <h3>{item.title}</h3>

@@ -57,7 +57,7 @@
     justify-content: center;
     align-items: center;
     #home-image {
-      width: 65%;
+      width: 80%;
       box-shadow: $box-shadow-standard;
     }
   }
@@ -175,7 +175,7 @@
       border-radius: 10px;
       box-shadow: $box-shadow-standard;
       background-color: rgba($color: #ffffff, $alpha: 0.8);
-      min-height: 70%;
+      min-height: 50%;
 
       height: fit-content;
       display: flex;
@@ -190,7 +190,7 @@
       .home-schedule-image {
         width: 100%;
         display: block;
-        min-height: 50%;
+        height: 50%;
         object-fit: cover;
         border-radius: 10px 10px 0px 0px;
         border: none;

@@ -3,7 +3,7 @@
 .contact-container-page {
   .menu-banner {
     width: 100%;
-    height: 15vh;
+    height: 12vh;
     background-color: white;
   }
   .contact-hero-image {
@@ -21,7 +21,7 @@
 
   .contact-hero-image-filter {
     position: absolute;
-    top: 15vh;
+    top: 12vh;
     left: 0;
     width: 100%;
     height: 60vh;
@@ -31,15 +31,24 @@
 }
 
 .container-contact {
-  min-height: 100vh;
+  min-height: 80vh;
   height: fit-content;
   background-color: $secondary-background-color;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding-top: 50px;
   padding-bottom: 50px;
+
+  h2 {
+    width: 100%;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: $font-color-light;
+    background-color: $primary-background-color;
+    box-shadow: $box-shadow-standard;
+  }
 
   .contact-card {
     height: 20vh;

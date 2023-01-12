@@ -3,7 +3,7 @@
 .schedule-container-page {
   .menu-banner {
     width: 100%;
-    height: 15vh;
+    height: 12vh;
     background-color: white;
   }
   .schedule-hero-image {
@@ -21,7 +21,7 @@
 
   .schedule-hero-image-filter {
     position: absolute;
-    top: 15vh;
+    top: 12vh;
     left: 0;
     width: 100%;
     height: 60vh;
@@ -38,11 +38,16 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  padding-top: 30px;
+
   padding-bottom: 50px;
   .heading2 {
+    width: 100%;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: $font-color-light;
+    background-color: $primary-background-color;
+    box-shadow: $box-shadow-standard;
   }
 
   .container-cards {
