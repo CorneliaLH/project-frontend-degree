@@ -2,12 +2,26 @@ import { useEffect, useState } from "react";
 import { ISchedule } from "../../models/ISchedule";
 import { ScheduleService } from "../../services/ScheduleService";
 import "./sass/schedule.css";
+import imagedark from "../../images/logo-dark2.svg";
 
 export function Schedule() {
   const [scheduleList, setScheduleList] = useState<ISchedule[]>([]);
   const [renderedList, setRenderedList] = useState<ISchedule[]>([]);
   const [showMoreButton, setShowMoreButton] = useState<boolean>(true);
 
+  //Changes color navigation
+  useEffect(() => {
+    let navlinks = document.querySelectorAll<HTMLElement>(".nav-menu-link");
+    let icon = document.querySelector<HTMLImageElement>("#image-logo");
+    for (let i = 0; i < navlinks.length; i++) {
+      navlinks[i].style.color = "black";
+    }
+    if (icon != null) {
+      icon.src = imagedark;
+    }
+  }, []);
+
+  //Get first 3 schedule-items
   useEffect(() => {
     let service = new ScheduleService();
     service.getScheduleAll().then((response) => {
@@ -21,9 +35,8 @@ export function Schedule() {
     });
   }, []);
 
+  //Get 3 more items från shedule list
   function renderMore() {
-    console.log(scheduleList.length);
-    console.log(renderedList.length);
     if (scheduleList.length > renderedList.length) {
       const slicedArray = scheduleList.slice(0, renderedList.length + 3);
       setRenderedList(slicedArray);

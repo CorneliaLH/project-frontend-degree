@@ -3,11 +3,25 @@ import { IConcert } from "../../models/IConcert";
 import { IOpera } from "../../models/IOpera";
 import { RepertoireService } from "../../services/RepertoireService";
 import "./sass/repetoire.css";
+import imagedark from "../../images/logo-dark2.svg";
 
 export function Repetoire() {
   const [operaList, setOperaList] = useState<IOpera[]>([]);
   const [concertList, setConcertList] = useState<IConcert[]>([]);
 
+  //Change navigation link color
+  useEffect(() => {
+    let navlinks = document.querySelectorAll<HTMLElement>(".nav-menu-link");
+    let icon = document.querySelector<HTMLImageElement>("#image-logo");
+    for (let i = 0; i < navlinks.length; i++) {
+      navlinks[i].style.color = "black";
+    }
+    if (icon != null) {
+      icon.src = imagedark;
+    }
+  }, []);
+
+  //Get Opera-list
   useEffect(() => {
     let service = new RepertoireService();
     service.getRepertoireOpera().then((response) => {
@@ -15,6 +29,7 @@ export function Repetoire() {
     });
   }, []);
 
+  //Get Concert-list
   useEffect(() => {
     let service = new RepertoireService();
     service.getRepertoireConcert().then((response) => {

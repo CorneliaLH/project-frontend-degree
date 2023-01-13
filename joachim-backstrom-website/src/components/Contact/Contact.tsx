@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IContact } from "../../models/IContact";
 import "./sass/contact.css";
+import imagedark from "../../images/logo-dark2.svg";
+
 export function Contact() {
   const [contactList, setContactList] = useState<IContact[]>([
     {
@@ -18,6 +20,18 @@ export function Contact() {
       email: "manager@email.se",
     },
   ]);
+
+  //Change navigation color
+  useEffect(() => {
+    let navlinks = document.querySelectorAll<HTMLElement>(".nav-menu-link");
+    let icon = document.querySelector<HTMLImageElement>("#image-logo");
+    for (let i = 0; i < navlinks.length; i++) {
+      navlinks[i].style.color = "black";
+    }
+    if (icon != null) {
+      icon.src = imagedark;
+    }
+  }, []);
 
   return (
     <>

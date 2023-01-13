@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import "./sass/layout.css";
 import logoImage from "../../images/logo-dark2.svg";
 export function Layout() {
@@ -8,44 +8,62 @@ export function Layout() {
         <nav>
           <ul>
             <li>
-              <a className='nav-menu-link' href='/'>
+              <Link className='nav-menu-link' to='/'>
                 Start
-              </a>
+              </Link>
+              {/* <a className='nav-menu-link' href='/'>
+                Start
+              </a> */}
             </li>
             <li>
-              <a className='nav-menu-link' href='/Schedule'>
+              <Link className='nav-menu-link' to='/Schedule'>
                 Schedule
-              </a>
+              </Link>
+              {/* <a className='nav-menu-link' href='/Schedule'>
+                Schedule
+              </a> */}
             </li>
             <li>
-              <a className='nav-menu-link' href='/Biography'>
+              <Link className='nav-menu-link' to='/Biography'>
                 Biography
-              </a>
+              </Link>
+              {/* <a className='nav-menu-link' href='/Biography'>
+                Biography
+              </a> */}
             </li>
 
             <li>
-              <a href='/'>
+              <Link className='nav-menu-link' to='/'>
                 <img
                   id='image-logo'
                   src={logoImage}
                   alt='Logo with Tenor Joachim Bäckström'
                 />
-              </a>
+              </Link>
             </li>
             <li>
-              <a className='nav-menu-link' href='/Repetoire'>
+              <Link className='nav-menu-link' to='/Repetoire'>
                 Repertoire
-              </a>
+              </Link>
+              {/* <a className='nav-menu-link' href='/Repetoire'>
+                Repertoire
+              </a> */}
             </li>
             <li>
-              <a className='nav-menu-link' href='/Media'>
+              <Link className='nav-menu-link' to='/Media'>
                 Media
-              </a>
+              </Link>
+              {/* <a className='nav-menu-link' href='/Media'>
+                Media
+              </a> */}
             </li>
             <li>
-              <a className='nav-menu-link' href='/Contact'>
+              <Link className='nav-menu-link' to='/Contact'>
                 Contact
-              </a>
+              </Link>
+              {/* <a className='nav-menu-link' href='/Contact'>
+                Contact
+              </a> */}
             </li>
           </ul>
         </nav>

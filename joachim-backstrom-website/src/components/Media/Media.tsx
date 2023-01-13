@@ -8,9 +8,11 @@ import newsimage3 from "../../images/news3.jpg";
 import newsimage4 from "../../images/news4.jpg";
 import newsimage5 from "../../images/news5.jpg";
 import audioimage from "../../images/audio.svg";
+import imagedark from "../../images/logo-dark2.svg";
 
 import "./sass/media.css";
 export function Media() {
+  //Sets select value from start
   const getInitialState = () => {
     const value = "Latest";
     return value;
@@ -19,6 +21,7 @@ export function Media() {
   const [mediaList, setMediaList] = useState<IMedia[]>([]);
   const [showMoreButton, setShowMoreButton] = useState<boolean>(true);
 
+  //Random array setting image News
   let newsImageArray = [
     newsimage0,
     newsimage1,
@@ -28,8 +31,24 @@ export function Media() {
     newsimage5,
   ];
 
+  function randomsrc() {
+    return newsImageArray[Math.floor(Math.random() * newsImageArray.length)];
+  }
+
+  //Change navigation color
   useEffect(() => {
-    console.log(value);
+    let navlinks = document.querySelectorAll<HTMLElement>(".nav-menu-link");
+    let icon = document.querySelector<HTMLImageElement>("#image-logo");
+    for (let i = 0; i < navlinks.length; i++) {
+      navlinks[i].style.color = "black";
+    }
+    if (icon != null) {
+      icon.src = imagedark;
+    }
+  }, []);
+
+  //Renders first 4 items in Latest, News, Audio and Video.
+  useEffect(() => {
     if (value === "Latest") {
       let service = new MediaService();
       service.getMedia().then((response) => {
@@ -73,10 +92,40 @@ export function Media() {
     }
   }, [value]);
 
-  function randomsrc() {
-    return newsImageArray[Math.floor(Math.random() * newsImageArray.length)];
+  //Render all from Latest, Audio, Video and News when "Show more"-link is pressed
+  function renderMore(valueFromSelect: string) {
+    if (valueFromSelect == "Latest") {
+      let service = new MediaService();
+      service.getMediaAll().then((response) => {
+        setMediaList(response);
+        setShowMoreButton(false);
+      });
+    } else if (valueFromSelect == "Video") {
+      let service = new MediaService();
+      service.getMediaVideoAll().then((response) => {
+        setMediaList(response);
+        setShowMoreButton(false);
+      });
+    } else if (valueFromSelect == "Audio") {
+      let service = new MediaService();
+      service.getMediaAudioAll().then((response) => {
+        setMediaList(response);
+        setShowMoreButton(false);
+      });
+    } else if (valueFromSelect == "News") {
+      let service = new MediaService();
+      service.getMediaNewsAll().then((response) => {
+        setMediaList(response);
+        setShowMoreButton(false);
+      });
+    }
   }
 
+  const handleChange = (e: any) => {
+    setValue(e.target.value);
+  };
+
+  //Function for rendering media
   let media = mediaList.map((item) => {
     return (
       <div key={item._id} className='container-media-item'>
@@ -135,38 +184,6 @@ export function Media() {
       </div>
     );
   });
-
-  function renderMore(valueFromSelect: string) {
-    if (valueFromSelect == "Latest") {
-      let service = new MediaService();
-      service.getMediaAll().then((response) => {
-        setMediaList(response);
-        setShowMoreButton(false);
-      });
-    } else if (valueFromSelect == "Video") {
-      let service = new MediaService();
-      service.getMediaVideoAll().then((response) => {
-        setMediaList(response);
-        setShowMoreButton(false);
-      });
-    } else if (valueFromSelect == "Audio") {
-      let service = new MediaService();
-      service.getMediaAudioAll().then((response) => {
-        setMediaList(response);
-        setShowMoreButton(false);
-      });
-    } else if (valueFromSelect == "News") {
-      let service = new MediaService();
-      service.getMediaNewsAll().then((response) => {
-        setMediaList(response);
-        setShowMoreButton(false);
-      });
-    }
-  }
-
-  const handleChange = (e: any) => {
-    setValue(e.target.value);
-  };
 
   return (
     <>

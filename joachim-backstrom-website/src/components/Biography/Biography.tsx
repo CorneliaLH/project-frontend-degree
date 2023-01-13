@@ -1,5 +1,19 @@
+import { useEffect } from "react";
 import "./sass/biography.css";
+import imagedark from "../../images/logo-dark2.svg";
+
 export function Biography() {
+  //Changes color navigation
+  useEffect(() => {
+    let navlinks = document.querySelectorAll<HTMLElement>(".nav-menu-link");
+    let icon = document.querySelector<HTMLImageElement>("#image-logo");
+    for (let i = 0; i < navlinks.length; i++) {
+      navlinks[i].style.color = "black";
+    }
+    if (icon != null) {
+      icon.src = imagedark;
+    }
+  }, []);
   return (
     <>
       <div className='bio-container-page'>
