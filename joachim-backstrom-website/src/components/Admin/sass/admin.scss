@@ -1,3 +1,42 @@
-.containerAdmin {
-  margin-top: 300px;
+@import "../../../variables";
+
+.container-admin {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 85vh;
+  height: fit-content;
+
+  .container-admin-buttons {
+    width: 100%;
+    min-height: 60vh;
+    height: fit-content;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    background-color: $primary-background-color;
+  }
+}
+
+.container-admin-items {
+  display: none;
+  width: 100%;
+  min-height: 85vh;
+  height: fit-content;
+}
+
+.container-logout-button {
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.primary-button {
+  margin-left: 20px;
+  margin-right: 20px;
 }

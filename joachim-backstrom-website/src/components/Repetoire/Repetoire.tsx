@@ -25,6 +25,7 @@ export function Repetoire() {
   useEffect(() => {
     let service = new RepertoireService();
     service.getRepertoireOpera().then((response) => {
+      console.log(response);
       setOperaList(response);
     });
   }, []);
@@ -33,6 +34,7 @@ export function Repetoire() {
   useEffect(() => {
     let service = new RepertoireService();
     service.getRepertoireConcert().then((response) => {
+      console.log(response);
       setConcertList(response);
     });
   }, []);

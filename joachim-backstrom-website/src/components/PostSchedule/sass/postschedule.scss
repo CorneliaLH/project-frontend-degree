@@ -1,0 +1,89 @@
+@import "../../../variables";
+
+.container-schedule-post {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  height: fit-content;
+  // padding: 20px;
+  background-color: rgb(192, 255, 231);
+
+  h2 {
+    width: 100%;
+    text-align: start;
+    padding-left: 20px;
+  }
+  .container-schedule {
+    width: 100%;
+    min-height: 85vh;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    background-color: rgb(192, 255, 231);
+
+    .container-schedule-form {
+      flex-basis: 38%;
+    }
+    .container-schedule-preview {
+      flex-basis: 58%;
+      padding: 20px;
+      border-left: 2px solid $primary-background-color;
+      min-height: 85vh;
+      height: fit-content;
+
+      h4 {
+        margin-bottom: 10px;
+      }
+
+      .container-post-preview {
+        border: 1px solid $primary-background-color;
+        min-height: 80vh;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+.schedule-form {
+  min-height: 85vh;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  label {
+    margin-top: 10px;
+  }
+  input,
+  select {
+    border-radius: 10px;
+    height: 35px;
+    width: 50%;
+  }
+}
+
+.repetoire-heading {
+  padding-top: 15px;
+}
+
+#date-remove {
+  height: 35px;
+}
+
+.container-button {
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .secondary-button {
+  }
+}
