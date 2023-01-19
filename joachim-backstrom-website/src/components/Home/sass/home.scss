@@ -10,10 +10,11 @@
   .hero-image {
     width: 100%;
     height: 100vh;
-    background-image: url("../../../images/peter-grimes-11-photo-by-marek-olbrzymek.jpeg");
-    background-position: start;
-    background-repeat: no-repeat;
-    background-size: cover;
+    // background-image: url(../../../images/test11.jpg);
+    // background-position: start;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    background-color: $primary-background-color;
     display: flex;
     justify-content: center;
     align-items: end;
@@ -129,10 +130,11 @@
 .container-home-schedule {
   width: 100%;
   height: 100vh;
-  background-image: url(../../../images/valkyrian-kungliga-operan-web-markus-garder.jpg);
-  background-position: top;
-  background-size: cover;
-  background-repeat: no-repeat;
+  // background-image: url(../../../images/test10.jpg);
+  // background-position: top;
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  background-color: white;
   position: absolute;
 }
 

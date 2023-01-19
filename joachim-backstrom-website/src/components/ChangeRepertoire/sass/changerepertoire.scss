@@ -1,0 +1,93 @@
+@import "../../../variables";
+
+.container-change-repertoire {
+  min-height: 100vh;
+  height: fit-content;
+  width: 100%;
+  background-color: rgb(83, 221, 210);
+  padding: 20px;
+
+  h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .container-change-media-posts {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-direction: row;
+    div {
+      width: 45%;
+      .container-change-list-item {
+        list-style-type: none;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid white;
+        .change-item-info {
+          .change-item-text-bold {
+            font-weight: 600;
+          }
+          .change-item-text {
+            font-weight: 300;
+          }
+        }
+      }
+    }
+  }
+
+  ul {
+    flex-basis: 45%;
+    .change-input-fields {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: row;
+      margin-bottom: 20px;
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        textarea {
+          margin-right: 5px;
+          border-radius: 10px;
+          height: 100px;
+          margin-bottom: 10px;
+        }
+        input {
+          margin-right: 5px;
+          margin-bottom: 10px;
+        }
+
+        select {
+          width: 100px;
+          height: 35px;
+          border-radius: 10px;
+          margin-bottom: 10px;
+        }
+
+        .container-form-button {
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+        }
+      }
+    }
+  }
+}
+
+h3 {
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+}

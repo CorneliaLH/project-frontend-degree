@@ -22,6 +22,7 @@ export function PostMedia() {
 
   const navigation = useNavigate();
 
+  //Check if user is logged in
   useEffect(() => {
     if (!sessionStorage.userId) {
       navigation("../");
@@ -40,6 +41,8 @@ export function PostMedia() {
   return (
     <>
       <section className='container-media-post'>
+        {/* Directions when know more button is pushed  */}
+
         {knowMore && (
           <article className='container-knowmore' id='container-knowmore'>
             <h4>Find embed-link</h4>
@@ -124,7 +127,7 @@ export function PostMedia() {
             </div>
           </article>
         )}
-
+        {/* Input fields to create posts */}
         <div className='container-media-input-fields'>
           <h2>Media post</h2>
           <form action='mediapost' className='media-form'>

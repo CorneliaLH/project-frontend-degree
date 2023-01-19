@@ -40,6 +40,7 @@ export function PostSchedule() {
     });
   const navigation = useNavigate();
 
+  //Check that user is logged in
   useEffect(() => {
     if (!sessionStorage.userId) {
       navigation("../");
@@ -50,7 +51,7 @@ export function PostSchedule() {
     }
   }, []);
 
-  //input values from form
+  //Input values from form
   function handleInputSchedulePost(e: ChangeEvent<any>) {
     console.log(e.target.value);
     if (repetoireChoice === "Choose one") {

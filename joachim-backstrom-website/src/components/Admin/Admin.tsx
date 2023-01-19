@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./sass/admin.css";
-import { useEffect, useState } from "react";
+import { JSXElementConstructor, useEffect, useState } from "react";
 
 import { PostMedia } from "../PostMedia/PostMedia";
 import { PostSchedule } from "../PostSchedule/PostSchedule";
@@ -18,14 +18,18 @@ export function Admin() {
 
   const navigation = useNavigate();
 
+  //Remove header and footer
   useEffect(() => {
-    let header = document.querySelector<any>(".header");
-    let footer = document.querySelector<any>(".container-footer");
+    let header = document.querySelector<HTMLElement>(".header");
+    let footer = document.querySelector<HTMLElement>(".container-footer");
 
-    header.style.display = "none";
-    footer.style.display = "none";
+    if (header !== null && footer !== null) {
+      header.style.display = "none";
+      footer.style.display = "none";
+    }
   }, []);
 
+  //Check if user is logged in
   useEffect(() => {
     if (!sessionStorage.userId) {
       navigation("../");
@@ -39,14 +43,17 @@ export function Admin() {
   //Logout function
   function logOut() {
     sessionStorage.removeItem("userId");
-    let header = document.querySelector<any>(".header");
-    let footer = document.querySelector<any>(".container-footer");
+    let header = document.querySelector<HTMLElement>(".header");
+    let footer = document.querySelector<HTMLElement>(".container-footer");
 
-    header.style.display = "flex";
-    footer.style.display = "flex";
+    if (header !== null && footer !== null) {
+      header.style.display = "flex";
+      footer.style.display = "flex";
+    }
 
     navigation("/");
   }
+
   return (
     <>
       <div className='container-admin'>
@@ -144,7 +151,7 @@ export function Admin() {
         ) : (
           <></>
         )}
-        {/* <div className='container-admin-items'> */}
+
         {newMediaPost === true && <PostMedia></PostMedia>}
         {newSchedulePost === true && <PostSchedule></PostSchedule>}
         {changeMediaPost === true && (
@@ -162,7 +169,6 @@ export function Admin() {
             <ChangeRepertoire></ChangeRepertoire>
           </>
         )}
-        {/* </div> */}
       </div>
     </>
   );
