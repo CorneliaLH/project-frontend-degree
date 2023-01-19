@@ -23,12 +23,12 @@ export function Home() {
     }
   }, []);
 
-  useEffect(() => {
-    let service = new ScheduleService();
-    service.getSchedule().then((response) => {
-      setScheduleList(response);
-    });
-  }, []);
+  // useEffect(() => {
+  //   let service = new ScheduleService();
+  //   service.getSchedule().then((response) => {
+  //     setScheduleList(response);
+  //   });
+  // }, []);
 
   return (
     <>
