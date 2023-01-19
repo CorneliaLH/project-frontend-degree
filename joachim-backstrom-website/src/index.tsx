@@ -21,9 +21,9 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename='/'>
+    <BrowserRouter basename='/React'>
       <Routes>
-        <Route path='/React' element={<Layout />}>
+        <Route path='/' element={<Layout />}>
           <Route index element={<Home />}></Route>
           <Route path='/Login' element={<Login />}></Route>
           <Route path='/Admin' element={<Admin />}></Route>
