@@ -23,12 +23,36 @@ export function Home() {
     }
   }, []);
 
-  // useEffect(() => {
-  //   let service = new ScheduleService();
-  //   service.getSchedule().then((response) => {
-  //     setScheduleList(response);
-  //   });
-  // }, []);
+  useEffect(() => {
+    let service = new ScheduleService();
+    service.getSchedule().then((response) => {
+      setScheduleList(response);
+    });
+  }, []);
+
+  let scheduleToRender;
+  if (scheduleList.length > 0) {
+    scheduleToRender = scheduleList.map((item) => {
+      return (
+        <a key={item._id} className='home-schedule-card' href={item.read_more}>
+          <img
+            className='home-schedule-image'
+            src={require("../../images/schedule-test.jpg")}
+            alt='image-opera'
+            width='640'
+            height='360'
+          />
+          <article className='home-schedule-card-text'>
+            <h3>{item.title}</h3>
+            <p className='home-schedule-card-text-p1'>{item.when}</p>
+            <p className='home-schedule-card-text-p2'>
+              Conductor: {item.conductor}
+            </p>
+          </article>
+        </a>
+      );
+    });
+  }
 
   return (
     <>
@@ -75,30 +99,7 @@ export function Home() {
         <div className='container-home-schedule-filter'>
           <h2 className='heading2'>Schedule</h2>
           <div className='home-schedule-cards-container'>
-            {scheduleList.map((item) => {
-              return (
-                <a
-                  key={item._id}
-                  className='home-schedule-card'
-                  href={item.read_more}
-                >
-                  <img
-                    className='home-schedule-image'
-                    src={require("../../images/schedule-test.jpg")}
-                    alt='image-opera'
-                    width='640'
-                    height='360'
-                  />
-                  <article className='home-schedule-card-text'>
-                    <h3>{item.title}</h3>
-                    <p className='home-schedule-card-text-p1'>{item.when}</p>
-                    <p className='home-schedule-card-text-p2'>
-                      Conductor: {item.conductor}
-                    </p>
-                  </article>
-                </a>
-              );
-            })}
+            {scheduleToRender}
           </div>
         </div>
         <div className='home-quote-banner'>
