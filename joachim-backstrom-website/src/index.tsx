@@ -23,7 +23,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter basename='/'>
       <Routes>
-        <Route path='/' element={<Layout />}>
+        <Route path='/React' element={<Layout />}>
           <Route index element={<Home />}></Route>
           <Route path='/Login' element={<Login />}></Route>
           <Route path='/Admin' element={<Admin />}></Route>
