@@ -29,6 +29,7 @@ export function Home() {
       setScheduleList(response);
     });
   }, []);
+  console.log(scheduleList);
 
   let scheduleToRender;
   if (scheduleList.length > 0) {
