@@ -27,6 +27,7 @@ export function Home() {
     let service = new ScheduleService();
     service.getSchedule().then((response) => {
       setScheduleList(response);
+      console.log(response);
     });
   }, []);
   console.log(scheduleList);
