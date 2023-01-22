@@ -61,3 +61,26 @@
     width: 40%;
   }
 }
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .container-bio {
+    .bio-subheading {
+      padding: 20px;
+    }
+    p {
+      width: 65%;
+    }
+  }
+}
+@media (max-width: 600px) {
+  .container-bio {
+    .bio-subheading {
+      width: 90%;
+      font-size: $font-size-body;
+      padding: 20px;
+    }
+    p {
+      width: 80%;
+    }
+  }
+}

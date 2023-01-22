@@ -46,6 +46,8 @@ export function Schedule() {
     }
   }
 
+  let number = 0;
+
   return (
     <>
       <div className='schedule-container-page'>
@@ -56,6 +58,10 @@ export function Schedule() {
           <h2 className='heading2'>Schedule</h2>
           <div className='container-cards'>
             {renderedList.map((item) => {
+              number = number + 1;
+              if (number === 3) {
+                number = 0;
+              }
               return (
                 <article key={item._id} className='schedule-card'>
                   <div className='container-schedule-card-when'>
@@ -63,17 +69,23 @@ export function Schedule() {
                   </div>
                   <section className='schedule-card-text'>
                     <h3>{item.title}</h3>
-                    <p>Conductor: {item.conductor}</p>
-                    <button className='primary-button'>
+                    <p>
+                      {" "}
+                      <b>Conductor: </b>
+                      {item.conductor}
+                    </p>
+                    <div className='primary-button'>
                       <a href={item.read_more}>Read more</a>
-                    </button>
+                    </div>
                   </section>
 
                   <img
                     width='400'
                     height='437'
                     className='schedule-card-image'
-                    src={require("../../images/schedule-test.jpg")}
+                    src={require("../../images/scheduleImage" +
+                      number +
+                      ".svg")}
                     alt='Joachim'
                   />
                 </article>

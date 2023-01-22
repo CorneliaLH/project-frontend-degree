@@ -52,16 +52,15 @@
 
   .container-repertoire-cards {
     width: 100%;
-    min-height: 50%;
+    min-height: 80vh;
     height: fit-content;
     margin-top: 50px;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: space-around;
+    align-items: center;
     flex-direction: row;
 
     .repertoire-opera {
-      border-right: 1px solid $primary-background-color;
       .repertoire-heading-container {
         width: 80%;
       }
@@ -83,19 +82,26 @@
 
 .repertoire-opera,
 .repertoire-concert {
-  flex-basis: 49%;
-  min-height: 50%;
+  flex-basis: 40%;
+  min-height: 50vh;
   height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: $box-shadow-standard;
+
+  h3 {
+    padding-top: 20px;
+  }
 
   .repertoire-heading-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 40px;
+    padding-top: 20px;
   }
 
   .repertoire-item {
@@ -108,6 +114,60 @@
       display: flex;
       justify-content: space-between;
       border-bottom: 1px solid $primary-background-color;
+    }
+  }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .container-repertoire {
+    min-height: 100vh;
+    height: fit-content;
+    .container-repertoire-cards {
+      flex-direction: column !important;
+
+      .repertoire-opera {
+        width: 80%;
+        min-height: 30vh;
+        height: fit-content;
+        margin-bottom: 50px;
+      }
+      .repertoire-concert {
+        width: 80%;
+        min-height: 30vh;
+        height: fit-content;
+        margin-bottom: 50px;
+      }
+    }
+  }
+}
+@media (max-width: 600px) {
+  .container-repertoire {
+    min-height: 100vh;
+    height: fit-content;
+
+    .container-repertoire-cards {
+      flex-direction: column;
+
+      .repertoire-concert,
+      .repertoire-opera {
+        width: 90%;
+        min-height: 30vh;
+        height: fit-content;
+        margin-bottom: 50px;
+        padding-bottom: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        .repertoire-heading-container {
+          width: 100%;
+          padding: 5px;
+        }
+
+        .repertoire-item {
+          width: 100%;
+          padding: 5px;
+        }
+      }
     }
   }
 }

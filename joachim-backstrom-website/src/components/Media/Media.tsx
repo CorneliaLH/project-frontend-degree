@@ -21,20 +21,6 @@ export function Media() {
   const [mediaList, setMediaList] = useState<IMedia[]>([]);
   const [showMoreButton, setShowMoreButton] = useState<boolean>(true);
 
-  //Random array setting image News
-  let newsImageArray = [
-    newsimage0,
-    newsimage1,
-    newsimage2,
-    newsimage3,
-    newsimage4,
-    newsimage5,
-  ];
-
-  function randomsrc() {
-    return newsImageArray[Math.floor(Math.random() * newsImageArray.length)];
-  }
-
   //Change navigation color
   useEffect(() => {
     let navlinks = document.querySelectorAll<HTMLElement>(".nav-menu-link");
@@ -125,8 +111,13 @@ export function Media() {
     setValue(e.target.value);
   };
 
+  let number = 0;
   //Function for rendering media
   let media = mediaList.map((item) => {
+    number = number + 1;
+    if (number === 6) {
+      number = 0;
+    }
     return (
       <div key={item._id} className='container-media-item'>
         {/* IMPORTANT: src in database must have embed instead of watch */}
@@ -134,7 +125,7 @@ export function Media() {
           <article className='media-item'>
             <img
               className='image-news-article'
-              src={randomsrc()}
+              src={require("../../images/news" + number + ".jpg")}
               alt='Newsdesk'
               width='640'
               height='427'

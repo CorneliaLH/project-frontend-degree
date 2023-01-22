@@ -2,15 +2,21 @@ import "./sass/home.css";
 import imagelight from "../../images/logo-light2.svg";
 import arrowdown from "../../images/arrow-down.svg";
 import joachimBio from "../../images/joachimredigerad.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ScheduleService } from "../../services/ScheduleService";
 import { ISchedule } from "../../models/ISchedule";
 import quoteImageBanner from "../../images/notes.svg";
+import quoteImageJoachim from "../../images/Joakim-Backstrom-Grimes-627x836.jpg";
+
+import { MediaService } from "../../services/MediaService";
+import { IMedia } from "../../models/IMedia";
 
 export function Home() {
   //Changing nav menu color to white
   const [scheduleList, setScheduleList] = useState<ISchedule[]>([]);
+  const [mediaList, setMediaList] = useState<IMedia[]>([]);
+  const navigation = useNavigate();
 
   useEffect(() => {
     let navlinks = document.querySelectorAll<HTMLElement>(".nav-menu-link");
@@ -32,17 +38,25 @@ export function Home() {
   }, []);
   console.log(scheduleList);
 
+  //Renders first 4 items in Latest, News, Audio and Video.
+  useEffect(() => {
+    let service = new MediaService();
+    service.getMediaNews().then((response) => {
+      setMediaList(response);
+    });
+  }, []);
+
   let scheduleToRender;
   if (scheduleList.length > 0) {
-    scheduleToRender = scheduleList.map((item) => {
+    scheduleToRender = scheduleList.map((item, i) => {
       return (
         <a key={item._id} className='home-schedule-card' href={item.read_more}>
           <img
             className='home-schedule-image'
-            src={require("../../images/schedule-test.jpg")}
+            src={require("../../images/scheduleImage" + [i] + ".svg")}
             alt='image-opera'
-            width='640'
-            height='360'
+            width='auto'
+            height='150'
           />
           <article className='home-schedule-card-text'>
             <h3>{item.title}</h3>
@@ -55,12 +69,44 @@ export function Home() {
       );
     });
   }
+  let number = 0;
+  let media = mediaList.map((item) => {
+    number = number + 1;
+    if (number === 6) {
+      number = 0;
+    }
+    return (
+      <>
+        <a className='container-media-item' href={item.media_url}>
+          <article className='media-item'>
+            <img
+              className='image-news-article'
+              src={require("../../images/news" + number + ".jpg")}
+              alt='Newsdesk'
+              width='640'
+              height='427'
+            />
+            <div className='container-media-text'>
+              <h3 className='media-text-heading'>{item.title}</h3>
+              <p>{item.description}</p>
+
+              <p className='media-published-date'>Published: {item.date_pub}</p>
+            </div>
+          </article>
+        </a>
+      </>
+    );
+  });
   return (
     <>
       <div className='container-page'>
         <div className='hero-image'>
           <img id='arrow-down' src={arrowdown} alt='arrow down' />
         </div>
+        <p className='hero-photo-text'>
+          Photo from Peter Grimes / Národni divadlo in Brno <br></br>
+          Photo by: Marek Olbrzymek
+        </p>
         <section className='container-home-bio'>
           <div className='container-home-image'>
             <img
@@ -104,9 +150,6 @@ export function Home() {
           </div>
         </div>
         <div className='home-quote-banner'>
-          <div className='container-icons-quote-banner'>
-            <img src={quoteImageBanner} alt='Music notes' />
-          </div>
           <div className='container-home-bio-quote'>
             <div className='quoteOne'></div>
             <q className='quote'>
@@ -116,6 +159,32 @@ export function Home() {
             </q>
             <div className='quoteTwo'></div>
             <p className='quote-author'>Author Authorsson</p>
+          </div>
+          <div className='container-icons-quote-banner'>
+            {/* <img src={quoteImageBanner} alt='Music notes' /> */}
+            <img
+              src={quoteImageJoachim}
+              alt='Joachim in Peter Grimes on Národni divadlo in Brno.Photo by: Marek Olbrzymek'
+              width='627'
+              height='836'
+            />
+            <p className='hero-photo-text'>
+              Photo from Peter Grimes / Národni divadlo in Brno <br></br>
+              Photo by: Marek Olbrzymek
+            </p>
+          </div>
+        </div>
+        <div className='container-media-home'>
+          <h2>Newsdesk</h2>
+          <section className='container-media-news'>{media}</section>
+          <div className='container-media-link'>
+            <a
+              onClick={() => {
+                navigation("/media");
+              }}
+            >
+              More media
+            </a>
           </div>
         </div>
       </div>

@@ -10,11 +10,12 @@
   .hero-image {
     width: 100%;
     height: 100vh;
-    // background-image: url(../../../images/test11.jpg);
-    // background-position: start;
-    // background-repeat: no-repeat;
-    // background-size: cover;
     background-color: $primary-background-color;
+    background-image: url(../../../images/peter-grimes-11-photo-by-marek-olbrzymek.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
     display: flex;
     justify-content: center;
     align-items: end;
@@ -29,6 +30,14 @@
       margin-left: 30px;
       margin-top: 5px;
     }
+  }
+  .hero-photo-text {
+    box-sizing: border-box;
+    padding-left: 10px;
+    color: rgb(189, 189, 189);
+    font-size: 0.8rem;
+    margin-top: -35px;
+    font-weight: 100;
   }
 }
 
@@ -49,6 +58,7 @@
   height: 100vh;
   background-color: $primary-background-color;
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
 
@@ -58,8 +68,10 @@
     justify-content: center;
     align-items: center;
     #home-image {
-      width: 80%;
+      width: 60%;
+      height: auto;
       box-shadow: $box-shadow-standard;
+      border-radius: 10px;
     }
   }
 
@@ -141,7 +153,8 @@
 .container-home-schedule-filter {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  height: fit-content;
   margin: 0;
   padding: 0;
   top: 0;
@@ -150,12 +163,13 @@
   bottom: 0;
   background-color: rgba($color: #ffffff, $alpha: 0.8);
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
 
   .heading2 {
     padding-top: 50px;
+    margin-bottom: 20px;
   }
 
   .home-schedule-cards-container {
@@ -165,35 +179,33 @@
     left: 0;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-direction: row;
     height: 80%;
-    padding-left: 30px;
-    padding-right: 30px;
+
     .home-schedule-card {
       text-decoration: none;
       box-sizing: border-box;
-      width: 25%;
+      width: 20%;
       color: $font-color-dark;
       border-radius: 10px;
       box-shadow: $box-shadow-standard;
       background-color: rgba($color: #ffffff, $alpha: 0.8);
       min-height: 50%;
-
+      padding: 10px;
       height: fit-content;
       display: flex;
       flex-direction: column;
-      justify-content: start;
-      align-items: flex-start;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
 
       &:hover {
         transform: scale(1.02);
       }
 
       .home-schedule-image {
-        width: 100%;
-        display: block;
-        height: 50%;
-        object-fit: cover;
+        object-fit: fill;
         border-radius: 10px 10px 0px 0px;
         border: none;
       }
@@ -207,7 +219,7 @@
         align-items: center;
         h3 {
           margin: 0;
-          font-size: $font-size-body;
+          font-size: $font-size-heading2;
           color: $highlight-color;
         }
 
@@ -233,7 +245,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   height: 50vh;
   width: 100%;
@@ -243,11 +255,223 @@
   position: relative;
   z-index: 4;
   padding-right: 20px;
+  padding-left: 50px;
+  .container-home-bio-quote {
+    flex-basis: 40%;
+  }
   .container-icons-quote-banner {
-    flex-basis: 45%;
+    flex-basis: 40%;
     margin-right: 5%;
+    text-align: right;
     img {
       height: 60vh;
+      width: auto;
+      border-radius: 10px 10px 10px 10px;
+      box-shadow: $box-shadow-standard;
+    }
+    .hero-photo-text {
+    }
+  }
+}
+
+.container-media-home {
+  min-height: 80vh;
+  height: fit-content;
+  background-color: $secondary-background-color;
+  h2 {
+    width: 100%;
+    text-align: center;
+    padding-top: 75px;
+  }
+
+  .container-media-news {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: -50px;
+    align-items: center;
+    min-height: 80vh;
+    height: fit-content;
+    flex-wrap: wrap;
+
+    .container-media-item {
+      box-sizing: border-box;
+      width: 20%;
+      min-height: 50vh;
+      height: fit-content;
+      background-color: white;
+      box-shadow: $box-shadow-standard;
+      margin-top: 30px;
+      border-radius: 10px;
+      text-decoration: none;
+
+      .media-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        &:hover {
+          transform: scale(1.02);
+        }
+
+        img {
+          width: 100%;
+          height: 20vh;
+          border-radius: 10px 10px 0 0;
+        }
+        .container-media-text {
+          box-sizing: border-box;
+          text-align: center;
+          padding: 10px;
+          .media-text-heading {
+            color: $highlight-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70px;
+          }
+          p {
+            padding-bottom: 20px;
+            color: $font-color-dark;
+          }
+        }
+      }
+    }
+  }
+}
+
+.container-media-link {
+  text-align: center;
+  padding-bottom: 30px;
+  text-decoration: underline;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .container-home-bio {
+    height: 80vh;
+    flex-direction: column-reverse;
+  }
+  .container-home-schedule-filter {
+    .home-schedule-cards-container {
+      flex-direction: column;
+      .home-schedule-card {
+        width: 60%;
+      }
+    }
+  }
+
+  .home-quote-banner {
+    margin: 0;
+    padding: 0;
+    width: 100% !important;
+    height: 80vh;
+
+    .container-home-bio-quote {
+      display: none;
+    }
+    .container-icons-quote-banner {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      img {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 80vh;
+      }
+      .hero-photo-text {
+        width: 100%;
+      }
+    }
+  }
+  .container-media-home {
+    .container-media-news {
+      flex-wrap: wrap;
+      min-height: 100vh;
+      height: fit-content;
+      margin: 0;
+
+      .container-media-item {
+        flex-basis: 40%;
+      }
+    }
+
+    .container-media-link {
+      padding-top: 20px;
+    }
+  }
+}
+@media (max-width: 600px) {
+  .container-home-bio {
+    min-height: 150vh;
+    height: fit-content;
+    flex-direction: column-reverse;
+
+    .container-home-image {
+      flex-basis: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+
+      #home-image {
+      }
+    }
+  }
+
+  .container-home-schedule-filter {
+    .home-schedule-cards-container {
+      flex-direction: column;
+      .home-schedule-card {
+        width: 80%;
+      }
+    }
+  }
+
+  .home-quote-banner {
+    margin: 0;
+    padding: 0;
+    width: 100% !important;
+    height: 80vh;
+
+    .container-home-bio-quote {
+      display: none;
+    }
+    .container-icons-quote-banner {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      img {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 80vh;
+      }
+      .hero-photo-text {
+        width: 100%;
+      }
+    }
+  }
+  .container-media-home {
+    .container-media-news {
+      flex-wrap: wrap;
+      min-height: 100vh;
+      height: fit-content;
+      margin: 0;
+
+      .container-media-item {
+        flex-basis: 80%;
+      }
+    }
+
+    .container-media-link {
+      padding-top: 20px;
     }
   }
 }
