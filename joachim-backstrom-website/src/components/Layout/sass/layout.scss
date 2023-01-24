@@ -46,7 +46,7 @@
       }
     }
   }
-  .hamburger {
+  .burger-button {
     display: none;
   }
 }
@@ -210,16 +210,6 @@
 }
 
 @media (min-width: 600px) and (max-width: 900px) {
-  // .header-desktop {
-  //   display: none;
-  // }
-  // .container-footer {
-  //   article {
-  //     .contact-footer {
-  //       padding-bottom: 30%;
-  //     }
-  //   }
-  // }
   .nav-menu-link {
     font-size: 2rem !important;
   }
@@ -228,6 +218,15 @@
   }
   #logo-tablet-mobile {
     display: block;
+  }
+  .container-footer {
+    article {
+      .contact-footer {
+        padding-bottom: 20%;
+      }
+      .copyright {
+      }
+    }
   }
 }
 
@@ -240,5 +239,15 @@
   }
   .nav-menu-link {
     font-size: 1.4rem;
+  }
+
+  .container-footer {
+    article {
+      .contact-footer {
+        padding-bottom: 40%;
+      }
+      .copyright {
+      }
+    }
   }
 }

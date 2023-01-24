@@ -129,16 +129,27 @@
     padding-top: 20px;
   }
 
+  .repertoire-heading-container h4 {
+    width: 100%;
+    text-align: center;
+  }
   .repertoire-item {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     .repertoire-item-text {
+      width: 100%;
       padding-top: 15px;
       padding-bottom: 15px;
       display: flex;
       justify-content: space-between;
       border-bottom: 1px solid $primary-background-color;
+    }
+    .repertoire-item-text p {
+      width: 100%;
+      text-align: center;
     }
   }
 }
