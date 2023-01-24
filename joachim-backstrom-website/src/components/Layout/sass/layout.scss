@@ -1,6 +1,6 @@
 @import "../../../variables";
 
-.header {
+#header-desktop {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,6 +9,9 @@
   left: 0;
   width: 100%;
   z-index: 99;
+  #logo-tablet-mobile {
+    display: none;
+  }
   nav {
     ul {
       margin: 0;
@@ -24,10 +27,17 @@
         }
         a {
           text-decoration: none;
-          color: $text-color-body;
+          color: #ffffff;
           font-size: $font-size-body-small;
 
-          #image-logo {
+          #image-logo-light {
+            display: block;
+            padding: 0;
+            width: 150px;
+            height: auto;
+          }
+          #image-logo-dark {
+            display: none;
             padding: 0;
             width: 150px;
             height: auto;
@@ -36,8 +46,132 @@
       }
     }
   }
+  .hamburger {
+    display: none;
+  }
 }
 
+#header-tablet-mobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+
+  z-index: 99;
+
+  .logo-tablet-mobile {
+    display: block;
+    #image-logo-light-mobile {
+      padding: 0;
+      width: 150px;
+      height: auto;
+    }
+    #image-logo-dark-mobile {
+      padding: 0;
+      width: 150px;
+      height: auto;
+    }
+  }
+  nav {
+    display: flex;
+    position: fixed;
+    z-index: 98;
+    height: 100vh;
+    background-color: #636a7ee3;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+
+    ul {
+      list-style-type: none;
+      li {
+        padding: 20px;
+        &:hover {
+          transform: scale(1.03);
+        }
+        a {
+          text-decoration: none;
+          color: #ffffff;
+          font-size: $font-size-body;
+        }
+      }
+      .listitem-logo {
+        a {
+          #image-logo-light {
+            display: none;
+          }
+          #image-logo-dark {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .burger-button {
+    all: unset;
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    top: 0px;
+    right: 0px;
+    z-index: 101;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    background-color: white;
+    border-radius: 0px 0px 0px 10px;
+    .hamburger {
+      width: 50px;
+      height: 6px;
+      border-radius: 10px;
+      background-color: $primary-background-color;
+      z-index: 100;
+      transition: all 0.05s ease-in-out;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 6px;
+        border-radius: 10px;
+        background-color: $primary-background-color;
+        transition: all 0.5s ease-in-out;
+        transform: translateY(-16px);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 6px;
+        border-radius: 10px;
+        background-color: $primary-background-color;
+        z-index: 100;
+        transition: all 0.5s ease-in-out;
+        transform: translateY(16px);
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+.burger-button.menu-open .hamburger {
+  transform: translateX(-50px);
+  background-color: transparent !important;
+  box-shadow: none;
+}
+
+.burger-button.menu-open .hamburger::before {
+  transform: rotate(45deg) translate(35px, -35px) !important;
+}
+
+.burger-button.menu-open .hamburger::after {
+  transform: rotate(-45deg) translate(35px, 35px) !important;
+}
 .container-footer {
   position: relative;
   bottom: 0;
@@ -76,24 +210,35 @@
 }
 
 @media (min-width: 600px) and (max-width: 900px) {
-  .container-footer {
-    article {
-      .contact-footer {
-        padding-bottom: 30%;
-      }
-    }
+  // .header-desktop {
+  //   display: none;
+  // }
+  // .container-footer {
+  //   article {
+  //     .contact-footer {
+  //       padding-bottom: 30%;
+  //     }
+  //   }
+  // }
+  .nav-menu-link {
+    font-size: 2rem !important;
+  }
+  #listitem-logo {
+    display: none;
+  }
+  #logo-tablet-mobile {
+    display: block;
   }
 }
 
 @media (max-width: 600px) {
-  .header {
+  #listitem-logo {
     display: none;
   }
-  .container-footer {
-    article {
-      .contact-footer {
-        padding-bottom: 40%;
-      }
-    }
+  #logo-tablet-mobile {
+    display: block;
+  }
+  .nav-menu-link {
+    font-size: 1.4rem;
   }
 }

@@ -1,4 +1,35 @@
 @import "../../../variables";
+// #image-logo-light {
+//   display: none;
+// }
+// #image-logo-dark {
+//   display: block;
+// }
+
+#header-desktop nav ul #listitem-logo {
+  color: black;
+}
+
+#header-tablet-mobile #image-logo-light-mobile {
+  display: none;
+}
+
+#header-tablet-mobile nav ul li a {
+  color: white;
+}
+
+#header-tablet-mobile .burger-button {
+  background-color: white;
+  .hamburger {
+    background-color: $primary-background-color;
+  }
+  .hamburger::before {
+    background-color: $primary-background-color;
+  }
+  .hamburger::after {
+    background-color: $primary-background-color;
+  }
+}
 
 .media-container-page {
   .menu-banner {
@@ -142,6 +173,12 @@
 }
 
 @media (min-width: 600px) and (max-width: 900px) {
+  #listitem-logo {
+    display: none;
+  }
+  #logo-tablet-mobile {
+    display: block;
+  }
   .media-content {
     width: 95%;
     .container-media-item {
@@ -157,6 +194,12 @@
   }
 }
 @media (max-width: 600px) {
+  #listitem-logo {
+    display: none;
+  }
+  #logo-tablet-mobile {
+    display: block;
+  }
   .media-content {
     width: 95%;
     .container-media-item {

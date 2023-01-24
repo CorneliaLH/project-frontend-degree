@@ -20,7 +20,7 @@ export function Admin() {
 
   //Remove header and footer
   useEffect(() => {
-    let header = document.querySelector<HTMLElement>(".header");
+    let header = document.querySelector<HTMLElement>(".header-desktop");
     let footer = document.querySelector<HTMLElement>(".container-footer");
 
     if (header !== null && footer !== null) {

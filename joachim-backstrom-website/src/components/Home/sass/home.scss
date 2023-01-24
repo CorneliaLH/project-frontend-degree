@@ -353,8 +353,15 @@
 }
 
 @media (min-width: 600px) and (max-width: 900px) {
+  #listitem-logo {
+    display: none;
+  }
+  #logo-tablet-mobile {
+    display: block;
+  }
   .container-home-bio {
-    height: 80vh;
+    min-height: 120vh;
+    height: fit-content;
     flex-direction: column-reverse;
   }
   .container-home-schedule-filter {
@@ -408,6 +415,13 @@
   }
 }
 @media (max-width: 600px) {
+  #listitem-logo {
+    display: none;
+  }
+  #logo-tablet-mobile {
+    display: block;
+  }
+
   .container-home-bio {
     min-height: 150vh;
     height: fit-content;
@@ -430,6 +444,7 @@
       flex-direction: column;
       .home-schedule-card {
         width: 80%;
+        margin-bottom: 50px;
       }
     }
   }
@@ -452,6 +467,7 @@
         padding: 0;
         width: 100vw;
         height: 80vh;
+        border-radius: 0px 0px 0px 0px;
       }
       .hero-photo-text {
         width: 100%;
@@ -467,6 +483,7 @@
 
       .container-media-item {
         flex-basis: 80%;
+        margin-bottom: 50px;
       }
     }
 

@@ -12,10 +12,14 @@ export function Login() {
   const navigation = useNavigate();
 
   useEffect(() => {
-    let header = document.querySelector<any>(".header");
+    let headerDesktop = document.querySelector<any>(".header-desktop");
+    let headerTabletMobile = document.querySelector<any>(
+      ".header-tablet-mobile"
+    );
     let footer = document.querySelector<any>(".container-footer");
 
-    header.style.display = "none";
+    headerDesktop.style.display = "none";
+    headerTabletMobile.display = "none";
     footer.style.display = "none";
   }, []);
 

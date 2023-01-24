@@ -1,5 +1,30 @@
 @import "../../../variables";
 
+#header-desktop nav ul #listitem-logo {
+  color: black;
+}
+
+#header-tablet-mobile #image-logo-light-mobile {
+  display: none;
+}
+
+#header-tablet-mobile nav ul li a {
+  color: white;
+}
+
+#header-tablet-mobile .burger-button {
+  background-color: white;
+  .hamburger {
+    background-color: $primary-background-color;
+  }
+  .hamburger::before {
+    background-color: $primary-background-color;
+  }
+  .hamburger::after {
+    background-color: $primary-background-color;
+  }
+}
+
 .contact-container-page {
   .menu-banner {
     width: 100%;
@@ -68,5 +93,14 @@
       flex-direction: column;
       justify-content: space-around;
     }
+  }
+}
+
+@media (max-width: 900px) {
+  #listitem-logo {
+    display: none;
+  }
+  #logo-tablet-mobile {
+    display: block;
   }
 }

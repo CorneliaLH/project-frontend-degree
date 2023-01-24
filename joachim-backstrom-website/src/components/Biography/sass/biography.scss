@@ -1,5 +1,18 @@
 @import "../../../variables";
 
+#header-tablet-mobile .burger-button {
+  background-color: white;
+  .hamburger {
+    background-color: $primary-background-color;
+  }
+  .hamburger::before {
+    background-color: $primary-background-color;
+  }
+  .hamburger::after {
+    background-color: $primary-background-color;
+  }
+}
+
 .bio-container-page {
   .menu-banner {
     width: 100%;
@@ -63,6 +76,13 @@
 }
 
 @media (min-width: 600px) and (max-width: 900px) {
+  #listitem-logo {
+    display: none;
+  }
+  #logo-tablet-mobile {
+    display: block;
+  }
+
   .container-bio {
     .bio-subheading {
       padding: 20px;
@@ -73,6 +93,12 @@
   }
 }
 @media (max-width: 600px) {
+  #listitem-logo {
+    display: none;
+  }
+  #logo-tablet-mobile {
+    display: block;
+  }
   .container-bio {
     .bio-subheading {
       width: 90%;

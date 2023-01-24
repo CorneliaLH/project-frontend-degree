@@ -20,12 +20,29 @@ export function Home() {
 
   useEffect(() => {
     let navlinks = document.querySelectorAll<HTMLElement>(".nav-menu-link");
-    let icon = document.querySelector<HTMLImageElement>("#image-logo");
+    let iconLight = document.querySelector<any>("#image-logo-light");
+    let iconDark = document.querySelector<any>("#image-logo-dark");
+    let iconLightMobile = document.querySelector<any>(
+      "#image-logo-light-mobile"
+    );
+    let iconDarkMobile = document.querySelector<any>("#image-logo-dark-mobile");
+    let hamburgerBackground = document.querySelector<any>(".burger-button");
+    hamburgerBackground.style.backgroundColor = "#000000";
+
     for (let i = 0; i < navlinks.length; i++) {
-      navlinks[i].style.color = "white";
+      navlinks[i].style.color = "#ffffff";
     }
-    if (icon != null) {
-      icon.src = imagelight;
+
+    console.log(iconLightMobile);
+    console.log(iconDarkMobile);
+    if (iconLight != null && iconDark != null) {
+      iconLight.style.display = "block";
+      iconDark.style.display = "none";
+    }
+
+    if (iconLightMobile != null && iconDarkMobile != null) {
+      iconLightMobile.style.display = "none";
+      iconDarkMobile.style.display = "block";
     }
   }, []);
 
@@ -77,7 +94,11 @@ export function Home() {
     }
     return (
       <>
-        <a className='container-media-item' href={item.media_url}>
+        <a
+          key={item._id}
+          className='container-media-item'
+          href={item.media_url}
+        >
           <article className='media-item'>
             <img
               className='image-news-article'
