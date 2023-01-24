@@ -123,7 +123,7 @@ export function Schedule() {
                 onClick={() => {
                   renderMore();
                 }}
-                className='show-more-link'
+                className='show-more-schedule-post-link'
               >
                 More Schedule Posts
               </a>
