@@ -41,8 +41,8 @@ export function Home() {
     }
 
     if (iconLightMobile != null && iconDarkMobile != null) {
-      iconLightMobile.style.display = "none";
-      iconDarkMobile.style.display = "block";
+      iconLightMobile.style.display = "block";
+      iconDarkMobile.style.display = "none";
     }
   }, []);
 
