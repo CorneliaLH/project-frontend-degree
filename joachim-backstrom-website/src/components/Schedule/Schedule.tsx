@@ -125,7 +125,7 @@ export function Schedule() {
                 }}
                 className='show-more-link'
               >
-                Show more
+                More Schedule Posts
               </a>
             </div>
           ) : (
