@@ -100,7 +100,7 @@ export function Schedule() {
                       {item.conductor}
                     </p>
                     <div className='primary-button'>
-                      <a href={item.read_more}>Read more</a>
+                      <a href={item.read_more}>Go to Opera House</a>
                     </div>
                   </section>
 
