@@ -1,7 +1,7 @@
 import "./sass/home.css";
 import imagelight from "../../images/logo-light2.svg";
 import arrowdown from "../../images/arrow-down.svg";
-import joachimBio from "../../images/joachimredigerad.jpg";
+import joachimBio from "../../images/joachimredigerad.webp";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ScheduleService } from "../../services/ScheduleService";
