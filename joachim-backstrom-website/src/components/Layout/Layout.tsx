@@ -4,7 +4,7 @@ import logoImageLight from "../../images/logo-light2.svg";
 import logoImageDark from "../../images/logo-dark2.svg";
 import { useEffect, useState } from "react";
 export function Layout() {
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleResize = () => {
