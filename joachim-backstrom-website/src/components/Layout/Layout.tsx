@@ -55,7 +55,7 @@ export function Layout() {
                     hamburger?.setAttribute("aria-expanded", "true");
                   }}
                 >
-                  Start
+                  Home
                 </Link>
               </li>
               <li>
