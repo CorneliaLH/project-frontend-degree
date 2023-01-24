@@ -119,14 +119,14 @@ export function Schedule() {
           </div>
           {showMoreButton ? (
             <div className='container-schedule-show-more'>
-              <a
+              <button
                 onClick={() => {
                   renderMore();
                 }}
                 className='schedule-post-link'
               >
                 More Schedule Posts
-              </a>
+              </button>
             </div>
           ) : (
             <></>
