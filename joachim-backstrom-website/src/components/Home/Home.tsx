@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { ScheduleService } from "../../services/ScheduleService";
 import { ISchedule } from "../../models/ISchedule";
 import quoteImageBanner from "../../images/notes.svg";
-import quoteImageJoachim from "../../images/Joakim-Backstrom-Grimes-627x836.jpg";
+import quoteImageJoachim from "../../images/peter-grimes-4-photo-by-marek-olbrzymek-big.webp";
 
 import { MediaService } from "../../services/MediaService";
 import { IMedia } from "../../models/IMedia";
