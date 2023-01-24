@@ -29,11 +29,15 @@ export function Layout() {
         <aside className='logo-tablet-mobile' id='logo-tablet-mobile'>
           <Link className='nav-menu-link' to='/'>
             <img
+              width='100%'
+              height='100%'
               id='image-logo-light-mobile'
               src={logoImageLight}
               alt='Logo with Tenor Joachim Bäckström'
             />
             <img
+              width='100%'
+              height='100%'
               id='image-logo-dark-mobile'
               src={logoImageDark}
               alt='Logo with Tenor Joachim Bäckström'
@@ -102,11 +106,15 @@ export function Layout() {
                   }}
                 >
                   <img
+                    width='100%'
+                    height='100%'
                     id='image-logo-light'
                     src={logoImageLight}
                     alt='Logo with Tenor Joachim Bäckström'
                   />
                   <img
+                    width='100%'
+                    height='100%'
                     id='image-logo-dark'
                     src={logoImageDark}
                     alt='Logo with Tenor Joachim Bäckström'
