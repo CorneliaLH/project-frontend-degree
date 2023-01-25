@@ -193,7 +193,7 @@ export function Media() {
             />
             <h3>{item.title}</h3>
             <p>{item.description}</p>
-            <audio controls preload='true'>
+            <audio controls>
               <source
                 // src={require("../../audio/joachim-backstrom-till-havs.mp3")}
                 src={"https://" + window.location.hostname + item.media_url}
