@@ -194,7 +194,7 @@ export function Media() {
             <p>{item.description}</p>
             <audio controls preload='true'>
               <source
-                src={window.location.hostname + item.media_url}
+                src={"https://" + window.location.hostname + item.media_url}
                 type='audio/mpeg'
               ></source>
             </audio>
