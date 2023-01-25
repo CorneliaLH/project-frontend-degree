@@ -193,7 +193,7 @@ export function Media() {
             <p>{item.description}</p>
             <audio
               controls
-              src={require("../../audio/joachim-backstrom-audio.mp3")}
+              src={window.location.hostname + item.media_url}
             ></audio>
 
             <p className='media-published-date'>Published: {item.date_pub}</p>
