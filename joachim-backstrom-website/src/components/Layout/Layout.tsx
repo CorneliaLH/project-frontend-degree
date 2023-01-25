@@ -26,24 +26,26 @@ export function Layout() {
         className={isDesktop ? "header-desktop" : "header-tablet-mobile"}
         id={isDesktop ? "header-desktop" : "header-tablet-mobile"}
       >
-        <aside className='logo-tablet-mobile' id='logo-tablet-mobile'>
-          <Link className='nav-menu-link' to='/'>
-            <img
-              width='100%'
-              height='100%'
-              id='image-logo-light-mobile'
-              src={logoImageLight}
-              alt='Logo with Tenor Joachim Bäckström'
-            />
-            <img
-              width='100%'
-              height='100%'
-              id='image-logo-dark-mobile'
-              src={logoImageDark}
-              alt='Logo with Tenor Joachim Bäckström'
-            />
-          </Link>
-        </aside>
+        <section className='logo-tablet-mobile' id='logo-tablet-mobile'>
+          <h1>
+            <Link className='nav-menu-link' to='/'>
+              <img
+                width='100%'
+                height='100%'
+                id='image-logo-light-mobile'
+                src={logoImageLight}
+                alt='Logo with Tenor Joachim Bäckström'
+              />
+              <img
+                width='100%'
+                height='100%'
+                id='image-logo-dark-mobile'
+                src={logoImageDark}
+                alt='Logo with Tenor Joachim Bäckström'
+              />
+            </Link>
+          </h1>
+        </section>
         {isDesktop && (
           <nav id='menu-nav'>
             <ul>
@@ -94,32 +96,34 @@ export function Layout() {
               </li>
 
               <li id='listitem-logo'>
-                <Link
-                  className='nav-menu-link'
-                  to='/'
-                  onClick={() => {
-                    let hamburger =
-                      document.querySelector<any>(".burger-button");
-                    setMenuOpen(false);
-                    hamburger.classList.remove("menu-open");
-                    hamburger?.setAttribute("aria-expanded", "true");
-                  }}
-                >
-                  <img
-                    width='100%'
-                    height='100%'
-                    id='image-logo-light'
-                    src={logoImageLight}
-                    alt='Logo with Tenor Joachim Bäckström'
-                  />
-                  <img
-                    width='100%'
-                    height='100%'
-                    id='image-logo-dark'
-                    src={logoImageDark}
-                    alt='Logo with Tenor Joachim Bäckström'
-                  />
-                </Link>
+                <h1>
+                  <Link
+                    className='nav-menu-link'
+                    to='/'
+                    onClick={() => {
+                      let hamburger =
+                        document.querySelector<any>(".burger-button");
+                      setMenuOpen(false);
+                      hamburger.classList.remove("menu-open");
+                      hamburger?.setAttribute("aria-expanded", "true");
+                    }}
+                  >
+                    <img
+                      width='100%'
+                      height='100%'
+                      id='image-logo-light'
+                      src={logoImageLight}
+                      alt='Logo with Tenor Joachim Bäckström'
+                    />
+                    <img
+                      width='100%'
+                      height='100%'
+                      id='image-logo-dark'
+                      src={logoImageDark}
+                      alt='Logo with Tenor Joachim Bäckström'
+                    />
+                  </Link>
+                </h1>
               </li>
               <li>
                 <Link
