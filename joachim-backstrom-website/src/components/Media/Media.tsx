@@ -140,6 +140,7 @@ export function Media() {
   //Function for rendering media
   let media = mediaList.map((item) => {
     console.log(item.media_url);
+    console.log(window.location.hostname + item.media_url);
     number = number + 1;
     if (number === 6) {
       number = 0;
