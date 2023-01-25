@@ -191,10 +191,12 @@ export function Media() {
             />
             <h3>{item.title}</h3>
             <p>{item.description}</p>
-            <audio
-              controls
-              src={window.location.hostname + item.media_url}
-            ></audio>
+            <audio controls preload='true'>
+              <source
+                src={window.location.hostname + item.media_url}
+                type='audio/mpeg'
+              ></source>
+            </audio>
 
             <p className='media-published-date'>Published: {item.date_pub}</p>
           </article>
