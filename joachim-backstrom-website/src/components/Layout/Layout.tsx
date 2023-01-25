@@ -30,15 +30,15 @@ export function Layout() {
           <h1>
             <Link className='nav-menu-link' to='/'>
               <img
-                width='100%'
-                height='100%'
+                width='100'
+                height='100'
                 id='image-logo-light-mobile'
                 src={logoImageLight}
                 alt='Logo with Tenor Joachim Bäckström'
               />
               <img
-                width='100%'
-                height='100%'
+                width='100'
+                height='100'
                 id='image-logo-dark-mobile'
                 src={logoImageDark}
                 alt='Logo with Tenor Joachim Bäckström'
@@ -109,15 +109,15 @@ export function Layout() {
                     }}
                   >
                     <img
-                      width='100%'
-                      height='100%'
+                      width='100'
+                      height='100'
                       id='image-logo-light'
                       src={logoImageLight}
                       alt='Logo with Tenor Joachim Bäckström'
                     />
                     <img
-                      width='100%'
-                      height='100%'
+                      width='100'
+                      height='100'
                       id='image-logo-dark'
                       src={logoImageDark}
                       alt='Logo with Tenor Joachim Bäckström'
@@ -315,7 +315,7 @@ export function Layout() {
             }
           }}
         >
-          <div aria-hidden='true' className='hamburger' id='hamburger'></div>
+          <span aria-hidden='true' className='hamburger' id='hamburger'></span>
         </button>
       </header>
       <main className='main'>
