@@ -242,7 +242,7 @@ export function PostMedia() {
                 <p>Add link to audio-mp3 file (Dropbox or Google Drive)</p>
                 <audio
                   controls
-                  src={require("../../audio/premieredanse-129944.mp3")}
+                  src={require("../../audio/joachim-backstrom-audio.mp3")}
                 ></audio>
               </>
             )}

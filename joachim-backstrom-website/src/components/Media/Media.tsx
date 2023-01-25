@@ -139,6 +139,7 @@ export function Media() {
   let number = 0;
   //Function for rendering media
   let media = mediaList.map((item) => {
+    console.log(item.media_url);
     number = number + 1;
     if (number === 6) {
       number = 0;
@@ -192,8 +193,9 @@ export function Media() {
             <p>{item.description}</p>
             <audio
               controls
-              src={require("../../audio/premieredanse-129944.mp3")}
+              src={require("../../audio/joachim-backstrom-audio.mp3")}
             ></audio>
+
             <p className='media-published-date'>Published: {item.date_pub}</p>
           </article>
         )}
