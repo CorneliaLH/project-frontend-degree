@@ -102,10 +102,10 @@ export function Home() {
           <article className='media-item'>
             <img
               className='image-news-article'
-              src={require("../../images/news" + number + ".jpg")}
+              src={require("../../images/news" + number + ".webp")}
               alt='Newsdesk'
-              width='640'
-              height='427'
+              width='300'
+              height='200'
             />
             <div className='container-media-text'>
               <h3 className='media-text-heading'>{item.title}</h3>
@@ -128,40 +128,43 @@ export function Home() {
           Photo from Peter Grimes / Národni divadlo in Brno <br></br>
           Photo by: Marek Olbrzymek
         </p>
-        <section className='container-home-bio'>
-          <div className='container-home-image'>
-            <img
-              id='home-image'
-              src={joachimBio}
-              alt='Joachim Bäckström'
-              width='600'
-              height='593'
-            />
-          </div>
-
-          <article className='container-home-bio-text'>
-            <div className='container-home-bio-quote'>
-              <div className='quoteOne'></div>
-              <q className='quote'>
-                LOREM IPSUM <br /> LOREM <br />
-                LOREM IPSUM LOREM IPSUM <br /> LOREM <br />
-                LOREM IPSUM
-              </q>
-              <div className='quoteTwo'></div>
-              <p className='quote-author'>Author Authorsson</p>
+        <section className='section-home-bio'>
+          <h2 className='heading2'>Joachim</h2>
+          <div className='container-home-bio'>
+            <div className='container-home-image'>
+              <img
+                id='home-image'
+                src={joachimBio}
+                alt='Joachim Bäckström'
+                width='600'
+                height='593'
+              />
             </div>
-            <p className='home-biography'>
-              Gingerbread topping brownie cookie jelly-o jelly-o sugar plum
-              lemon drops. Biscuit cupcake cotton candy icing gummies gummies.
-              Tiramisu dragée ice cream powder cotton candy cookie lemon drops.
-              Dessert cake cake donut shortbread lemon drops. Wafer chocolate
-              bar danish cookie halvah powder brownie.
-            </p>
 
-            <Link className='secondary-button' to={"/biography"}>
-              Read more
-            </Link>
-          </article>
+            <div className='container-home-bio-text'>
+              <div className='container-home-bio-quote'>
+                <div className='quoteOne'></div>
+                <q className='quote'>
+                  LOREM IPSUM <br /> LOREM <br />
+                  LOREM IPSUM LOREM IPSUM <br /> LOREM <br />
+                  LOREM IPSUM
+                </q>
+                <div className='quoteTwo'></div>
+                <p className='quote-author'>Author Authorsson</p>
+              </div>
+              <p className='home-biography'>
+                Gingerbread topping brownie cookie jelly-o jelly-o sugar plum
+                lemon drops. Biscuit cupcake cotton candy icing gummies gummies.
+                Tiramisu dragée ice cream powder cotton candy cookie lemon
+                drops. Dessert cake cake donut shortbread lemon drops. Wafer
+                chocolate bar danish cookie halvah powder brownie.
+              </p>
+
+              <Link className='secondary-button' to={"/biography"}>
+                Go to Biography
+              </Link>
+            </div>
+          </div>
         </section>
         <div className='container-home-schedule'></div>
         <div className='container-home-schedule-filter'>
@@ -182,7 +185,6 @@ export function Home() {
             <p className='quote-author'>Author Authorsson</p>
           </div>
           <div className='container-icons-quote-banner'>
-            {/* <img src={quoteImageBanner} alt='Music notes' /> */}
             <img
               src={quoteImageJoachim}
               alt='Joachim in Peter Grimes on Národni divadlo in Brno.Photo by: Marek Olbrzymek'
@@ -195,19 +197,19 @@ export function Home() {
             </p>
           </div>
         </div>
-        <div className='container-media-home'>
+        <section className='container-media-home'>
           <h2>Newsdesk</h2>
-          <section className='container-media-news'>{media}</section>
+          <div className='container-media-news'>{media}</div>
           <div className='container-media-link'>
-            <a
+            <button
               onClick={() => {
                 navigation("/media");
               }}
             >
               More media
-            </a>
+            </button>
           </div>
-        </div>
+        </section>
       </div>
     </>
   );

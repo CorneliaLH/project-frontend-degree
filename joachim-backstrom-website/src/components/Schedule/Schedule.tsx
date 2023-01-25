@@ -88,11 +88,11 @@ export function Schedule() {
                 number = 0;
               }
               return (
-                <article key={item._id} className='schedule-card'>
+                <div key={item._id} className='schedule-card'>
                   <div className='container-schedule-card-when'>
                     <p className='schedule-card-when'>{item.when}</p>
                   </div>
-                  <section className='schedule-card-text'>
+                  <article className='schedule-card-text'>
                     <h3>{item.title}</h3>
                     <p>
                       {" "}
@@ -102,7 +102,7 @@ export function Schedule() {
                     <div className='primary-button'>
                       <a href={item.read_more}>Go to Opera House</a>
                     </div>
-                  </section>
+                  </article>
 
                   <img
                     width='400'
@@ -113,7 +113,7 @@ export function Schedule() {
                       ".svg")}
                     alt='Joachim'
                   />
-                </article>
+                </div>
               );
             })}
           </div>

@@ -140,8 +140,6 @@ export function Media() {
   let number = 0;
   //Function for rendering media
   let media = mediaList.map((item) => {
-    console.log(item.media_url);
-    console.log(window.location.hostname + item.media_url);
     number = number + 1;
     if (number === 6) {
       number = 0;
@@ -153,10 +151,10 @@ export function Media() {
           <article className='media-item'>
             <img
               className='image-news-article'
-              src={require("../../images/news" + number + ".jpg")}
+              src={require("../../images/news" + number + ".webp")}
               alt='Newsdesk'
-              width='640'
-              height='427'
+              width='300'
+              height='200'
             />
 
             <h3>{item.title}</h3>

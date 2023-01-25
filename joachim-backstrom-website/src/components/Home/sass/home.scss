@@ -53,41 +53,58 @@
   }
 }
 
-.container-home-bio {
-  width: 100%;
-  height: 100vh;
-  background-color: $primary-background-color;
+.section-home-bio {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  background-color: $primary-background-color;
+  padding-bottom: 10vh;
 
-  .container-home-image {
-    flex-basis: 50%;
+  .heading2 {
+    color: white;
+    padding-top: 50px;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    #home-image {
-      width: 60%;
-      height: auto;
-      box-shadow: $box-shadow-standard;
-      border-radius: 10px;
-    }
   }
-
-  .container-home-bio-text {
-    flex-basis: 50%;
+  .container-home-bio {
+    width: 100%;
+    height: 60vh;
+    background-color: $primary-background-color;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
 
-    .home-biography {
-      width: 80%;
-      column-count: 2;
-      font-size: $font-size-body-small;
-      color: $font-color-light;
-      padding-bottom: 20px;
+    .container-home-image {
+      flex-basis: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      #home-image {
+        width: 60%;
+        height: auto;
+        box-shadow: $box-shadow-standard;
+        border-radius: 10px;
+      }
+    }
+
+    .container-home-bio-text {
+      flex-basis: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .home-biography {
+        width: 80%;
+        column-count: 2;
+        font-size: $font-size-body-small;
+        color: $font-color-light;
+        padding-bottom: 20px;
+      }
     }
   }
 }
@@ -138,7 +155,6 @@
     color: $font-color-light;
   }
 }
-
 .container-home-schedule {
   width: 100%;
   height: 100vh;
@@ -350,6 +366,11 @@
   cursor: pointer;
   &:hover {
     transform: scale(1.02);
+  }
+  button {
+    all: unset;
+    cursor: pointer;
+    text-decoration: underline;
   }
 }
 

@@ -81,7 +81,7 @@ export function Repetoire() {
                 <h4 className='heading4'>Opera</h4>
                 <h4 className='heading4'>Role</h4>
               </div>
-              <section className='repertoire-item'>
+              <div className='repertoire-item'>
                 {operaList.map((item) => {
                   return (
                     <>
@@ -93,7 +93,7 @@ export function Repetoire() {
                     </>
                   );
                 })}
-              </section>
+              </div>
             </article>
             <article className='repertoire-concert'>
               <h3 className='heading3'>Concert</h3>
@@ -101,7 +101,7 @@ export function Repetoire() {
                 <h4 className='heading4'>Composer</h4>
                 <h4 className='heading4'>Work</h4>
               </div>
-              <section className='repertoire-item'>
+              <div className='repertoire-item'>
                 {concertList.map((item) => {
                   return (
                     <>
@@ -112,7 +112,7 @@ export function Repetoire() {
                     </>
                   );
                 })}
-              </section>
+              </div>
             </article>
           </div>
         </section>

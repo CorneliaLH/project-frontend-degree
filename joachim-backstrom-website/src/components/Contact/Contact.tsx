@@ -71,7 +71,7 @@ export function Contact() {
           {contactList.map((item) => {
             return (
               <article key={item.id} className='contact-card'>
-                <section className='contact-card-text'>
+                <div className='contact-card-text'>
                   <h4 className='heading4'>{item.name}</h4>
                   <p>
                     <span className='bold-text'>Role: </span>
@@ -85,7 +85,7 @@ export function Contact() {
                     <span className='bold-text'>E-mail: </span>
                     {item.email}
                   </p>
-                </section>
+                </div>
               </article>
             );
           })}

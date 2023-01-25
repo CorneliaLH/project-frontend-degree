@@ -28,6 +28,7 @@ export function Layout() {
       >
         <section className='logo-tablet-mobile' id='logo-tablet-mobile'>
           <h1>
+            <span className='visually-hidden'>Tenor Joachim Bäckström</span>
             <Link className='nav-menu-link' to='/'>
               <img
                 width='100'
@@ -97,6 +98,9 @@ export function Layout() {
 
               <li id='listitem-logo'>
                 <h1>
+                  <span className='visually-hidden'>
+                    Tenor Joachim Bäckström
+                  </span>
                   <Link
                     className='nav-menu-link'
                     to='/'
@@ -223,28 +227,33 @@ export function Layout() {
               </li>
 
               <li id='listitem-logo'>
-                <Link
-                  className='nav-menu-link'
-                  to='/'
-                  onClick={() => {
-                    let hamburger =
-                      document.querySelector<any>(".burger-button");
-                    setMenuOpen(false);
-                    hamburger.classList.remove("menu-open");
-                    hamburger?.setAttribute("aria-expanded", "true");
-                  }}
-                >
-                  <img
-                    id='image-logo-light'
-                    src={logoImageLight}
-                    alt='Logo with Tenor Joachim Bäckström'
-                  />
-                  <img
-                    id='image-logo-dark'
-                    src={logoImageDark}
-                    alt='Logo with Tenor Joachim Bäckström'
-                  />
-                </Link>
+                <h1>
+                  <span className='visually-hidden'>
+                    Tenor Joachim Bäckström
+                  </span>
+                  <Link
+                    className='nav-menu-link'
+                    to='/'
+                    onClick={() => {
+                      let hamburger =
+                        document.querySelector<any>(".burger-button");
+                      setMenuOpen(false);
+                      hamburger.classList.remove("menu-open");
+                      hamburger?.setAttribute("aria-expanded", "true");
+                    }}
+                  >
+                    <img
+                      id='image-logo-light'
+                      src={logoImageLight}
+                      alt='Logo with Tenor Joachim Bäckström'
+                    />
+                    <img
+                      id='image-logo-dark'
+                      src={logoImageDark}
+                      alt='Logo with Tenor Joachim Bäckström'
+                    />
+                  </Link>
+                </h1>
               </li>
               <li>
                 <Link
@@ -322,12 +331,12 @@ export function Layout() {
         <Outlet></Outlet>
       </main>
       <footer>
-        <section className='container-footer'>
+        <div className='container-footer'>
           <article>
-            <p className='contact-footer'>Contact information to agent</p>
+            <h4 className='contact-footer'>Contact information to agent</h4>
             <p className='copyright'>Copyright 2023</p>
           </article>
-        </section>
+        </div>
       </footer>
     </>
   );
