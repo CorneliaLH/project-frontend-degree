@@ -11,6 +11,7 @@ import audioimage from "../../images/audio.svg";
 import imagedark from "../../images/logo-dark2.svg";
 
 import "./sass/media.css";
+import { hasPointerEvents } from "@testing-library/user-event/dist/utils";
 export function Media() {
   //Sets select value from start
   const getInitialState = () => {
@@ -194,6 +195,7 @@ export function Media() {
             <p>{item.description}</p>
             <audio controls preload='true'>
               <source
+                // src={require("../../audio/joachim-backstrom-till-havs.mp3")}
                 src={"https://" + window.location.hostname + item.media_url}
                 type='audio/mpeg'
               ></source>
