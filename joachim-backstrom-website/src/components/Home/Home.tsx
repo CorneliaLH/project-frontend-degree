@@ -72,7 +72,7 @@ export function Home() {
             className='home-schedule-image'
             src={require("../../images/scheduleImage" + [i] + ".svg")}
             alt='image-opera'
-            width='auto'
+            width='150'
             height='150'
           />
           <article className='home-schedule-card-text'>
@@ -157,10 +157,10 @@ export function Home() {
               Dessert cake cake donut shortbread lemon drops. Wafer chocolate
               bar danish cookie halvah powder brownie.
             </p>
-            <button className='secondary-button'>
-              {" "}
-              <Link to={"/biography"}>Read more</Link>
-            </button>
+
+            <Link className='secondary-button' to={"/biography"}>
+              Read more
+            </Link>
           </article>
         </section>
         <div className='container-home-schedule'></div>

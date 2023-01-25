@@ -163,13 +163,14 @@
   bottom: 0;
   background-color: rgba($color: #ffffff, $alpha: 0.8);
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 
   .heading2 {
-    padding-top: 50px;
+    padding-top: 70px;
     margin-bottom: 20px;
+    padding-bottom: 70px;
   }
 
   .home-schedule-cards-container {
