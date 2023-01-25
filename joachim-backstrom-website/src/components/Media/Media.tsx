@@ -195,8 +195,8 @@ export function Media() {
             <p>{item.description}</p>
             <audio controls>
               <source
-                // src={require("../../audio/joachim-backstrom-till-havs.mp3")}
-                src={"https://" + window.location.hostname + item.media_url}
+                src={require("../../audio/joachim-backstrom-till-havs.mp3")}
+                // src={"https://" + window.location.hostname + item.media_url}
                 type='audio/mpeg'
               ></source>
             </audio>
