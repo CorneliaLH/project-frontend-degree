@@ -342,6 +342,10 @@
           box-sizing: border-box;
           text-align: center;
           padding: 10px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: center;
           .media-text-heading {
             color: $highlight-color;
             display: flex;
