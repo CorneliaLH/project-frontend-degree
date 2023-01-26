@@ -159,9 +159,11 @@ export function Media() {
 
             <h3>{item.title}</h3>
             <p>{item.description}</p>
-            <button className='primary-button'>
-              <a href={item.media_url}>Go to article</a>
-            </button>
+
+            <a className='primary-button' href={item.media_url}>
+              Go to article
+            </a>
+
             <p className='media-published-date'>Published: {item.date_pub}</p>
           </article>
         )}
@@ -221,6 +223,7 @@ export function Media() {
               onChange={handleChange}
               id='media-select'
             >
+              <label htmlFor='media-select'>Select different media</label>
               <option value='Latest'>Latest</option>
               <option value='News'>News</option>
               <option value='Audio'>Audio</option>
@@ -230,7 +233,7 @@ export function Media() {
           <section className='media-content'>{media}</section>
           {showMoreButton ? (
             <a
-              className='media-link-show-all'
+              className='button-link'
               onClick={() => {
                 renderMore(value);
               }}

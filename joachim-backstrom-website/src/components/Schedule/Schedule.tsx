@@ -99,9 +99,10 @@ export function Schedule() {
                       <b>Conductor: </b>
                       {item.conductor}
                     </p>
-                    <div className='primary-button'>
-                      <a href={item.read_more}>Go to Opera House</a>
-                    </div>
+
+                    <a className='primary-button' href={item.read_more}>
+                      Go to Opera House
+                    </a>
                   </article>
 
                   <img
@@ -123,7 +124,7 @@ export function Schedule() {
                 onClick={() => {
                   renderMore();
                 }}
-                className='schedule-post-link'
+                className='button-link'
               >
                 More Schedule Posts
               </button>

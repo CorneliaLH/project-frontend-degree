@@ -11,6 +11,7 @@ import quoteImageJoachim from "../../images/peter-grimes-4-photo-by-marek-olbrzy
 
 import { MediaService } from "../../services/MediaService";
 import { IMedia } from "../../models/IMedia";
+import { isDoStatement } from "typescript";
 
 export function Home() {
   //Changing nav menu color to white
@@ -94,11 +95,16 @@ export function Home() {
     }
     return (
       <>
+        {" "}
         <a
           key={item._id}
           className='container-media-item'
           href={item.media_url}
+          id={item._id}
         >
+          <label htmlFor={item._id} className='visually-hidden'>
+            Newsitem
+          </label>
           <article className='media-item'>
             <img
               className='image-news-article'
@@ -202,6 +208,7 @@ export function Home() {
           <div className='container-media-news'>{media}</div>
           <div className='container-media-link'>
             <button
+              className='button-link'
               onClick={() => {
                 navigation("/media");
               }}

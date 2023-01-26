@@ -67,16 +67,25 @@ body {
   text-decoration: none;
 } */
 
+.button-link {
+  all: unset;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.button-link:hover,
 .primary-button:hover,
 .secondary-button:hover {
   transform: scale(1.02);
 }
 
+.button-link:focus,
 .primary-button:focus,
 .secondary-button:focus {
   opacity: 0.8;
 }
 
+.button-link:active,
 .primary-button:active,
 .secondary-button:active {
   border: 2px solid black;

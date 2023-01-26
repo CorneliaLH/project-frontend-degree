@@ -17,7 +17,7 @@ export function Layout() {
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
-    window.addEventListener("load", handleResize);
+    handleResize();
   }, []);
 
   return (
