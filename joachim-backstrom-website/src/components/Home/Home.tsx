@@ -115,7 +115,7 @@ export function Home() {
             />
             <div className='container-media-text'>
               <h3 className='media-text-heading'>{item.title}</h3>
-              <p>{item.description}</p>
+              {/* <p>{item.description}</p> */}
 
               <p className='media-published-date'>Published: {item.date_pub}</p>
             </div>
