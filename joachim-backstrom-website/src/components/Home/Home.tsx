@@ -34,8 +34,6 @@ export function Home() {
       navlinks[i].style.color = "#ffffff";
     }
 
-    console.log(iconLightMobile);
-    console.log(iconDarkMobile);
     if (iconLight != null && iconDark != null) {
       iconLight.style.display = "block";
       iconDark.style.display = "none";
@@ -60,7 +58,10 @@ export function Home() {
   useEffect(() => {
     let service = new MediaService();
     service.getMediaNews().then((response) => {
-      setMediaList(response);
+      if (response.length > 3) {
+        let newArray = response.slice(1);
+        setMediaList(newArray);
+      }
     });
   }, []);
 

@@ -17,9 +17,13 @@ export function Login() {
       ".header-tablet-mobile"
     );
     let footer = document.querySelector<any>(".container-footer");
+    if (headerDesktop !== null) {
+      headerDesktop.style.display = "none";
+    }
+    if (headerTabletMobile !== null) {
+      headerTabletMobile.display = "none";
+    }
 
-    headerDesktop.style.display = "none";
-    headerTabletMobile.display = "none";
     footer.style.display = "none";
   }, []);
 
