@@ -58,8 +58,10 @@ export function Home() {
   useEffect(() => {
     let service = new MediaService();
     service.getMediaNews().then((response) => {
+      console.log(response);
       if (response.length > 3) {
-        let newArray = response.slice(1);
+        let newArray = response.slice(0, -1);
+        console.log(newArray);
         setMediaList(newArray);
       }
     });
