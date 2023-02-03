@@ -39,17 +39,17 @@ Backend you find [here](https://github.com/CorneliaLH/project-backend-degree)
 
 ## Application is run by:
 
-**To clone project, add to terminal:**
+**To clone project:**
 
-_git clone https://github.com/CorneliaLH/project-frontend-degree.git_
+_`git clone https://github.com/CorneliaLH/project-frontend-degree.git`_
 
 **To install project:**
 
-_npm install_
+_`npm install`_
 
 **To run project:**
 
-_npm start_
+_`npm start`_
 
 ## Local server: http://localhost:3000/
 
