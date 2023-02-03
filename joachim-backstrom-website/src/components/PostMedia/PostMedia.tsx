@@ -240,7 +240,7 @@ export function PostMedia() {
               //OBS!! Ändra nedan Audio-src till mediaValues.media_url
               <>
                 <p>Add link to audio-mp3 file (Dropbox or Google Drive)</p>
-                <audio controls src={require(mediaValues.media_url)}></audio>
+                <audio controls src={mediaValues.media_url}></audio>
               </>
             )}
             <p>{mediaValues.date_pub}</p>
