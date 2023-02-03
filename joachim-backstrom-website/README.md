@@ -1,8 +1,8 @@
 ![Logo](./src/images/logo-dark2-readme.svg)
 
-# Tenor Joachim Bäckström Backend
+# Tenor Joachim Bäckström Frontend
 
-This is the backend for a website presenting Tenor Joachim Bäckström's resume and future.
+This is the frontend for a website presenting Tenor Joachim Bäckström's resume and future.
 
 ## Tech Stack whole project
 
