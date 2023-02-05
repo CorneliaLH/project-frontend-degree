@@ -78,7 +78,7 @@ export function Admin() {
             </button>
           )}
           <button className='primary-button' onClick={logOut}>
-            Logga ut
+            Logout
           </button>
         </div>
         {!newMediaPost &&

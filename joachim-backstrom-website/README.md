@@ -43,6 +43,11 @@ Backend repo you find [here](https://github.com/CorneliaLH/project-backend-degre
 
 _`git clone https://github.com/CorneliaLH/project-frontend-degree.git`_
 
+**To enter project-folder:**
+
+_`cd project-frontend-degree`_
+_`cd joachim-backstrom-website`_
+
 **To install project:**
 
 _`npm install`_
