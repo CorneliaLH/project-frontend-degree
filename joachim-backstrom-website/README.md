@@ -45,8 +45,7 @@ _`git clone https://github.com/CorneliaLH/project-frontend-degree.git`_
 
 **To enter project-folder:**
 
-_`cd project-frontend-degree`_
-_`cd joachim-backstrom-website`_
+_`cd project-frontend-degree/joachim-backstrom-website`_
 
 **To install project:**
 
