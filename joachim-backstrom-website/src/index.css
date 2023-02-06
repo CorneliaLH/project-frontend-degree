@@ -91,6 +91,10 @@ body {
   border: 2px solid black;
 }
 
+.secondary-button:disabled {
+  opacity: 0.6;
+}
+
 .heading1 {
   font-size: 34px;
   color: #252f40;

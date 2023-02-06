@@ -7,7 +7,7 @@ import { IScheduleConcert } from "../../models/IScheduleConcert";
 
 export function PostSchedule() {
   const [repetoireChoice, setRepetoireChoice] = useState<string>("Choose one");
-
+  const [disabledValue, setDisabledValue] = useState(true);
   const [scheduleOperaValues, setScheduleOperaValues] =
     useState<IScheduleOpera>({
       title: "",
@@ -50,6 +50,47 @@ export function PostSchedule() {
       console.log(sessionStorage.userId);
     }
   }, []);
+
+  //Validation fields and remove disabeld button
+  useEffect(() => {
+    console.log(scheduleOperaValues);
+    if (
+      scheduleOperaValues.display_repetoire !== "Choose one" &&
+      scheduleOperaValues.composer.length > 0 &&
+      scheduleOperaValues.conductor.length > 0 &&
+      scheduleOperaValues.date_remove.length > 0 &&
+      scheduleOperaValues.opera.length > 0 &&
+      scheduleOperaValues.read_more.length > 0 &&
+      scheduleOperaValues.repetoire.length > 0 &&
+      scheduleOperaValues.role.length > 0 &&
+      scheduleOperaValues.title.length > 0 &&
+      scheduleOperaValues.when.length > 0
+    ) {
+      setDisabledValue(false);
+    } else {
+      setDisabledValue(true);
+    }
+  }, [scheduleOperaValues]);
+
+  useEffect(() => {
+    console.log(scheduleConcertValues);
+    if (
+      scheduleConcertValues.display_repetoire !== "Choose one" &&
+      scheduleConcertValues.composer.length > 0 &&
+      scheduleConcertValues.conductor.length > 0 &&
+      scheduleConcertValues.date_remove.length > 0 &&
+      scheduleConcertValues.read_more.length > 0 &&
+      scheduleConcertValues.repetoire.length > 0 &&
+      scheduleConcertValues.where.length > 0 &&
+      scheduleConcertValues.title.length > 0 &&
+      scheduleConcertValues.work.length > 0 &&
+      scheduleConcertValues.when.length > 0
+    ) {
+      setDisabledValue(false);
+    } else {
+      setDisabledValue(true);
+    }
+  }, [scheduleConcertValues]);
 
   //Input values from form
   function handleInputSchedulePost(e: ChangeEvent<any>) {
@@ -263,6 +304,7 @@ export function PostSchedule() {
                     <button
                       className='secondary-button'
                       type='submit'
+                      disabled={disabledValue}
                       onClick={(e) => {
                         e.preventDefault();
                         console.log(scheduleConcertValues);

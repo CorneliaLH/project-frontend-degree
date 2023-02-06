@@ -19,8 +19,31 @@ export function PostMedia() {
     media_url: "",
     date_pub: "",
   });
+  const [disabledValue, setDisabledValue] = useState(true);
 
   const navigation = useNavigate();
+
+  //Validation fields and remove disabled button
+  useEffect(() => {
+    if (
+      (mediaValues.type === "Video" || mediaValues.type === "Audio") &&
+      mediaValues.date_pub.length > 0 &&
+      mediaValues.description.length > 0 &&
+      mediaValues.media_url.length > 0 &&
+      mediaValues.title.length > 0
+    ) {
+      setDisabledValue(false);
+    } else if (
+      mediaValues.type === "News" &&
+      mediaValues.date_pub.length > 0 &&
+      mediaValues.description.length > 0 &&
+      mediaValues.title.length > 0
+    ) {
+      setDisabledValue(false);
+    } else {
+      setDisabledValue(true);
+    }
+  }, [mediaValues]);
 
   //Check if user is logged in
   useEffect(() => {
@@ -204,6 +227,9 @@ export function PostMedia() {
 
             <button
               type='submit'
+              className='secondary-button'
+              disabled={disabledValue}
+              id='button-submit-new-media'
               onClick={(e) => {
                 e.preventDefault();
 

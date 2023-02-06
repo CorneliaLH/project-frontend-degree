@@ -183,6 +183,14 @@ export function ChangeSchedule() {
                           .changeSchedule(scheduleValues)
                           .then((response) => {
                             console.log(response);
+                            if (response.acknowledged === true) {
+                              alert("The post has been changed");
+                              setChangeInput(false);
+                            } else {
+                              alert(
+                                "Something went wrong, the post could not be updated"
+                              );
+                            }
                           });
                       }}
                     >
