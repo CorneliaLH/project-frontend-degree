@@ -38,7 +38,7 @@ export function ChangeRepertoire() {
       console.log(response);
       setConcertList(response);
     });
-  }, [updateList]);
+  }, [updateList, changeInputConcert, changeInputOpera]);
 
   //input values from form Opera
   function handleInputMediaPostOpera(e: ChangeEvent<any>) {
@@ -161,7 +161,7 @@ export function ChangeRepertoire() {
               onClick={() => {
                 let service = new RepertoireService();
                 service
-                  .deleteRepertoireOpera(concertitem._id)
+                  .deleteRepertoireConcert(concertitem._id)
                   .then((response) => {
                     if (response.acknowledged === true) {
                       alert("Item deleted");
@@ -271,6 +271,14 @@ export function ChangeRepertoire() {
                         let service = new RepertoireService();
                         service.changeOpera(operaValues).then((response) => {
                           console.log(response);
+                          if (response.acknowledged === true) {
+                            alert("The post has been changed");
+                            setChangeInputOpera(false);
+                          } else {
+                            alert(
+                              "Something went wrong, the post could not be updated"
+                            );
+                          }
                         });
                       }}
                     >
@@ -346,6 +354,14 @@ export function ChangeRepertoire() {
                           .changeConcert(concertValues)
                           .then((response) => {
                             console.log(response);
+                            if (response.acknowledged === true) {
+                              alert("The post has been changed");
+                              setChangeInputConcert(false);
+                            } else {
+                              alert(
+                                "Something went wrong, the post could not be updated"
+                              );
+                            }
                           });
                       }}
                     >

@@ -22,7 +22,7 @@ export function ChangeMedia() {
     service.getMediaAll().then((response) => {
       setMediaList(response);
     });
-  }, [updateList]);
+  }, [updateList, changeInput]);
 
   //input values from form
   function handleInputMediaPost(e: ChangeEvent<any>) {
@@ -165,6 +165,14 @@ export function ChangeMedia() {
                         let service = new MediaService();
                         service.changeMedia(mediaValues).then((response) => {
                           console.log(response);
+                          if (response.acknowledged === true) {
+                            alert("The post has been changed");
+                            setChangeInput(false);
+                          } else {
+                            alert(
+                              "Something went wrong, the post could not be updated"
+                            );
+                          }
                         });
                       }}
                     >

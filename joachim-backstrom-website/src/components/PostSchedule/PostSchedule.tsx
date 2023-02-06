@@ -273,6 +273,42 @@ export function PostSchedule() {
                             .postSchedule(scheduleOperaValues)
                             .then((response) => {
                               console.log(response);
+                              console.log(scheduleOperaValues);
+                              if (response.acknowledged === true) {
+                                if (
+                                  scheduleOperaValues.display_repetoire ===
+                                  "true"
+                                ) {
+                                  alert(
+                                    "You created a new Opera Schedule post and a Repertoire post, the Repetoire post will be shown when the Schedulepost is automatically removed: " +
+                                      scheduleOperaValues.date_remove +
+                                      ". \nNeed to change your post? Go to admin start page and choose delete/change schedule or repertoire post to modify your post"
+                                  );
+                                } else {
+                                  alert(
+                                    "You created a new Opera Schedule post and a Repertoire post. The repertoire post will not be displayed. \nNeed to change your post? Go to admin start page and choose delete/change schedule or repertoire post to modify your post"
+                                  );
+                                }
+
+                                setScheduleOperaValues({
+                                  title: "",
+                                  when: "",
+                                  where: "",
+                                  conductor: "",
+                                  role: "",
+                                  // image_url: "",
+                                  read_more: "",
+                                  date_remove: "",
+                                  repetoire: "Choose one",
+                                  composer: "",
+                                  opera: "",
+                                  display_repetoire: "Choose one",
+                                });
+                              } else {
+                                alert(
+                                  "Something is wrong, your post couldn't be created"
+                                );
+                              }
                             });
                         } else if (repetoireChoice === "Concert") {
                           let service = new ScheduleService();
@@ -280,6 +316,39 @@ export function PostSchedule() {
                             .postSchedule(scheduleConcertValues)
                             .then((response) => {
                               console.log(response);
+                              if (response.acknowledged === true) {
+                                if (
+                                  scheduleConcertValues.display_repetoire ===
+                                  "true"
+                                ) {
+                                  alert(
+                                    "You created a new Concert Schedule post and a Repertoire post, the Repetoire post will be shown when the Schedulepost is automatically removed: " +
+                                      scheduleConcertValues.date_remove +
+                                      ". \nNeed to change your post? Go to admin start page and choose delete/change schedule or repertoire post to modify your post"
+                                  );
+                                } else {
+                                  alert(
+                                    "You created a new Concert Schedule post and a Repertoire post. The repertoire post will not be displayed. \nNeed to change your post? Go to admin start page and choose delete/change schedule or repertoire post to modify your post"
+                                  );
+                                }
+                                setScheduleConcertValues({
+                                  title: "",
+                                  when: "",
+                                  where: "",
+                                  conductor: "",
+                                  // image_url: "",
+                                  read_more: "",
+                                  date_remove: "",
+                                  repetoire: "Choose one",
+                                  composer: "",
+                                  work: "",
+                                  display_repetoire: "Choose one",
+                                });
+                              } else {
+                                alert(
+                                  "Something is wrong, your post couldn't be created"
+                                );
+                              }
                             });
                         }
                       }}

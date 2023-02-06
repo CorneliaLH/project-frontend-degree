@@ -333,9 +333,21 @@ export function Layout() {
       <footer>
         <div className='container-footer'>
           <article>
-            <h4 className='contact-footer'>Contact information to agent</h4>
-            <p className='copyright'>Copyright 2023</p>
+            <div className='container-contact-photo'>
+              <h4 className='contact-footer'>Contact information to agent</h4>
+              <div className='credit-footer'>
+                <h5 className='heading5'>Credit photos:</h5>
+                <p className='credit-photo-opera'>
+                  Photos by Marek Olbrzymek from <br></br>Peter Grimes / Národni
+                  divadlo in Brno <br></br>
+                </p>
+                <p className='credit-photo-portraits'>
+                  Portraint photos by Marie Wirenstedt
+                </p>
+              </div>
+            </div>
           </article>
+          <p className='copyright'>Copyright 2023</p>
         </div>
       </footer>
     </>

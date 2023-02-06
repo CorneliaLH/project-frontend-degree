@@ -133,10 +133,10 @@ export function Home() {
         <div className='hero-image'>
           <img id='arrow-down' src={arrowdown} alt='arrow down' />
         </div>
-        <p className='hero-photo-text'>
+        {/* <p className='hero-photo-text'>
           Photo from Peter Grimes / Národni divadlo in Brno <br></br>
           Photo by: Marek Olbrzymek
-        </p>
+        </p> */}
         <section className='section-home-bio'>
           <h2 className='heading2'>Joachim</h2>
           <div className='container-home-bio'>
@@ -200,10 +200,10 @@ export function Home() {
               width='627'
               height='836'
             />
-            <p className='hero-photo-text'>
+            {/* <p className='hero-photo-text'>
               Photo from Peter Grimes / Národni divadlo in Brno <br></br>
               Photo by: Marek Olbrzymek
-            </p>
+            </p> */}
           </div>
         </div>
         <section className='container-media-home'>

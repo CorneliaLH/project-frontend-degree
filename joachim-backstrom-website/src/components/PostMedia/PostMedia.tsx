@@ -206,10 +206,22 @@ export function PostMedia() {
               type='submit'
               onClick={(e) => {
                 e.preventDefault();
-                console.log(mediaValues);
+
                 let service = new MediaService();
                 service.postMedia(mediaValues).then((response) => {
                   console.log(response);
+                  if (response.acknowledged === true) {
+                    alert("You created a new media post");
+                    setMediaValues({
+                      title: "",
+                      description: "",
+                      type: "Choose one",
+                      media_url: "",
+                      date_pub: "",
+                    });
+                  } else {
+                    alert("Something is wrong, your post couldn't be created");
+                  }
                 });
               }}
             >
