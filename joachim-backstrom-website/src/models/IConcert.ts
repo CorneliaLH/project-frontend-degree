@@ -5,6 +5,5 @@ export interface IConcert {
   composer: string;
   work: string;
   date_publish: string;
-  shedule_id: string;
-  display_repetoire: boolean;
+  display_repetoire: string;
 }

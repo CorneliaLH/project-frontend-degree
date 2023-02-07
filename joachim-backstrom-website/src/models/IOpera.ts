@@ -4,6 +4,5 @@ export interface IOpera {
   opera: string;
   role: string;
   date_publish: string;
-  shedule_id: string;
-  display_repetoire: boolean;
+  display_repetoire: string;
 }

@@ -12,6 +12,9 @@ export function PostMedia() {
   const [buttonForwardBoolean, setButtonForwardBoolean] =
     useState<boolean>(true);
   const [knowMore, setKnowMore] = useState<boolean>(false);
+  const [imageKnowMoreVideo1, setImageKnowMoreVideo1] = useState(true);
+  const [imageKnowMoreVideo2, setImageKnowMoreVideo2] = useState(false);
+  const [imageKnowMoreVideo3, setImageKnowMoreVideo3] = useState(false);
   const [mediaValues, setMediaValues] = useState<IMediaPost>({
     title: "",
     description: "",
@@ -51,13 +54,13 @@ export function PostMedia() {
       navigation("../");
 
       return;
-    } else {
-      console.log(sessionStorage.userId);
     }
   }, []);
 
   //input values from form
-  function handleInputMediaPost(e: ChangeEvent<any>) {
+  function handleInputMediaPost(
+    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement>
+  ) {
     setMediaValues({ ...mediaValues, [e.target.name]: e.target.value });
   }
 
@@ -78,42 +81,45 @@ export function PostMedia() {
               Close
             </button>
             <div className='container-images-youtube'>
-              <img
-                id='knowmore-image1'
-                src={imageYoutube1}
-                alt='Printscreen youtube share'
-              />
-              <img
-                id='knowmore-image2'
-                src={imageYoutube2}
-                alt='Printscreen youtube embed button'
-              />
-              <img
-                id='knowmore-image3'
-                src={imageYoutube3}
-                alt='Printscreen youtube embed link'
-              />
+              {imageKnowMoreVideo1 && (
+                <img
+                  id='knowmore-image1'
+                  src={imageYoutube1}
+                  alt='Printscreen youtube share'
+                />
+              )}
+              {imageKnowMoreVideo2 && (
+                <img
+                  id='knowmore-image2'
+                  src={imageYoutube2}
+                  alt='Printscreen youtube embed button'
+                />
+              )}
+              {imageKnowMoreVideo3 && (
+                <img
+                  id='knowmore-image3'
+                  src={imageYoutube3}
+                  alt='Printscreen youtube embed link'
+                />
+              )}
             </div>
             <div className='container-knowmore-button'>
               {buttonBackBoolean && (
                 <button
                   className='secondary-button'
                   onClick={() => {
-                    let imageKnow1 =
-                      document.querySelector<any>("#knowmore-image1");
-                    let imageKnow2 =
-                      document.querySelector<any>("#knowmore-image2");
-                    let imageKnow3 =
-                      document.querySelector<any>("#knowmore-image3");
-
-                    if (getComputedStyle(imageKnow3).zIndex === "3") {
-                      imageKnow3.style.zIndex = "1";
-                      imageKnow2.style.zIndex = "3";
-                      setButtonBackBoolean(true);
+                    if (
+                      imageKnowMoreVideo1 === false &&
+                      imageKnowMoreVideo2 === false &&
+                      imageKnowMoreVideo3 === true
+                    ) {
+                      setImageKnowMoreVideo3(false);
+                      setImageKnowMoreVideo2(true);
                       setButtonForwardBoolean(true);
-                    } else if (getComputedStyle(imageKnow2).zIndex === "3") {
-                      imageKnow2.style.zIndex = "1";
-                      imageKnow1.style.zIndex = "3";
+                      setButtonBackBoolean(true);
+                    } else if (imageKnowMoreVideo2 === true) {
+                      setImageKnowMoreVideo1(true);
+                      setImageKnowMoreVideo2(false);
                       setButtonForwardBoolean(true);
                       setButtonBackBoolean(false);
                     }
@@ -126,21 +132,20 @@ export function PostMedia() {
                 <button
                   className='secondary-button'
                   onClick={() => {
-                    let imageKnow1 =
-                      document.querySelector<any>("#knowmore-image1");
-                    let imageKnow2 =
-                      document.querySelector<any>("#knowmore-image2");
-                    let imageKnow3 =
-                      document.querySelector<any>("#knowmore-image3");
-
-                    if (getComputedStyle(imageKnow1).zIndex === "3") {
-                      imageKnow1.style.zIndex = "1";
-                      imageKnow2.style.zIndex = "3";
+                    if (
+                      imageKnowMoreVideo1 === true &&
+                      imageKnowMoreVideo2 === false &&
+                      imageKnowMoreVideo3 === false
+                    ) {
+                      setImageKnowMoreVideo1(false);
+                      setImageKnowMoreVideo2(true);
+                      setButtonForwardBoolean(true);
                       setButtonBackBoolean(true);
-                    } else if (getComputedStyle(imageKnow2).zIndex === "3") {
-                      imageKnow2.style.zIndex = "1";
-                      imageKnow3.style.zIndex = "3";
+                    } else if (imageKnowMoreVideo2 === true) {
+                      setImageKnowMoreVideo2(false);
+                      setImageKnowMoreVideo3(true);
                       setButtonForwardBoolean(false);
+                      setButtonBackBoolean(true);
                     }
                   }}
                 >

@@ -12,19 +12,21 @@ export function Login() {
   const navigation = useNavigate();
 
   useEffect(() => {
-    let headerDesktop = document.querySelector<any>(".header-desktop");
-    let headerTabletMobile = document.querySelector<any>(
+    let headerDesktop = document.querySelector<HTMLElement>(".header-desktop");
+    let headerTabletMobile = document.querySelector<HTMLElement>(
       ".header-tablet-mobile"
     );
-    let footer = document.querySelector<any>(".container-footer");
+    let footer = document.querySelector<HTMLElement>(".container-footer");
     if (headerDesktop !== null) {
       headerDesktop.style.display = "none";
     }
     if (headerTabletMobile !== null) {
-      headerTabletMobile.display = "none";
+      headerTabletMobile.style.display = "none";
     }
 
-    footer.style.display = "none";
+    if (footer !== null) {
+      footer.style.display = "none";
+    }
   }, []);
 
   //Input values from inputfields

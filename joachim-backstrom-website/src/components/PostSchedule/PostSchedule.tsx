@@ -30,7 +30,6 @@ export function PostSchedule() {
       when: "",
       where: "",
       conductor: "",
-      // image_url: "",
       read_more: "",
       date_remove: "",
       repetoire: "Choose one",
@@ -46,14 +45,11 @@ export function PostSchedule() {
       navigation("../");
 
       return;
-    } else {
-      console.log(sessionStorage.userId);
     }
   }, []);
 
   //Validation fields and remove disabeld button
   useEffect(() => {
-    console.log(scheduleOperaValues);
     if (
       scheduleOperaValues.display_repetoire !== "Choose one" &&
       scheduleOperaValues.composer.length > 0 &&
@@ -73,7 +69,6 @@ export function PostSchedule() {
   }, [scheduleOperaValues]);
 
   useEffect(() => {
-    console.log(scheduleConcertValues);
     if (
       scheduleConcertValues.display_repetoire !== "Choose one" &&
       scheduleConcertValues.composer.length > 0 &&
@@ -94,7 +89,6 @@ export function PostSchedule() {
 
   //Input values from form
   function handleInputSchedulePost(e: ChangeEvent<any>) {
-    console.log(e.target.value);
     if (repetoireChoice === "Choose one") {
       setRepetoireChoice(e.target.value);
       if (e.target.value === "Opera") {
@@ -307,8 +301,7 @@ export function PostSchedule() {
                       disabled={disabledValue}
                       onClick={(e) => {
                         e.preventDefault();
-                        console.log(scheduleConcertValues);
-                        console.log(scheduleOperaValues);
+
                         if (repetoireChoice === "Opera") {
                           let service = new ScheduleService();
                           service

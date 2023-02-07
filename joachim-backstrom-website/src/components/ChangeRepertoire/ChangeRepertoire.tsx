@@ -1,4 +1,6 @@
 import { ChangeEvent, useEffect, useState } from "react";
+import { IConcert } from "../../models/IConcert";
+import { IOpera } from "../../models/IOpera";
 import { RepertoireService } from "../../services/RepertoireService";
 import "./sass/changerepertoire.css";
 
@@ -8,7 +10,7 @@ export function ChangeRepertoire() {
   const [updateList, setUpdateList] = useState<boolean>(false);
   const [changeInputOpera, setChangeInputOpera] = useState<boolean>(false);
   const [changeInputConcert, setChangeInputConcert] = useState<boolean>(false);
-  const [operaValues, setOperaValues] = useState<any>({
+  const [operaValues, setOperaValues] = useState<IOpera>({
     _id: "",
     opera: "",
     date_publish: "",
@@ -17,7 +19,7 @@ export function ChangeRepertoire() {
     composer: "",
   });
 
-  const [concertValues, setConcertValues] = useState<any>({
+  const [concertValues, setConcertValues] = useState<IConcert>({
     _id: "",
     date_publish: "",
     display_repetoire: "",
@@ -41,12 +43,16 @@ export function ChangeRepertoire() {
   }, [updateList, changeInputConcert, changeInputOpera]);
 
   //input values from form Opera
-  function handleInputMediaPostOpera(e: ChangeEvent<any>) {
+  function handleInputMediaPostOpera(
+    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement>
+  ) {
     setOperaValues({ ...operaValues, [e.target.name]: e.target.value });
   }
 
   //input values from form Concert
-  function handleInputMediaPostConcert(e: ChangeEvent<any>) {
+  function handleInputMediaPostConcert(
+    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement>
+  ) {
     setConcertValues({ ...concertValues, [e.target.name]: e.target.value });
   }
 

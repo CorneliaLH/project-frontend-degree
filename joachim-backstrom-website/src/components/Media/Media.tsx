@@ -11,7 +11,7 @@ import audioimage from "../../images/audio.svg";
 import imagedark from "../../images/logo-dark2.svg";
 
 import "./sass/media.css";
-import { hasPointerEvents } from "@testing-library/user-event/dist/utils";
+
 export function Media() {
   //Sets select value from start
   const getInitialState = () => {
@@ -25,15 +25,19 @@ export function Media() {
   //Change navigation color
   useEffect(() => {
     let navlinks = document.querySelectorAll<HTMLElement>(".nav-menu-link");
-    let iconLight = document.querySelector<any>("#image-logo-light");
-    let iconDark = document.querySelector<any>("#image-logo-dark");
-    let iconLightMobile = document.querySelector<any>(
+    let iconLight = document.querySelector<HTMLElement>("#image-logo-light");
+    let iconDark = document.querySelector<HTMLElement>("#image-logo-dark");
+    let iconLightMobile = document.querySelector<HTMLElement>(
       "#image-logo-light-mobile"
     );
-    let iconDarkMobile = document.querySelector<any>("#image-logo-dark-mobile");
-    let hamburgerBackground = document.querySelector<any>(".burger-button");
-    hamburgerBackground.style.backgroundColor = "#ffffff";
-
+    let iconDarkMobile = document.querySelector<HTMLElement>(
+      "#image-logo-dark-mobile"
+    );
+    let hamburgerBackground =
+      document.querySelector<HTMLElement>(".burger-button");
+    if (hamburgerBackground != null) {
+      hamburgerBackground.style.backgroundColor = "#ffffff";
+    }
     if (window.innerWidth > 600 && window.innerWidth < 900) {
       for (let i = 0; i < navlinks.length; i++) {
         navlinks[i].style.color = "white";
@@ -47,7 +51,7 @@ export function Media() {
         navlinks[i].style.color = "black";
       }
     }
-    // console.log(icon);
+
     if (iconLight != null && iconDark != null) {
       iconLight.style.display = "none";
       iconDark.style.display = "block";
@@ -146,7 +150,6 @@ export function Media() {
     }
     return (
       <div key={item._id} className='container-media-item'>
-        {/* IMPORTANT: src in database must have embed instead of watch */}
         {item.type === "News" && (
           <article className='media-item'>
             <img
@@ -167,7 +170,6 @@ export function Media() {
             <p className='media-published-date'>Published: {item.date_pub}</p>
           </article>
         )}
-        {/* IMPORTANT: src in database must have embed instead of watch */}
         {item.type === "Video" && (
           <article className='media-item'>
             <h3>{item.title}</h3>
@@ -183,7 +185,6 @@ export function Media() {
             <p className='media-published-date'>Published: {item.date_pub}</p>
           </article>
         )}
-        {/* LOCAL AUDIO FILE used, change later to link to stored data and remove local file */}
         {item.type === "Audio" && (
           <article className='media-item'>
             <img
@@ -194,11 +195,7 @@ export function Media() {
             <h3>{item.title}</h3>
             <p>{item.description}</p>
             <audio controls>
-              <source
-                // src={require("../../audio/joachim-backstrom-till-havs.mp3")}
-                src={item.media_url}
-                type='audio/mpeg'
-              ></source>
+              <source src={item.media_url} type='audio/mpeg'></source>
             </audio>
 
             <p className='media-published-date'>Published: {item.date_pub}</p>
@@ -217,13 +214,13 @@ export function Media() {
         <section className='container-media'>
           <h2 className='heading2'>Media</h2>
           <div className='container-select'>
+            <label htmlFor='media-select'>Select different media</label>
             <select
               name='media-select'
               value={value}
               onChange={handleChange}
               id='media-select'
             >
-              <label htmlFor='media-select'>Select different media</label>
               <option value='Latest'>Latest</option>
               <option value='News'>News</option>
               <option value='Audio'>Audio</option>

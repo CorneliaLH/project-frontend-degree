@@ -25,65 +25,65 @@ export function ChangeMedia() {
   }, [updateList, changeInput]);
 
   //input values from form
-  function handleInputMediaPost(e: ChangeEvent<any>) {
+  function handleInputMediaPost(
+    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement>
+  ) {
     setMediaValues({ ...mediaValues, [e.target.name]: e.target.value });
   }
 
   let mediaArray = mediaList.map((mediaitem) => {
     return (
-      <>
-        <ul className='container-change-list-item'>
-          <li key={mediaitem._id} className='change-item-info'>
-            <p>
-              <span className='change-item-text-bold'>Title: </span>
-              <span className='change-item-text'>{mediaitem.title}</span>
-            </p>
-            <p>
-              <span className='change-item-text-bold'>Type: </span>
-              <span className='change-item-text'>{mediaitem.type}</span>
-            </p>
-            <p>
-              <span className='change-item-text-bold'>Publish date: </span>
-              <span className='change-item-text'>{mediaitem.date_pub}</span>
-            </p>
-            <button
-              className='primary-button'
-              onClick={() => {
-                let service = new MediaService();
-                service.deleteMedia(mediaitem._id).then((response) => {
-                  if (response.acknowledged === true) {
-                    alert("Item deleted");
-                    if (updateList === true) {
-                      setUpdateList(false);
-                    } else {
-                      setUpdateList(true);
-                    }
-                    console.log(response);
+      <ul key={mediaitem._id} className='container-change-list-item'>
+        <li className='change-item-info'>
+          <p>
+            <span className='change-item-text-bold'>Title: </span>
+            <span className='change-item-text'>{mediaitem.title}</span>
+          </p>
+          <p>
+            <span className='change-item-text-bold'>Type: </span>
+            <span className='change-item-text'>{mediaitem.type}</span>
+          </p>
+          <p>
+            <span className='change-item-text-bold'>Publish date: </span>
+            <span className='change-item-text'>{mediaitem.date_pub}</span>
+          </p>
+          <button
+            className='primary-button'
+            onClick={() => {
+              let service = new MediaService();
+              service.deleteMedia(mediaitem._id).then((response) => {
+                if (response.acknowledged === true) {
+                  alert("Item deleted");
+                  if (updateList === true) {
+                    setUpdateList(false);
+                  } else {
+                    setUpdateList(true);
                   }
-                });
-              }}
-            >
-              Delete
-            </button>
-            <button
-              className='primary-button'
-              onClick={() => {
-                setMediaValues({
-                  _id: mediaitem._id,
-                  title: mediaitem.title,
-                  description: mediaitem.description,
-                  type: mediaitem.type,
-                  media_url: mediaitem.media_url,
-                  date_pub: mediaitem.date_pub,
-                });
-                setChangeInput(true);
-              }}
-            >
-              Change
-            </button>
-          </li>
-        </ul>
-      </>
+                  console.log(response);
+                }
+              });
+            }}
+          >
+            Delete
+          </button>
+          <button
+            className='primary-button'
+            onClick={() => {
+              setMediaValues({
+                _id: mediaitem._id,
+                title: mediaitem.title,
+                description: mediaitem.description,
+                type: mediaitem.type,
+                media_url: mediaitem.media_url,
+                date_pub: mediaitem.date_pub,
+              });
+              setChangeInput(true);
+            }}
+          >
+            Change
+          </button>
+        </li>
+      </ul>
     );
   });
   return (
