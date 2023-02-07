@@ -3,53 +3,96 @@ import { IScheduleConcert } from "../models/IScheduleConcert";
 import { IScheduleOpera } from "../models/IScheduleOpera";
 
 export class ScheduleService {
+  ////////////////////////
+  //GET SCHEDULE//
+  ///////////////////////
+
+  //Get first 3 future schedule posts by most current date
   async getSchedule() {
-    let response = await axios.get<any>(
-      process.env.REACT_APP_BACKEND_URL + "schedule"
-    );
-    return response.data;
+    try {
+      let response = await axios.get<any>(
+        process.env.REACT_APP_BACKEND_URL + "schedule"
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
+  //Get all future schedule posts
   async getScheduleAll() {
-    let response = await axios.get<any>(
-      process.env.REACT_APP_BACKEND_URL + "schedule/all"
-    );
-    return response.data;
+    try {
+      let response = await axios.get<any>(
+        process.env.REACT_APP_BACKEND_URL + "schedule/all"
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
+  //Get all past/future schedule posts
   async getScheduleTotal() {
-    let response = await axios.get<any>(
-      process.env.REACT_APP_BACKEND_URL + "schedule/total"
-    );
-    return response.data;
+    try {
+      let response = await axios.get<any>(
+        process.env.REACT_APP_BACKEND_URL + "schedule/total"
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
+  ////////////////////////
+  //POST SCHEDULE//
+  ///////////////////////
+
+  //Post schedule AND opera OR concert repertoire posts
   async postSchedule(schedulePost: IScheduleOpera | IScheduleConcert) {
-    let response = await axios.post<any>(
-      process.env.REACT_APP_BACKEND_URL + "schedule/add",
-      schedulePost,
+    try {
+      let response = await axios.post<any>(
+        process.env.REACT_APP_BACKEND_URL + "schedule/add",
+        schedulePost,
 
-      { headers: { "Content-Type": "application/json" } }
-    );
-    return response.data;
+        { headers: { "Content-Type": "application/json" } }
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
+
+  ////////////////////////
+  //DELETE SCHEDULE//
+  ///////////////////////
 
   async deleteSchedule(scheduleId: string) {
-    let response = await axios.post<any>(
-      process.env.REACT_APP_BACKEND_URL + "schedule/delete",
-      { _id: scheduleId },
-      { headers: { "Content-Type": "application/json" } }
-    );
-    return response.data;
+    try {
+      let response = await axios.post<any>(
+        process.env.REACT_APP_BACKEND_URL + "schedule/delete",
+        { _id: scheduleId },
+        { headers: { "Content-Type": "application/json" } }
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
+  ////////////////////////
+  //CHANGE SCHEDULE//
+  ///////////////////////
+
   async changeSchedule(schedule: any) {
-    console.log(schedule);
-    let response = await axios.post<any>(
-      process.env.REACT_APP_BACKEND_URL + "schedule/change",
-      { schedule },
-      { headers: { "Content-Type": "application/json" } }
-    );
-    return response.data;
+    try {
+      let response = await axios.post<any>(
+        process.env.REACT_APP_BACKEND_URL + "schedule/change",
+        { schedule },
+        { headers: { "Content-Type": "application/json" } }
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 }

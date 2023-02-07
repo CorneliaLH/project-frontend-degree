@@ -49,10 +49,8 @@ export function Home() {
     let service = new ScheduleService();
     service.getSchedule().then((response) => {
       setScheduleList(response);
-      console.log(response);
     });
   }, []);
-  console.log(scheduleList);
 
   //Renders first 4 items in Latest, News, Audio and Video.
   useEffect(() => {

@@ -3,61 +3,121 @@ import { IMedia } from "../models/IMedia";
 import { IMediaPost } from "../models/IMediaPost";
 
 export class MediaService {
+  ////////////////////////
+  //GET MEDIA//
+  ///////////////////////
+
+  //Get first 4 media by most current date
   async getMedia() {
-    let response = await axios.get<any>(
-      process.env.REACT_APP_BACKEND_URL + "media"
-    );
-    return response.data;
+    try {
+      let response = await axios.get<any>(
+        process.env.REACT_APP_BACKEND_URL + "media"
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
+  //Get all media posts
   async getMediaAll() {
-    let response = await axios.get<any>(
-      process.env.REACT_APP_BACKEND_URL + "media/all"
-    );
-    return response.data;
+    try {
+      let response = await axios.get<any>(
+        process.env.REACT_APP_BACKEND_URL + "media/all"
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
+  ////////////////////////
+  //GET VIDEO//
+  ///////////////////////
+
+  //Get first 4 video posts by most current date
   async getMediaVideo() {
-    let response = await axios.get<any>(
-      process.env.REACT_APP_BACKEND_URL + "media/video"
-    );
-    return response.data;
+    try {
+      let response = await axios.get<any>(
+        process.env.REACT_APP_BACKEND_URL + "media/video"
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  async getMediaAudio() {
-    let response = await axios.get<any>(
-      process.env.REACT_APP_BACKEND_URL + "media/audio"
-    );
-    return response.data;
-  }
-
-  async getMediaNews() {
-    let response = await axios.get<any>(
-      process.env.REACT_APP_BACKEND_URL + "media/news"
-    );
-    return response.data;
-  }
-
+  //Get all video posts
   async getMediaVideoAll() {
-    let response = await axios.get<any>(
-      process.env.REACT_APP_BACKEND_URL + "media/video/all"
-    );
-    return response.data;
+    try {
+      let response = await axios.get<any>(
+        process.env.REACT_APP_BACKEND_URL + "media/video/all"
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
+  ////////////////////////
+  //GET AUDIO//
+  ///////////////////////
+
+  //Get first 4 audio posts by most current date
+  async getMediaAudio() {
+    try {
+      let response = await axios.get<any>(
+        process.env.REACT_APP_BACKEND_URL + "media/audio"
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  //Get all audio posts
   async getMediaAudioAll() {
-    let response = await axios.get<any>(
-      process.env.REACT_APP_BACKEND_URL + "media/audio/all"
-    );
-    return response.data;
+    try {
+      let response = await axios.get<any>(
+        process.env.REACT_APP_BACKEND_URL + "media/audio/all"
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
-  async getMediaNewsAll() {
-    let response = await axios.get<any>(
-      process.env.REACT_APP_BACKEND_URL + "media/news/all"
-    );
-    return response.data;
+  ////////////////////////
+  //GET NEWS//
+  ///////////////////////
+
+  //Get first 4 news posts by most current date
+  async getMediaNews() {
+    try {
+      let response = await axios.get<any>(
+        process.env.REACT_APP_BACKEND_URL + "media/news"
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
+
+  //Get all news posts
+  async getMediaNewsAll() {
+    try {
+      let response = await axios.get<any>(
+        process.env.REACT_APP_BACKEND_URL + "media/news/all"
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  ////////////////////////
+  //POST MEDIA//
+  ///////////////////////
 
   async postMedia(mediaPost: IMediaPost) {
     let response = await axios.post<any>(
@@ -68,22 +128,38 @@ export class MediaService {
     return response.data;
   }
 
+  ////////////////////////
+  //DELETE MEDIA//
+  ///////////////////////
+
   async deleteMedia(mediaId: string) {
-    let response = await axios.post<any>(
-      process.env.REACT_APP_BACKEND_URL + "media/delete",
-      { _id: mediaId },
-      { headers: { "Content-Type": "application/json" } }
-    );
-    return response.data;
+    try {
+      let response = await axios.post<any>(
+        process.env.REACT_APP_BACKEND_URL + "media/delete",
+        { _id: mediaId },
+        { headers: { "Content-Type": "application/json" } }
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
+  ////////////////////////
+  //CHANGE MEDIA//
+  ///////////////////////
+
   async changeMedia(media: IMedia) {
-    console.log(media);
-    let response = await axios.post<any>(
-      process.env.REACT_APP_BACKEND_URL + "media/change",
-      { media },
-      { headers: { "Content-Type": "application/json" } }
-    );
-    return response.data;
+    try {
+      console.log(media);
+      let response = await axios.post<any>(
+        process.env.REACT_APP_BACKEND_URL + "media/change",
+        { media },
+        { headers: { "Content-Type": "application/json" } }
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 }

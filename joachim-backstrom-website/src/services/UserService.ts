@@ -2,14 +2,22 @@ import axios from "axios";
 import { IUser } from "../models/IUser";
 
 export class UserService {
+  ////////////////////////
+  //POST TO CHECK LOGIN CREDENTIALS//
+  ///////////////////////
+
   async postLogIn(userInfo: IUser) {
-    let response = await axios.post<any>(
-      process.env.REACT_APP_BACKEND_URL + "users/login",
+    try {
+      let response = await axios.post<any>(
+        process.env.REACT_APP_BACKEND_URL + "users/login",
 
-      userInfo,
+        userInfo,
 
-      { headers: { "Content-Type": "application/json" } }
-    );
-    return response.data;
+        { headers: { "Content-Type": "application/json" } }
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
