@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./sass/admin.css";
-import { JSXElementConstructor, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { PostMedia } from "../PostMedia/PostMedia";
 import { PostSchedule } from "../PostSchedule/PostSchedule";
@@ -15,6 +15,7 @@ export function Admin() {
   const [changeSchedulePost, setChangeSchedulePost] = useState<boolean>(false);
   const [changeRepetoirePost, setChangeRepertoirePost] =
     useState<boolean>(false);
+  const [showAdminButtons, setShowAdminButtons] = useState<boolean>(true);
 
   const navigation = useNavigate();
 
@@ -35,8 +36,6 @@ export function Admin() {
       navigation("../");
 
       return;
-    } else {
-      console.log(sessionStorage.userId);
     }
   }, []);
 
@@ -50,15 +49,24 @@ export function Admin() {
       header.style.display = "flex";
       footer.style.display = "flex";
     }
-
     navigation("/");
   }
+
+  //Re-render component
+  useEffect(() => {}, [
+    newMediaPost,
+    newSchedulePost,
+    changeMediaPost,
+    changeSchedulePost,
+    changeRepetoirePost,
+  ]);
 
   return (
     <>
       <div className='container-admin'>
         <h1>Welcome to admin</h1>
         <div className='container-logout-button'>
+          {/* Button to go back to admin start page */}
           {(newMediaPost ||
             newSchedulePost ||
             changeMediaPost ||
@@ -77,10 +85,12 @@ export function Admin() {
               Go back to admin
             </button>
           )}
+          {/* Button to log out from Admin  */}
           <button className='primary-button' onClick={logOut}>
             Logout
           </button>
         </div>
+        {/* If all booleans are false the list with action buttons are shown, if one of the booleans are true, buttons doesn't show and the component is displayed  */}
         {!newMediaPost &&
         !newSchedulePost &&
         !changeMediaPost &&
@@ -91,10 +101,6 @@ export function Admin() {
               className='secondary-button'
               onClick={() => {
                 setNewMediaPost(true);
-                let containerbuttons = document.querySelector<any>(
-                  ".container-admin-buttons"
-                );
-                containerbuttons.style.display = "none";
               }}
             >
               New media post
@@ -115,10 +121,6 @@ export function Admin() {
               className='secondary-button'
               onClick={() => {
                 setChangeMediaPost(true);
-                let containerbuttons = document.querySelector<any>(
-                  ".container-admin-buttons"
-                );
-                containerbuttons.style.display = "none";
               }}
             >
               Change/Delete Media post
@@ -127,10 +129,6 @@ export function Admin() {
               className='secondary-button'
               onClick={() => {
                 setChangeSchedulePost(true);
-                let containerbuttons = document.querySelector<any>(
-                  ".container-admin-buttons"
-                );
-                containerbuttons.style.display = "none";
               }}
             >
               Change/Delete Schedule post
@@ -139,10 +137,6 @@ export function Admin() {
               className='secondary-button'
               onClick={() => {
                 setChangeRepertoirePost(true);
-                let containerbuttons = document.querySelector<any>(
-                  ".container-admin-buttons"
-                );
-                containerbuttons.style.display = "none";
               }}
             >
               Change/Delete Repertoire post
@@ -152,23 +146,12 @@ export function Admin() {
           <></>
         )}
 
+        {/* Components shown when boolean is set to true */}
         {newMediaPost === true && <PostMedia></PostMedia>}
         {newSchedulePost === true && <PostSchedule></PostSchedule>}
-        {changeMediaPost === true && (
-          <>
-            <ChangeMedia></ChangeMedia>
-          </>
-        )}
-        {changeSchedulePost === true && (
-          <>
-            <ChangeSchedule></ChangeSchedule>
-          </>
-        )}
-        {changeRepetoirePost === true && (
-          <>
-            <ChangeRepertoire></ChangeRepertoire>
-          </>
-        )}
+        {changeMediaPost === true && <ChangeMedia></ChangeMedia>}
+        {changeSchedulePost === true && <ChangeSchedule></ChangeSchedule>}
+        {changeRepetoirePost === true && <ChangeRepertoire></ChangeRepertoire>}
       </div>
     </>
   );

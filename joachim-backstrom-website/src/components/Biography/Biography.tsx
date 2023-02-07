@@ -6,14 +6,19 @@ export function Biography() {
   //Changes color navigation
   useEffect(() => {
     let navlinks = document.querySelectorAll<HTMLElement>(".nav-menu-link");
-    let iconLight = document.querySelector<any>("#image-logo-light");
-    let iconDark = document.querySelector<any>("#image-logo-dark");
-    let iconLightMobile = document.querySelector<any>(
+    let iconLight = document.querySelector<HTMLElement>("#image-logo-light");
+    let iconDark = document.querySelector<HTMLElement>("#image-logo-dark");
+    let iconLightMobile = document.querySelector<HTMLElement>(
       "#image-logo-light-mobile"
     );
-    let iconDarkMobile = document.querySelector<any>("#image-logo-dark-mobile");
-    let hamburgerBackground = document.querySelector<any>(".burger-button");
-    hamburgerBackground.style.backgroundColor = "#ffffff";
+    let iconDarkMobile = document.querySelector<HTMLElement>(
+      "#image-logo-dark-mobile"
+    );
+    let hamburgerBackground =
+      document.querySelector<HTMLElement>(".burger-button");
+    if (hamburgerBackground != null) {
+      hamburgerBackground.style.backgroundColor = "#ffffff";
+    }
     if (window.innerWidth > 600 && window.innerWidth < 900) {
       for (let i = 0; i < navlinks.length; i++) {
         navlinks[i].style.color = "white";
@@ -28,7 +33,6 @@ export function Biography() {
       }
     }
 
-    // console.log(icon);
     if (iconLight != null && iconDark != null) {
       iconLight.style.display = "none";
       iconDark.style.display = "block";

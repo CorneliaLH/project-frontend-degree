@@ -6,12 +6,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ScheduleService } from "../../services/ScheduleService";
 import { ISchedule } from "../../models/ISchedule";
-import quoteImageBanner from "../../images/notes.svg";
 import quoteImageJoachim from "../../images/peter-grimes-4-photo-by-marek-olbrzymek-big.webp";
-
 import { MediaService } from "../../services/MediaService";
 import { IMedia } from "../../models/IMedia";
-import { isDoStatement } from "typescript";
 
 export function Home() {
   //Changing nav menu color to white
@@ -21,15 +18,19 @@ export function Home() {
 
   useEffect(() => {
     let navlinks = document.querySelectorAll<HTMLElement>(".nav-menu-link");
-    let iconLight = document.querySelector<any>("#image-logo-light");
-    let iconDark = document.querySelector<any>("#image-logo-dark");
-    let iconLightMobile = document.querySelector<any>(
+    let iconLight = document.querySelector<HTMLElement>("#image-logo-light");
+    let iconDark = document.querySelector<HTMLElement>("#image-logo-dark");
+    let iconLightMobile = document.querySelector<HTMLElement>(
       "#image-logo-light-mobile"
     );
-    let iconDarkMobile = document.querySelector<any>("#image-logo-dark-mobile");
-    let hamburgerBackground = document.querySelector<any>(".burger-button");
-    hamburgerBackground.style.backgroundColor = "#000000";
-
+    let iconDarkMobile = document.querySelector<HTMLElement>(
+      "#image-logo-dark-mobile"
+    );
+    let hamburgerBackground =
+      document.querySelector<HTMLElement>(".burger-button");
+    if (hamburgerBackground != null) {
+      hamburgerBackground.style.backgroundColor = "#000000";
+    }
     for (let i = 0; i < navlinks.length; i++) {
       navlinks[i].style.color = "#ffffff";
     }
@@ -52,19 +53,18 @@ export function Home() {
     });
   }, []);
 
-  //Renders first 4 items in Latest, News, Audio and Video.
+  //Renders first 3 items in Latest, News, Audio and Video.
   useEffect(() => {
     let service = new MediaService();
     service.getMediaNews().then((response) => {
-      console.log(response);
       if (response.length > 3) {
         let newArray = response.slice(0, -1);
-        console.log(newArray);
         setMediaList(newArray);
       }
     });
   }, []);
 
+  //Shows Schedule posts
   let scheduleToRender;
   if (scheduleList.length > 0) {
     scheduleToRender = scheduleList.map((item, i) => {
@@ -88,6 +88,8 @@ export function Home() {
       );
     });
   }
+
+  //Show Media posts
   let number = 0;
   let media = mediaList.map((item) => {
     number = number + 1;
@@ -95,34 +97,29 @@ export function Home() {
       number = 0;
     }
     return (
-      <>
-        {" "}
-        <a
-          key={item._id}
-          className='container-media-item'
-          href={item.media_url}
-          id={item._id}
-        >
-          <label htmlFor={item._id} className='visually-hidden'>
-            Newsitem
-          </label>
-          <article className='media-item'>
-            <img
-              className='image-news-article'
-              src={require("../../images/news" + number + ".webp")}
-              alt='Newsdesk'
-              width='300'
-              height='200'
-            />
-            <div className='container-media-text'>
-              <h3 className='media-text-heading'>{item.title}</h3>
-              {/* <p>{item.description}</p> */}
-
-              <p className='media-published-date'>Published: {item.date_pub}</p>
-            </div>
-          </article>
-        </a>
-      </>
+      <a
+        key={item._id}
+        className='container-media-item'
+        href={item.media_url}
+        id={item._id}
+      >
+        <label htmlFor={item._id} className='visually-hidden'>
+          Newsitem
+        </label>
+        <article className='media-item'>
+          <img
+            className='image-news-article'
+            src={require("../../images/news" + number + ".webp")}
+            alt='Newsdesk'
+            width='300'
+            height='200'
+          />
+          <div className='container-media-text'>
+            <h3 className='media-text-heading'>{item.title}</h3>
+            <p className='media-published-date'>Published: {item.date_pub}</p>
+          </div>
+        </article>
+      </a>
     );
   });
   return (
@@ -131,10 +128,6 @@ export function Home() {
         <div className='hero-image'>
           <img id='arrow-down' src={arrowdown} alt='arrow down' />
         </div>
-        {/* <p className='hero-photo-text'>
-          Photo from Peter Grimes / Národni divadlo in Brno <br></br>
-          Photo by: Marek Olbrzymek
-        </p> */}
         <section className='section-home-bio'>
           <h2 className='heading2'>Joachim</h2>
           <div className='container-home-bio'>
@@ -198,10 +191,6 @@ export function Home() {
               width='627'
               height='836'
             />
-            {/* <p className='hero-photo-text'>
-              Photo from Peter Grimes / Národni divadlo in Brno <br></br>
-              Photo by: Marek Olbrzymek
-            </p> */}
           </div>
         </div>
         <section className='container-media-home'>

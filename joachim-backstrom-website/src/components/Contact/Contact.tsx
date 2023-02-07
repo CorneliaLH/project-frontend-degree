@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { IContact } from "../../models/IContact";
 import "./sass/contact.css";
-import imagedark from "../../images/logo-dark2.svg";
 
 export function Contact() {
   const [contactList, setContactList] = useState<IContact[]>([
@@ -24,25 +23,19 @@ export function Contact() {
   //Change navigation color
   useEffect(() => {
     let navlinks = document.querySelectorAll<HTMLElement>(".nav-menu-link");
-    let iconLight = document.querySelector<any>("#image-logo-light");
-    let iconDark = document.querySelector<any>("#image-logo-dark");
-    let iconLightMobile = document.querySelector<any>(
+    let iconLight = document.querySelector<HTMLElement>("#image-logo-light");
+    let iconDark = document.querySelector<HTMLElement>("#image-logo-dark");
+    let iconLightMobile = document.querySelector<HTMLElement>(
       "#image-logo-light-mobile"
     );
-    let iconDarkMobile = document.querySelector<any>("#image-logo-dark-mobile");
-    let hamburgerBackground = document.querySelector<any>(".burger-button");
-    hamburgerBackground.style.backgroundColor = "#ffffff";
-
-    // console.log(icon);
-    if (iconLight != null && iconDark != null) {
-      iconLight.style.display = "none";
-      iconDark.style.display = "block";
+    let iconDarkMobile = document.querySelector<HTMLElement>(
+      "#image-logo-dark-mobile"
+    );
+    let hamburgerBackground =
+      document.querySelector<HTMLElement>(".burger-button");
+    if (hamburgerBackground != null) {
+      hamburgerBackground.style.backgroundColor = "#ffffff";
     }
-    if (iconLightMobile != null && iconDarkMobile != null) {
-      iconLightMobile.style.display = "none";
-      iconDarkMobile.style.display = "block";
-    }
-
     if (window.innerWidth > 600 && window.innerWidth < 900) {
       for (let i = 0; i < navlinks.length; i++) {
         navlinks[i].style.color = "white";
@@ -55,6 +48,16 @@ export function Contact() {
       for (let i = 0; i < navlinks.length; i++) {
         navlinks[i].style.color = "black";
       }
+    }
+
+    if (iconLight != null && iconDark != null) {
+      iconLight.style.display = "none";
+      iconDark.style.display = "block";
+    }
+
+    if (iconLightMobile != null && iconDarkMobile != null) {
+      iconLightMobile.style.display = "none";
+      iconDarkMobile.style.display = "block";
     }
   }, []);
 
