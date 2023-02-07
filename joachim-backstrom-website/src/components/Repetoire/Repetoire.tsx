@@ -4,6 +4,7 @@ import { IOpera } from "../../models/IOpera";
 import { RepertoireService } from "../../services/RepertoireService";
 import "./sass/repetoire.css";
 import imagedark from "../../images/logo-dark2.svg";
+import { time } from "console";
 
 export function Repetoire() {
   const [operaList, setOperaList] = useState<IOpera[]>([]);
@@ -50,7 +51,6 @@ export function Repetoire() {
   useEffect(() => {
     let service = new RepertoireService();
     service.getRepertoireOpera().then((response) => {
-      console.log(response);
       setOperaList(response);
     });
   }, []);
@@ -59,7 +59,6 @@ export function Repetoire() {
   useEffect(() => {
     let service = new RepertoireService();
     service.getRepertoireConcert().then((response) => {
-      console.log(response);
       setConcertList(response);
     });
   }, []);
@@ -84,13 +83,11 @@ export function Repetoire() {
               <div className='repertoire-item'>
                 {operaList.map((item) => {
                   return (
-                    <>
-                      <div className='repertoire-item-text'>
-                        <p>{item.composer}</p>
-                        <p>{item.opera}</p>
-                        <p>{item.role}</p>
-                      </div>
-                    </>
+                    <div key={item._id} className='repertoire-item-text'>
+                      <p>{item.composer}</p>
+                      <p>{item.opera}</p>
+                      <p>{item.role}</p>
+                    </div>
                   );
                 })}
               </div>
@@ -104,12 +101,10 @@ export function Repetoire() {
               <div className='repertoire-item'>
                 {concertList.map((item) => {
                   return (
-                    <>
-                      <div className='repertoire-item-text'>
-                        <p>{item.composer}</p>
-                        <p>{item.work}</p>
-                      </div>
-                    </>
+                    <div key={item._id} className='repertoire-item-text'>
+                      <p>{item.composer}</p>
+                      <p>{item.work}</p>
+                    </div>
                   );
                 })}
               </div>
