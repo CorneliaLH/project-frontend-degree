@@ -203,7 +203,13 @@
         text-align: left;
         font-size: $font-size-body;
       }
-      .credit-footer {
+      .container-credit-footer {
+        .credit-footer {
+          font-size: 18px;
+          color: #636a7e;
+          opacity: 0.6;
+          font-size: 0.9rem;
+        }
         .credit-photo-opera {
           padding-top: 10px;
           padding-bottom: 10px;
@@ -267,10 +273,6 @@
     article {
       width: 50%;
       padding-bottom: 25%;
-      .container-contact-photo {
-        .contact-footer {
-        }
-      }
     }
     .copyright {
       width: 100%;

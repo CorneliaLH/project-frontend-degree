@@ -334,9 +334,9 @@ export function Layout() {
         <div className='container-footer'>
           <article>
             <div className='container-contact-photo'>
-              <h4 className='contact-footer'>Contact information to agent</h4>
-              <div className='credit-footer'>
-                <h5 className='heading5'>Credit photos:</h5>
+              <p className='contact-footer'>Contact information to agent</p>
+              <div className='container-credit-footer'>
+                <p className='credit-footer'>Credit photos:</p>
                 <p className='credit-photo-opera'>
                   Photos by Marek Olbrzymek from <br></br>Peter Grimes / Národni
                   divadlo in Brno <br></br>
