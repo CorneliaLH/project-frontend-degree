@@ -342,7 +342,7 @@ export function Layout() {
                   divadlo in Brno <br></br>
                 </p>
                 <p className='credit-photo-portraits'>
-                  Portraint photos by Marie Wirenstedt
+                  Portrait photos by Marie Wirenstedt
                 </p>
               </div>
             </div>

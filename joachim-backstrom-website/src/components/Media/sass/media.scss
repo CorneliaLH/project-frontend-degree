@@ -1,10 +1,4 @@
 @import "../../../variables";
-// #image-logo-light {
-//   display: none;
-// }
-// #image-logo-dark {
-//   display: block;
-// }
 
 #header-desktop nav ul #listitem-logo {
   color: black;
@@ -120,6 +114,10 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
+      .audio-image-article {
+        width: 100%;
+        fill: $primary-background-color;
+      }
 
       h3 {
         padding-top: 20px;
@@ -149,11 +147,6 @@
   height: auto;
   border-radius: 10px;
   box-shadow: $box-shadow-standard;
-}
-
-.audio-image-article {
-  width: 100%;
-  fill: $primary-background-color;
 }
 
 .media-published-date {

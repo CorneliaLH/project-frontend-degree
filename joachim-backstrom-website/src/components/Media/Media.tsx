@@ -110,25 +110,25 @@ export function Media() {
 
   //Render all from Latest, Audio, Video and News when "Show more"-link is pressed
   function renderMore(valueFromSelect: string) {
-    if (valueFromSelect == "Latest") {
+    if (valueFromSelect === "Latest") {
       let service = new MediaService();
       service.getMediaAll().then((response) => {
         setMediaList(response);
         setShowMoreButton(false);
       });
-    } else if (valueFromSelect == "Video") {
+    } else if (valueFromSelect === "Video") {
       let service = new MediaService();
       service.getMediaVideoAll().then((response) => {
         setMediaList(response);
         setShowMoreButton(false);
       });
-    } else if (valueFromSelect == "Audio") {
+    } else if (valueFromSelect === "Audio") {
       let service = new MediaService();
       service.getMediaAudioAll().then((response) => {
         setMediaList(response);
         setShowMoreButton(false);
       });
-    } else if (valueFromSelect == "News") {
+    } else if (valueFromSelect === "News") {
       let service = new MediaService();
       service.getMediaNewsAll().then((response) => {
         setMediaList(response);
@@ -214,7 +214,6 @@ export function Media() {
         <section className='container-media'>
           <h2 className='heading2'>Media</h2>
           <div className='container-select'>
-            <label htmlFor='media-select'>Select different media</label>
             <select
               name='media-select'
               value={value}
@@ -229,7 +228,7 @@ export function Media() {
           </div>
           <section className='media-content'>{media}</section>
           {showMoreButton ? (
-            <a
+            <button
               className='button-link'
               onClick={() => {
                 renderMore(value);
@@ -239,7 +238,7 @@ export function Media() {
               {value === "News" && "Show all News"}
               {value === "Audio" && "Show all Audio"}
               {value === "Video" && "Show all Videos"}
-            </a>
+            </button>
           ) : (
             <></>
           )}
