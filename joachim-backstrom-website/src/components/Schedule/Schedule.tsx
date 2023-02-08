@@ -14,7 +14,7 @@ export function Schedule() {
   useEffect(() => {
     let service = new ScheduleService();
     service.getScheduleAll().then((response) => {
-      if (response.status == "error") {
+      if (response.status === "error") {
         console.log(response.message);
         return;
       }

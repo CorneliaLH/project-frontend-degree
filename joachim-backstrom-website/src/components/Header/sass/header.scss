@@ -173,3 +173,15 @@
 .burger-button.menu-open .hamburger::after {
   transform: rotate(-45deg) translate(35px, 35px) !important;
 }
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .nav-menu-link {
+    font-size: 2rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-menu-link {
+    font-size: 1.4rem;
+  }
+}

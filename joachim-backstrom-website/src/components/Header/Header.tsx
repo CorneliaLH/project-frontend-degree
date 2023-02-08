@@ -11,7 +11,15 @@ export function Header() {
   const [urlLogoLinks, setUrlLogoLinks] = useState<string>();
   const [backgroundColorBurger, setBackgroundColorBurger] = useState<object>();
   const location = useLocation();
-  const [locationCurrent, setLocationCurrent] = useState<object>();
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    handleResize();
+  }, []);
+
+  useEffect(() => {
+    handleLinks();
+  }, [location]);
 
   const handleResize = () => {
     if (window.innerWidth > 900) {
@@ -26,25 +34,12 @@ export function Header() {
       setColorNavLinks({ color: "white" });
       setUrlLogoLinks(logoImageLight);
       setBackgroundColorBurger({ backgroundColor: "black" });
-      console.log("yes");
     } else {
       setColorNavLinks({ color: "black" });
       setUrlLogoLinks(logoImageDark);
       setBackgroundColorBurger({ backgroundColor: "white" });
-      console.log("no");
     }
   };
-
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    handleResize();
-  }, []);
-
-  useEffect(() => {
-    console.log(location);
-    setLocationCurrent(location);
-    handleLinks();
-  }, [location]);
 
   return (
     <>

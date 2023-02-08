@@ -15,20 +15,8 @@ export function Admin() {
   const [changeSchedulePost, setChangeSchedulePost] = useState<boolean>(false);
   const [changeRepetoirePost, setChangeRepertoirePost] =
     useState<boolean>(false);
-  const [showAdminButtons, setShowAdminButtons] = useState<boolean>(true);
 
   const navigation = useNavigate();
-
-  //Remove header and footer
-  useEffect(() => {
-    let header = document.querySelector<HTMLElement>(".header-desktop");
-    let footer = document.querySelector<HTMLElement>(".container-footer");
-
-    if (header !== null && footer !== null) {
-      header.style.display = "none";
-      footer.style.display = "none";
-    }
-  }, []);
 
   //Check if user is logged in
   useEffect(() => {

@@ -3,8 +3,6 @@ import { IConcert } from "../../models/IConcert";
 import { IOpera } from "../../models/IOpera";
 import { RepertoireService } from "../../services/RepertoireService";
 import "./sass/repetoire.css";
-import imagedark from "../../images/logo-dark2.svg";
-import { time } from "console";
 
 export function Repetoire() {
   const [operaList, setOperaList] = useState<IOpera[]>([]);
@@ -14,7 +12,7 @@ export function Repetoire() {
   useEffect(() => {
     let service = new RepertoireService();
     service.getRepertoireOpera().then((response) => {
-      if (response.status == "error") {
+      if (response.status === "error") {
         console.log(response.message);
         return;
       }
@@ -26,7 +24,7 @@ export function Repetoire() {
   useEffect(() => {
     let service = new RepertoireService();
     service.getRepertoireConcert().then((response) => {
-      if (response.status == "error") {
+      if (response.status === "error") {
         console.log(response.message);
         return;
       }

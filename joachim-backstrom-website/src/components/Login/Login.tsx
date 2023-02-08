@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IUser } from "../../models/IUser";
 import { UserService } from "../../services/UserService";
@@ -10,24 +10,6 @@ export function Login() {
   });
 
   const navigation = useNavigate();
-
-  useEffect(() => {
-    let headerDesktop = document.querySelector<HTMLElement>(".header-desktop");
-    let headerTabletMobile = document.querySelector<HTMLElement>(
-      ".header-tablet-mobile"
-    );
-    let footer = document.querySelector<HTMLElement>(".container-footer");
-    if (headerDesktop !== null) {
-      headerDesktop.style.display = "none";
-    }
-    if (headerTabletMobile !== null) {
-      headerTabletMobile.style.display = "none";
-    }
-
-    if (footer !== null) {
-      footer.style.display = "none";
-    }
-  }, []);
 
   //Input values from inputfields
   function handleInputChangeLogin(e: ChangeEvent<HTMLInputElement>) {

@@ -1,34 +1,32 @@
+import { useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import { Footer } from "../Footer/Footer";
+
 import { Header } from "../Header/Header";
 import "./sass/layout.css";
 
 export function Layout() {
+  const [showHeaderFooter, setShowHeaderFooter] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    handleLinks();
+  }, [location]);
+
+  const handleLinks = () => {
+    if (location.pathname === "/login" || location.pathname === "/admin") {
+      setShowHeaderFooter(false);
+    } else {
+      setShowHeaderFooter(true);
+    }
+  };
   return (
     <>
-      <Header></Header>
+      {showHeaderFooter && <Header></Header>}
       <main className='main'>
         <Outlet></Outlet>
       </main>
-      <footer>
-        <div className='container-footer'>
-          <article>
-            <div className='container-contact-photo'>
-              <p className='contact-footer'>Contact information to agent</p>
-              <div className='container-credit-footer'>
-                <p className='credit-footer'>Credit photos:</p>
-                <p className='credit-photo-opera'>
-                  Photos by Marek Olbrzymek from <br></br>Peter Grimes / Národni
-                  divadlo in Brno <br></br>
-                </p>
-                <p className='credit-photo-portraits'>
-                  Portrait photos by Marie Wirenstedt
-                </p>
-              </div>
-            </div>
-          </article>
-          <p className='copyright'>Copyright 2023</p>
-        </div>
-      </footer>
+      {showHeaderFooter && <Footer></Footer>}
     </>
   );
 }
