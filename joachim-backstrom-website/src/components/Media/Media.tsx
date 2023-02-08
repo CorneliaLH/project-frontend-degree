@@ -180,6 +180,7 @@ export function Media() {
               src={item.media_url}
               title='YouTube video player'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+              allowFullScreen
               className='frame-video'
             ></iframe>
             <p className='media-published-date'>Published: {item.date_pub}</p>

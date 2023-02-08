@@ -98,7 +98,7 @@
   align-items: center;
   .container-media-item {
     box-sizing: border-box;
-    width: 45%;
+    width: 35%;
     padding: 20px;
     min-height: 60vh;
     height: fit-content;
@@ -126,6 +126,7 @@
       }
       p {
         margin-bottom: 10px;
+        text-align: center;
       }
       .primary-button {
         padding-top: 10px;
@@ -139,7 +140,7 @@
   width: 100%;
   border-radius: 10px;
   box-shadow: $box-shadow-standard;
-  height: auto;
+  height: 30vh;
 }
 
 .image-news-article {
