@@ -22,6 +22,10 @@ export function ChangeSchedule() {
   useEffect(() => {
     let service = new ScheduleService();
     service.getScheduleTotal().then((response) => {
+      if (response.status == "error") {
+        console.log(response.message);
+        return;
+      }
       setScheduleList(response);
     });
   }, [updateList]);
@@ -58,6 +62,11 @@ export function ChangeSchedule() {
             onClick={() => {
               let service = new ScheduleService();
               service.deleteSchedule(scheduleitem._id).then((response) => {
+                if (response.status == "error") {
+                  console.log(response.message);
+                  return;
+                }
+
                 if (response.acknowledged === true) {
                   alert("Item deleted");
                   if (updateList === true) {
@@ -179,6 +188,10 @@ export function ChangeSchedule() {
                           .changeSchedule(scheduleValues)
                           .then((response) => {
                             console.log(response);
+                            if (response.status == "error") {
+                              console.log(response.message);
+                              return;
+                            }
                             if (response.acknowledged === true) {
                               alert("The post has been changed");
                               setChangeInput(false);

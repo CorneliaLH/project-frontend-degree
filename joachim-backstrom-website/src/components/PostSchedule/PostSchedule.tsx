@@ -308,7 +308,10 @@ export function PostSchedule() {
                             .postSchedule(scheduleOperaValues)
                             .then((response) => {
                               console.log(response);
-                              console.log(scheduleOperaValues);
+                              if (response.status == "error") {
+                                console.log(response.message);
+                                return;
+                              }
                               if (response.acknowledged === true) {
                                 if (
                                   scheduleOperaValues.display_repetoire ===
@@ -351,6 +354,10 @@ export function PostSchedule() {
                             .postSchedule(scheduleConcertValues)
                             .then((response) => {
                               console.log(response);
+                              if (response.status == "error") {
+                                console.log(response.message);
+                                return;
+                              }
                               if (response.acknowledged === true) {
                                 if (
                                   scheduleConcertValues.display_repetoire ===

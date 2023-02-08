@@ -51,6 +51,10 @@ export function Repetoire() {
   useEffect(() => {
     let service = new RepertoireService();
     service.getRepertoireOpera().then((response) => {
+      if (response.status == "error") {
+        console.log(response.message);
+        return;
+      }
       setOperaList(response);
     });
   }, []);
@@ -59,6 +63,10 @@ export function Repetoire() {
   useEffect(() => {
     let service = new RepertoireService();
     service.getRepertoireConcert().then((response) => {
+      if (response.status == "error") {
+        console.log(response.message);
+        return;
+      }
       setConcertList(response);
     });
   }, []);

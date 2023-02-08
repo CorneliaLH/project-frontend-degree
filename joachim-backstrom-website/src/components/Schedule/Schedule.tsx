@@ -53,6 +53,10 @@ export function Schedule() {
   useEffect(() => {
     let service = new ScheduleService();
     service.getScheduleAll().then((response) => {
+      if (response.status == "error") {
+        console.log(response.message);
+        return;
+      }
       setScheduleList(response);
       if (response.length > 3) {
         const slicedArray = response.slice(0, 3);

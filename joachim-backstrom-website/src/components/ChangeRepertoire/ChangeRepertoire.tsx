@@ -33,11 +33,19 @@ export function ChangeRepertoire() {
     let service1 = new RepertoireService();
     service1.getRepertoireOperaAll().then((response) => {
       console.log(response);
+      if (response.status == "error") {
+        console.log(response.message);
+        return;
+      }
       setOperaList(response);
     });
     let service2 = new RepertoireService();
     service2.getRepertoireConcertAll().then((response) => {
       console.log(response);
+      if (response.status == "error") {
+        console.log(response.message);
+        return;
+      }
       setConcertList(response);
     });
   }, [updateList, changeInputConcert, changeInputOpera]);
@@ -95,6 +103,11 @@ export function ChangeRepertoire() {
                 service
                   .deleteRepertoireOpera(operaitem._id)
                   .then((response) => {
+                    if (response.status == "error") {
+                      console.log(response.message);
+                      alert("Something went wrong, try again");
+                      return;
+                    }
                     if (response.acknowledged === true) {
                       alert("Item deleted");
                       if (updateList === true) {
@@ -169,6 +182,11 @@ export function ChangeRepertoire() {
                 service
                   .deleteRepertoireConcert(concertitem._id)
                   .then((response) => {
+                    if (response.status == "error") {
+                      alert("Something went wrong, try again");
+                      console.log(response.message);
+                      return;
+                    }
                     if (response.acknowledged === true) {
                       alert("Item deleted");
                       if (updateList === true) {
