@@ -393,6 +393,7 @@ export function PostMedia() {
                 let service = new MediaService();
                 service.postMedia(mediaValues).then((response) => {
                   console.log(response);
+
                   if (response.acknowledged === true) {
                     alert("You created a new media post");
                     setMediaValues({
@@ -412,6 +413,7 @@ export function PostMedia() {
             </button>
           </form>
         </div>
+        {/* Preview post media  */}
         <div className='container-media-result'>
           <h3>Post preview</h3>
           <div className='media-result-text'>

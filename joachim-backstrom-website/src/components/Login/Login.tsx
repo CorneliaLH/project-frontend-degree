@@ -38,7 +38,7 @@ export function Login() {
   function submitLogIn() {
     let service = new UserService();
     service.postLogIn(logInValues).then((response) => {
-      if (response.status === "ok") {
+      if (response?.status === "ok") {
         sessionStorage.setItem("userId", response.message);
         navigation("/admin");
       } else {
@@ -59,7 +59,7 @@ export function Login() {
           <form className='form-login'>
             <input
               type='text'
-              placeholder='Användarnamn'
+              placeholder=' Användarnamn'
               id='user-login'
               name='userName'
               value={logInValues.userName}
@@ -67,7 +67,7 @@ export function Login() {
             />
             <input
               type='password'
-              placeholder='Lösenord '
+              placeholder=' Lösenord '
               id='password-login'
               name='password'
               value={logInValues.password}

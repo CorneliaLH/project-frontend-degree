@@ -20,6 +20,10 @@ export function ChangeMedia() {
   useEffect(() => {
     let service = new MediaService();
     service.getMediaAll().then((response) => {
+      if (response.status == "error") {
+        console.log(response.message);
+        return;
+      }
       setMediaList(response);
     });
   }, [updateList, changeInput]);
@@ -52,6 +56,11 @@ export function ChangeMedia() {
             onClick={() => {
               let service = new MediaService();
               service.deleteMedia(mediaitem._id).then((response) => {
+                if (response.status == "error") {
+                  console.log(response.message);
+                  return;
+                }
+
                 if (response.acknowledged === true) {
                   alert("Item deleted");
                   if (updateList === true) {
@@ -59,7 +68,8 @@ export function ChangeMedia() {
                   } else {
                     setUpdateList(true);
                   }
-                  console.log(response);
+                } else {
+                  alert(response.message);
                 }
               });
             }}
@@ -165,6 +175,10 @@ export function ChangeMedia() {
                         let service = new MediaService();
                         service.changeMedia(mediaValues).then((response) => {
                           console.log(response);
+                          if (response.status == "error") {
+                            console.log(response.message);
+                            return;
+                          }
                           if (response.acknowledged === true) {
                             alert("The post has been changed");
                             setChangeInput(false);

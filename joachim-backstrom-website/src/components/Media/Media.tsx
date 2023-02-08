@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { IMedia } from "../../models/IMedia";
 import { MediaService } from "../../services/MediaService";
 import newsimage0 from "../../images/news0.jpg";
@@ -68,6 +68,10 @@ export function Media() {
     if (value === "Latest") {
       let service = new MediaService();
       service.getMedia().then((response) => {
+        if (response.status == "error") {
+          console.log(response.message);
+          return;
+        }
         setMediaList(response);
         if (response.length >= 4) {
           setShowMoreButton(true);
@@ -78,6 +82,10 @@ export function Media() {
     } else if (value === "Video") {
       let service = new MediaService();
       service.getMediaVideo().then((response) => {
+        if (response.status == "error") {
+          console.log(response.message);
+          return;
+        }
         setMediaList(response);
         if (response.length >= 4) {
           setShowMoreButton(true);
@@ -88,6 +96,10 @@ export function Media() {
     } else if (value === "Audio") {
       let service = new MediaService();
       service.getMediaAudio().then((response) => {
+        if (response.status == "error") {
+          console.log(response.message);
+          return;
+        }
         setMediaList(response);
         if (response.length >= 4) {
           setShowMoreButton(true);
@@ -98,6 +110,10 @@ export function Media() {
     } else if (value === "News") {
       let service = new MediaService();
       service.getMediaNews().then((response) => {
+        if (response.status == "error") {
+          console.log(response.message);
+          return;
+        }
         setMediaList(response);
         if (response.length >= 4) {
           setShowMoreButton(true);
@@ -113,24 +129,40 @@ export function Media() {
     if (valueFromSelect === "Latest") {
       let service = new MediaService();
       service.getMediaAll().then((response) => {
+        if (response.status == "error") {
+          console.log(response.message);
+          return;
+        }
         setMediaList(response);
         setShowMoreButton(false);
       });
     } else if (valueFromSelect === "Video") {
       let service = new MediaService();
       service.getMediaVideoAll().then((response) => {
+        if (response.status == "error") {
+          console.log(response.message);
+          return;
+        }
         setMediaList(response);
         setShowMoreButton(false);
       });
     } else if (valueFromSelect === "Audio") {
       let service = new MediaService();
       service.getMediaAudioAll().then((response) => {
+        if (response.status == "error") {
+          console.log(response.message);
+          return;
+        }
         setMediaList(response);
         setShowMoreButton(false);
       });
     } else if (valueFromSelect === "News") {
       let service = new MediaService();
       service.getMediaNewsAll().then((response) => {
+        if (response.status == "error") {
+          console.log(response.message);
+          return;
+        }
         setMediaList(response);
         setShowMoreButton(false);
       });

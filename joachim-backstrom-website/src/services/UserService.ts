@@ -8,7 +8,7 @@ export class UserService {
 
   async postLogIn(userInfo: IUser) {
     try {
-      let response = await axios.post<any>(
+      let response = await axios.post(
         process.env.REACT_APP_BACKEND_URL + "users/login",
 
         userInfo,

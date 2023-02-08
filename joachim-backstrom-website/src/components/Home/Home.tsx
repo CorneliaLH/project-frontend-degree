@@ -49,6 +49,10 @@ export function Home() {
   useEffect(() => {
     let service = new ScheduleService();
     service.getSchedule().then((response) => {
+      if (response.status == "error") {
+        console.log(response.message);
+        return;
+      }
       setScheduleList(response);
     });
   }, []);
@@ -57,6 +61,10 @@ export function Home() {
   useEffect(() => {
     let service = new MediaService();
     service.getMediaNews().then((response) => {
+      if (response.status == "error") {
+        console.log(response.message);
+        return;
+      }
       if (response.length > 3) {
         let newArray = response.slice(0, -1);
         setMediaList(newArray);
