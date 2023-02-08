@@ -3,46 +3,6 @@ import "./sass/biography.css";
 import imagedark from "../../images/logo-dark2.svg";
 
 export function Biography() {
-  //Changes color navigation
-  useEffect(() => {
-    let navlinks = document.querySelectorAll<HTMLElement>(".nav-menu-link");
-    let iconLight = document.querySelector<HTMLElement>("#image-logo-light");
-    let iconDark = document.querySelector<HTMLElement>("#image-logo-dark");
-    let iconLightMobile = document.querySelector<HTMLElement>(
-      "#image-logo-light-mobile"
-    );
-    let iconDarkMobile = document.querySelector<HTMLElement>(
-      "#image-logo-dark-mobile"
-    );
-    let hamburgerBackground =
-      document.querySelector<HTMLElement>(".burger-button");
-    if (hamburgerBackground != null) {
-      hamburgerBackground.style.backgroundColor = "#ffffff";
-    }
-    if (window.innerWidth > 600 && window.innerWidth < 900) {
-      for (let i = 0; i < navlinks.length; i++) {
-        navlinks[i].style.color = "white";
-      }
-    } else if (window.innerWidth < 600) {
-      for (let i = 0; i < navlinks.length; i++) {
-        navlinks[i].style.color = "white";
-      }
-    } else {
-      for (let i = 0; i < navlinks.length; i++) {
-        navlinks[i].style.color = "black";
-      }
-    }
-
-    if (iconLight != null && iconDark != null) {
-      iconLight.style.display = "none";
-      iconDark.style.display = "block";
-    }
-
-    if (iconLightMobile != null && iconDarkMobile != null) {
-      iconLightMobile.style.display = "none";
-      iconDarkMobile.style.display = "block";
-    }
-  }, []);
   return (
     <>
       <div className='bio-container-page'>

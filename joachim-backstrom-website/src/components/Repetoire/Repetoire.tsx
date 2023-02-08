@@ -10,43 +10,6 @@ export function Repetoire() {
   const [operaList, setOperaList] = useState<IOpera[]>([]);
   const [concertList, setConcertList] = useState<IConcert[]>([]);
 
-  //Change navigation link color
-  useEffect(() => {
-    let navlinks = document.querySelectorAll<HTMLElement>(".nav-menu-link");
-    let iconLight = document.querySelector<any>("#image-logo-light");
-    let iconDark = document.querySelector<any>("#image-logo-dark");
-    let iconLightMobile = document.querySelector<any>(
-      "#image-logo-light-mobile"
-    );
-    let iconDarkMobile = document.querySelector<any>("#image-logo-dark-mobile");
-    let hamburgerBackground = document.querySelector<any>(".burger-button");
-    hamburgerBackground.style.backgroundColor = "#ffffff";
-
-    if (window.innerWidth > 600 && window.innerWidth < 900) {
-      for (let i = 0; i < navlinks.length; i++) {
-        navlinks[i].style.color = "white";
-      }
-    } else if (window.innerWidth < 600) {
-      for (let i = 0; i < navlinks.length; i++) {
-        navlinks[i].style.color = "white";
-      }
-    } else {
-      for (let i = 0; i < navlinks.length; i++) {
-        navlinks[i].style.color = "black";
-      }
-    }
-    // console.log(icon);
-    if (iconLight != null && iconDark != null) {
-      iconLight.style.display = "none";
-      iconDark.style.display = "block";
-    }
-
-    if (iconLightMobile != null && iconDarkMobile != null) {
-      iconLightMobile.style.display = "none";
-      iconDarkMobile.style.display = "block";
-    }
-  }, []);
-
   //Get Opera-list
   useEffect(() => {
     let service = new RepertoireService();

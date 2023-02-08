@@ -15,7 +15,7 @@ import { Media } from "./components/Media/Media";
 import { Schedule } from "./components/Schedule/Schedule";
 import { Contact } from "./components/Contact/Contact";
 import { NotFound } from "./components/NotFound/NotFound";
-
+import { useLocation } from "react-router-dom";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );

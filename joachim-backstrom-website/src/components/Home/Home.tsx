@@ -17,36 +17,6 @@ export function Home() {
   const navigation = useNavigate();
 
   useEffect(() => {
-    let navlinks = document.querySelectorAll<HTMLElement>(".nav-menu-link");
-    let iconLight = document.querySelector<HTMLElement>("#image-logo-light");
-    let iconDark = document.querySelector<HTMLElement>("#image-logo-dark");
-    let iconLightMobile = document.querySelector<HTMLElement>(
-      "#image-logo-light-mobile"
-    );
-    let iconDarkMobile = document.querySelector<HTMLElement>(
-      "#image-logo-dark-mobile"
-    );
-    let hamburgerBackground =
-      document.querySelector<HTMLElement>(".burger-button");
-    if (hamburgerBackground != null) {
-      hamburgerBackground.style.backgroundColor = "#000000";
-    }
-    for (let i = 0; i < navlinks.length; i++) {
-      navlinks[i].style.color = "#ffffff";
-    }
-
-    if (iconLight != null && iconDark != null) {
-      iconLight.style.display = "block";
-      iconDark.style.display = "none";
-    }
-
-    if (iconLightMobile != null && iconDarkMobile != null) {
-      iconLightMobile.style.display = "block";
-      iconDarkMobile.style.display = "none";
-    }
-  }, []);
-
-  useEffect(() => {
     let service = new ScheduleService();
     service.getSchedule().then((response) => {
       if (response.status == "error") {
