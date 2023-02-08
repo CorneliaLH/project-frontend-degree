@@ -54,7 +54,7 @@ export function Login() {
   return (
     <>
       <div className='container-login'>
-        <div className='container-login'>
+        <div className='container-login-card'>
           <h2 className='heading-login'>Var vänlig logga in nedan:</h2>
           <form className='form-login'>
             <input

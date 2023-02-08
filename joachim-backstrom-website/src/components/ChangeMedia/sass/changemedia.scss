@@ -91,3 +91,28 @@ h3 {
   width: 100%;
   text-align: center;
 }
+
+@media (max-width: 600px) {
+  .container-change-media {
+    .container-change-media-posts {
+      width: 99%;
+      flex-direction: column-reverse;
+      div {
+        width: 100%;
+      }
+    }
+    ul {
+      width: 99%;
+      .change-input-fields {
+        #admin-media-form {
+          div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+          }
+        }
+      }
+    }
+  }
+}

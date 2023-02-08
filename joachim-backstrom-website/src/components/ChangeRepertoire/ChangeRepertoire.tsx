@@ -99,6 +99,7 @@ export function ChangeRepertoire() {
             <button
               className='primary-button'
               onClick={() => {
+                setChangeInputOpera(false);
                 let service = new RepertoireService();
                 service
                   .deleteRepertoireOpera(operaitem._id)
@@ -178,6 +179,7 @@ export function ChangeRepertoire() {
             <button
               className='primary-button'
               onClick={() => {
+                setChangeInputConcert(false);
                 let service = new RepertoireService();
                 service
                   .deleteRepertoireConcert(concertitem._id)
@@ -225,7 +227,7 @@ export function ChangeRepertoire() {
     <>
       <div className='container-change-repertoire'>
         <h2>All Opera posts</h2>
-        <div className='container-change-media-posts'>
+        <div className='container-change-repertoire-posts'>
           <div>
             <h3>Opera list in database</h3>
             {operaArray}
@@ -234,8 +236,8 @@ export function ChangeRepertoire() {
             <ul>
               <h3>Post to change:</h3>
               <li className='change-input-fields'>
-                <form action='form-change'>
-                  <div>
+                <form action='form-change' id='admin-repertoire-form'>
+                  <div className='repertoire-form-input'>
                     <label htmlFor='opera'>Opera:</label>
                     <input
                       name='opera'
@@ -244,7 +246,7 @@ export function ChangeRepertoire() {
                       onChange={handleInputMediaPostOpera}
                     />
                   </div>
-                  <div>
+                  <div className='repertoire-form-input'>
                     <label htmlFor='role'>Role:</label>
                     <input
                       name='role'
@@ -253,7 +255,7 @@ export function ChangeRepertoire() {
                     />
                   </div>
 
-                  <div>
+                  <div className='repertoire-form-input'>
                     <label htmlFor='composer'>Composer: </label>
                     <input
                       name='composer'
@@ -262,7 +264,7 @@ export function ChangeRepertoire() {
                     />
                   </div>
 
-                  <div>
+                  <div className='repertoire-form-input'>
                     <label htmlFor='date_publish'>Date to publish:</label>
                     <input
                       name='date_publish'
@@ -272,7 +274,7 @@ export function ChangeRepertoire() {
                     />
                   </div>
 
-                  <div>
+                  <div className='repertoire-form-input'>
                     <label htmlFor='display_repetoire'>
                       Display under repertoire:
                     </label>

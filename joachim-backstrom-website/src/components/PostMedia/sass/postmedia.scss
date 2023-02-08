@@ -49,7 +49,8 @@
   .container-media-result {
     flex-basis: 60%;
     border-left: 2px solid $primary-background-color;
-    height: 50vh;
+    min-height: 50vh;
+    height: fit-content;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -137,5 +138,19 @@
   justify-content: flex-start;
   align-items: center;
   .secondary-button {
+  }
+}
+
+@media (max-width: 600px) {
+  .container-media-post {
+    flex-direction: column;
+    padding-left: 0;
+    .container-media-input-fields {
+      width: 90%;
+    }
+    .container-media-result {
+      width: 90%;
+      border-left: none;
+    }
   }
 }

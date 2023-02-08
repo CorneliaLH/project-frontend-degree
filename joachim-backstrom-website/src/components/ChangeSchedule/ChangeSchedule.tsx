@@ -60,6 +60,7 @@ export function ChangeSchedule() {
           <button
             className='primary-button'
             onClick={() => {
+              setChangeInput(false);
               let service = new ScheduleService();
               service.deleteSchedule(scheduleitem._id).then((response) => {
                 if (response.status == "error") {
@@ -104,9 +105,9 @@ export function ChangeSchedule() {
   });
   return (
     <>
-      <div className='container-change-media'>
+      <div className='container-change-schedule'>
         <h2>All schedule posts</h2>
-        <div className='container-change-media-posts'>
+        <div className='container-change-schedule-posts'>
           <div>
             <h3>Schedule list in database</h3>
             {scheduleArray}
@@ -115,8 +116,8 @@ export function ChangeSchedule() {
             <ul>
               <h3>Post to change:</h3>
               <li className='change-input-fields'>
-                <form action='form-change'>
-                  <div>
+                <form action='form-change' id='admin-schedule-form'>
+                  <div className='schedule-form-input'>
                     <label htmlFor='title'>Title:</label>
                     <input
                       name='title'
@@ -126,7 +127,7 @@ export function ChangeSchedule() {
                       onChange={handleInputMediaPost}
                     />
                   </div>
-                  <div>
+                  <div className='schedule-form-input'>
                     <label htmlFor='when'>When:</label>
                     <input
                       name='when'
@@ -136,7 +137,7 @@ export function ChangeSchedule() {
                     />
                   </div>
 
-                  <div>
+                  <div className='schedule-form-input'>
                     <label htmlFor='type'>Where: </label>
                     <input
                       name='where'
@@ -146,7 +147,7 @@ export function ChangeSchedule() {
                     />
                   </div>
 
-                  <div>
+                  <div className='schedule-form-input'>
                     <label htmlFor='image_url'>Media URL:</label>
                     <input
                       name='image_url'
@@ -156,7 +157,7 @@ export function ChangeSchedule() {
                     />
                   </div>
 
-                  <div>
+                  <div className='schedule-form-input'>
                     <label htmlFor='conductor'>Conductor:</label>
                     <input
                       name='conductor'
@@ -166,7 +167,7 @@ export function ChangeSchedule() {
                     />
                   </div>
 
-                  <div>
+                  <div className='schedule-form-input'>
                     <label htmlFor='date'>Will be removed:</label>
                     <input
                       id='date_remove'

@@ -14,6 +14,7 @@ import { Repetoire } from "./components/Repetoire/Repetoire";
 import { Media } from "./components/Media/Media";
 import { Schedule } from "./components/Schedule/Schedule";
 import { Contact } from "./components/Contact/Contact";
+import { NotFound } from "./components/NotFound/NotFound";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -32,6 +33,7 @@ root.render(
           <Route path='/Media' element={<Media />}></Route>
           <Route path='/Schedule' element={<Schedule />}></Route>
           <Route path='/Contact' element={<Contact />}></Route>
+          <Route path='*' element={<NotFound />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

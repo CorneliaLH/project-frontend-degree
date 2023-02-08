@@ -6,19 +6,14 @@
   justify-content: center;
   align-items: center;
   background-color: $secondary-background-color;
-  .container-login {
-    width: 30vw;
+  .container-login-card {
+    width: 40%;
     background-color: white;
     margin: 20px;
     padding: 20px;
     height: fit-content;
     box-shadow: $box-shadow-standard;
     border-radius: 10px;
-  }
-
-  .container-new-user {
-    width: 30vw;
-    background-color: indigo;
   }
 
   .heading-login {
@@ -47,5 +42,13 @@
 
   p {
     color: white;
+  }
+}
+
+@media (max-width: 600px) {
+  .container-login {
+    .container-login-card {
+      width: 80%;
+    }
   }
 }

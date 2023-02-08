@@ -1,0 +1,54 @@
+.container-notfound-page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(99, 106, 126, 1) 54%,
+    rgba(99, 106, 126, 1) 100%
+  );
+  .container-notfound-card {
+    width: 30%;
+    height: 40%;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.688);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+    h2 {
+      color: #793c43;
+      font-size: 2rem;
+      text-align: center;
+    }
+    p {
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    .notfound-link {
+      font-size: 1.5rem;
+      color: black;
+    }
+  }
+}
+@media (min-width: 600px) and (max-width: 900px) {
+  .container-notfound-page {
+    .container-notfound-card {
+      width: 70%;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .container-notfound-page {
+    .container-notfound-card {
+      width: 90%;
+    }
+  }
+}

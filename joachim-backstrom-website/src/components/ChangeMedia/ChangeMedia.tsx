@@ -54,6 +54,7 @@ export function ChangeMedia() {
           <button
             className='primary-button'
             onClick={() => {
+              setChangeInput(false);
               let service = new MediaService();
               service.deleteMedia(mediaitem._id).then((response) => {
                 if (response.status == "error") {
@@ -109,7 +110,7 @@ export function ChangeMedia() {
             <ul>
               <h3>Post to change:</h3>
               <li className='change-input-fields'>
-                <form action='form-change'>
+                <form action='form-change' id='admin-media-form'>
                   <div>
                     <label htmlFor='title'>Title:</label>
                     <input

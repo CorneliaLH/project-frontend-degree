@@ -87,3 +87,35 @@
   .secondary-button {
   }
 }
+
+@media (max-width: 600px) {
+  .container-schedule-post {
+    padding-left: 0;
+    h2 {
+      text-align: center;
+    }
+    .container-schedule {
+      width: 90%;
+      flex-direction: column;
+      align-items: center;
+      .container-schedule-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        select {
+          width: 100%;
+        }
+      }
+
+      .container-schedule-preview {
+        width: 95%;
+        border: none;
+
+        .container-post-preview {
+          padding: 5px;
+        }
+      }
+    }
+  }
+}
