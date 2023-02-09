@@ -23,7 +23,7 @@ export function Footer() {
     <>
       <footer>
         <div className='container-footer'>
-          <article>
+          <div>
             <div className='container-contact-photo'>
               <p className='contact-footer'>Contact information to agent</p>
               <div className='container-credit-footer'>
@@ -39,7 +39,7 @@ export function Footer() {
                 </p>
               </div>
             </div>
-          </article>
+          </div>
           <p className='copyright'>Copyright 2023</p>
         </div>
       </footer>

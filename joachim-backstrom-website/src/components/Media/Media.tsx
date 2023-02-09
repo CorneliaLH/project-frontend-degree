@@ -219,7 +219,7 @@ export function Media() {
               <option value='Video'>Video</option>
             </select>
           </div>
-          <section className='media-content'>{media}</section>
+          <div className='media-content'>{media}</div>
           {showMoreButton ? (
             <button
               className='button-link'

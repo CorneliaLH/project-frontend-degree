@@ -83,9 +83,6 @@ export function Home() {
         href={item.media_url}
         id={item._id}
       >
-        <label htmlFor={item._id} className='visually-hidden'>
-          Newsitem
-        </label>
         <article className='media-item'>
           <img
             className='image-news-article'
