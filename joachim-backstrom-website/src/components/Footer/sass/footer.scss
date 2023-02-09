@@ -16,7 +16,7 @@
   justify-content: flex-end;
   align-items: center;
 
-  article {
+  .container-footer-contact {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -60,7 +60,7 @@
 @media (min-width: 600px) and (max-width: 900px) {
   .container-footer {
     align-items: flex-start;
-    article {
+    .container-footer-contact {
       width: 50%;
       padding-bottom: 25%;
       .container-contact-photo {
@@ -79,7 +79,7 @@
 @media (max-width: 600px) {
   .container-footer {
     align-items: flex-start;
-    article {
+    .container-footer-contact {
       width: 50%;
       padding-bottom: 25%;
     }

@@ -23,7 +23,7 @@ export function Footer() {
     <>
       <footer>
         <div className='container-footer'>
-          <div>
+          <div className='container-footer-contact'>
             <div className='container-contact-photo'>
               <p className='contact-footer'>Contact information to agent</p>
               <div className='container-credit-footer'>
