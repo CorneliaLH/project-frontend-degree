@@ -1,4 +1,5 @@
 import axios from "axios";
+import { URLTOUSE } from "..";
 
 export class RepertoireService {
   ////////////////////////
@@ -8,9 +9,7 @@ export class RepertoireService {
   //Get all Opera rep that should be displayed
   async getRepertoireOpera() {
     try {
-      let response = await axios.get<any>(
-        process.env.REACT_APP_BACKEND_URL + "repertoire/opera"
-      );
+      let response = await axios.get<any>(URLTOUSE + "repertoire/opera");
       return response.data;
     } catch (error) {
       console.log(error);
@@ -20,9 +19,7 @@ export class RepertoireService {
   //Get all Opera rep posts (also the ones not displayed)
   async getRepertoireOperaAll() {
     try {
-      let response = await axios.get<any>(
-        process.env.REACT_APP_BACKEND_URL + "repertoire/opera/all"
-      );
+      let response = await axios.get<any>(URLTOUSE + "repertoire/opera/all");
       return response.data;
     } catch (error) {
       console.log(error);
@@ -36,9 +33,7 @@ export class RepertoireService {
   //Get all Opera rep that should be displayed
   async getRepertoireConcert() {
     try {
-      let response = await axios.get<any>(
-        process.env.REACT_APP_BACKEND_URL + "repertoire/concert"
-      );
+      let response = await axios.get<any>(URLTOUSE + "repertoire/concert");
       return response.data;
     } catch (error) {
       console.log(error);
@@ -48,9 +43,7 @@ export class RepertoireService {
   //Get all Concert rep posts (also the ones not displayed)
   async getRepertoireConcertAll() {
     try {
-      let response = await axios.get<any>(
-        process.env.REACT_APP_BACKEND_URL + "repertoire/concert/all"
-      );
+      let response = await axios.get<any>(URLTOUSE + "repertoire/concert/all");
       return response.data;
     } catch (error) {
       console.log(error);
@@ -66,7 +59,7 @@ export class RepertoireService {
     try {
       console.log(operaId);
       let response = await axios.post<any>(
-        process.env.REACT_APP_BACKEND_URL + "repertoire/opera/delete",
+        URLTOUSE + "repertoire/opera/delete",
         { _id: operaId },
         { headers: { "Content-Type": "application/json" } }
       );
@@ -80,7 +73,7 @@ export class RepertoireService {
   async deleteRepertoireConcert(concertId: string) {
     try {
       let response = await axios.post<any>(
-        process.env.REACT_APP_BACKEND_URL + "repertoire/concert/delete",
+        URLTOUSE + "repertoire/concert/delete",
         { _id: concertId },
         { headers: { "Content-Type": "application/json" } }
       );
@@ -98,7 +91,7 @@ export class RepertoireService {
   async changeOpera(operapost: any) {
     try {
       let response = await axios.post<any>(
-        process.env.REACT_APP_BACKEND_URL + "repertoire/opera/change",
+        URLTOUSE + "repertoire/opera/change",
         { operapost },
         { headers: { "Content-Type": "application/json" } }
       );
@@ -113,7 +106,7 @@ export class RepertoireService {
     try {
       console.log(concertpost);
       let response = await axios.post<any>(
-        process.env.REACT_APP_BACKEND_URL + "repertoire/concert/change",
+        URLTOUSE + "repertoire/concert/change",
         { concertpost },
         { headers: { "Content-Type": "application/json" } }
       );

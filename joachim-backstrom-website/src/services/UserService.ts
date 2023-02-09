@@ -1,4 +1,5 @@
 import axios from "axios";
+import { URLTOUSE } from "..";
 import { IUser } from "../models/IUser";
 
 export class UserService {
@@ -9,7 +10,7 @@ export class UserService {
   async postLogIn(userInfo: IUser) {
     try {
       let response = await axios.post(
-        process.env.REACT_APP_BACKEND_URL + "users/login",
+        URLTOUSE + "users/login",
 
         userInfo,
 

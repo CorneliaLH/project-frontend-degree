@@ -1,12 +1,8 @@
 import axios from "axios";
+import { URLTOUSE } from "..";
 // import { URLTOUSE } from "..";
 import { IScheduleConcert } from "../models/IScheduleConcert";
 import { IScheduleOpera } from "../models/IScheduleOpera";
-
-export const URLTOUSE: any =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:3001/"
-    : process.env.REACT_APP_BACKEND_URL;
 
 export class ScheduleService {
   ////////////////////////
@@ -38,9 +34,7 @@ export class ScheduleService {
   //Get all past/future schedule posts
   async getScheduleTotal() {
     try {
-      let response = await axios.get(
-        process.env.REACT_APP_BACKEND_URL + "schedule/total"
-      );
+      let response = await axios.get(URLTOUSE + "schedule/total");
       return response.data;
     } catch (error) {
       console.log(error);
@@ -55,7 +49,7 @@ export class ScheduleService {
   async postSchedule(schedulePost: IScheduleOpera | IScheduleConcert) {
     try {
       let response = await axios.post(
-        process.env.REACT_APP_BACKEND_URL + "schedule/add",
+        URLTOUSE + "schedule/add",
         schedulePost,
 
         { headers: { "Content-Type": "application/json" } }
@@ -73,7 +67,7 @@ export class ScheduleService {
   async deleteSchedule(scheduleId: string) {
     try {
       let response = await axios.post(
-        process.env.REACT_APP_BACKEND_URL + "schedule/delete",
+        URLTOUSE + "schedule/delete",
         { _id: scheduleId },
         { headers: { "Content-Type": "application/json" } }
       );
@@ -90,7 +84,7 @@ export class ScheduleService {
   async changeSchedule(schedule: any) {
     try {
       let response = await axios.post(
-        process.env.REACT_APP_BACKEND_URL + "schedule/change",
+        URLTOUSE + "schedule/change",
         { schedule },
         { headers: { "Content-Type": "application/json" } }
       );
