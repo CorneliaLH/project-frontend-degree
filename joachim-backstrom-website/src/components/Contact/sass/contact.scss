@@ -104,3 +104,12 @@
     display: block;
   }
 }
+
+@media (max-width: 900px) and (max-height: 500px) {
+  .container-contact {
+    .contact-card {
+      height: 40vh;
+      margin-bottom: 20px;
+    }
+  }
+}

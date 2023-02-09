@@ -4,7 +4,8 @@
   position: relative;
   bottom: 0;
   left: 0;
-  height: 50vh;
+  min-height: 50vh;
+  height: fit-content;
   width: 100%;
   background-image: url(../../../images/Joachim-footer-image1.webp);
   background-position: center;
@@ -85,6 +86,21 @@
     .copyright {
       width: 100%;
       text-align: center;
+    }
+  }
+}
+
+@media (max-width: 900px) and (max-height: 500px) {
+  .container-footer {
+    padding-bottom: none;
+    article {
+      padding-bottom: none;
+      .container-contact-photo {
+        padding-top: 5%;
+        .contact-footer {
+          padding-bottom: 20px;
+        }
+      }
     }
   }
 }
