@@ -1,6 +1,5 @@
 import axios from "axios";
 import { URLTOUSE } from "..";
-// import { URLTOUSE } from "..";
 import { IScheduleConcert } from "../models/IScheduleConcert";
 import { IScheduleOpera } from "../models/IScheduleOpera";
 
@@ -21,8 +20,6 @@ export class ScheduleService {
 
   //Get all future schedule posts
   async getScheduleAll() {
-    console.log(process.env.REACT_APP_BACKEND_URL);
-    console.log(URLTOUSE);
     try {
       let response = await axios.get(URLTOUSE + "schedule/all");
       return response.data;

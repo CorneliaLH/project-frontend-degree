@@ -22,8 +22,10 @@ export function Schedule() {
       if (response.length > 3) {
         const slicedArray = response.slice(0, 3);
         setRenderedList(slicedArray);
+        setShowMoreButton(true);
       } else {
         setRenderedList(response);
+        setShowMoreButton(false);
       }
     });
   }, []);
@@ -33,6 +35,7 @@ export function Schedule() {
     if (scheduleList.length > renderedList.length) {
       const slicedArray = scheduleList.slice(0, renderedList.length + 3);
       setRenderedList(slicedArray);
+
       if (scheduleList.length <= slicedArray.length) {
         setShowMoreButton(false);
       } else setShowMoreButton(true);

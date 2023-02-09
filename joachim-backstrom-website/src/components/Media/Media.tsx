@@ -20,7 +20,7 @@ export function Media() {
   };
   const [value, setValue] = useState(getInitialState);
   const [mediaList, setMediaList] = useState<IMedia[]>([]);
-  const [showMoreButton, setShowMoreButton] = useState<boolean>(true);
+  const [showMoreButton, setShowMoreButton] = useState<boolean>(false);
 
   //Renders first 4 items in Latest, News, Audio and Video.
   useEffect(() => {
@@ -32,11 +32,7 @@ export function Media() {
           return;
         }
         setMediaList(response);
-        if (response.length >= 4) {
-          setShowMoreButton(true);
-        } else {
-          setShowMoreButton(false);
-        }
+        setShowMoreButton(true);
       });
     } else if (value === "Video") {
       let service = new MediaService();
@@ -46,7 +42,7 @@ export function Media() {
           return;
         }
         setMediaList(response);
-        if (response.length >= 4) {
+        if (response.length > 4) {
           setShowMoreButton(true);
         } else {
           setShowMoreButton(false);
@@ -60,7 +56,7 @@ export function Media() {
           return;
         }
         setMediaList(response);
-        if (response.length >= 4) {
+        if (response.length > 4) {
           setShowMoreButton(true);
         } else {
           setShowMoreButton(false);
@@ -74,7 +70,7 @@ export function Media() {
           return;
         }
         setMediaList(response);
-        if (response.length >= 4) {
+        if (response.length > 4) {
           setShowMoreButton(true);
         } else {
           setShowMoreButton(false);
