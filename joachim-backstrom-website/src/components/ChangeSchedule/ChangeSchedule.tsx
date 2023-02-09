@@ -3,6 +3,12 @@ import { ISchedule } from "../../models/ISchedule";
 import { ScheduleService } from "../../services/ScheduleService";
 import "./sass/changeschedule.css";
 
+//ChangeSchedule component
+//Gets whole schedule-list (both future and historic posts)
+//and renders each post with a delete and change button
+//Each post kan be changed or deleted
+//Alert pops up with result
+
 export function ChangeSchedule() {
   const [scheduleList, setScheduleList] = useState<ISchedule[]>([]);
   const [updateList, setUpdateList] = useState<boolean>(false);
@@ -22,7 +28,7 @@ export function ChangeSchedule() {
   useEffect(() => {
     let service = new ScheduleService();
     service.getScheduleTotal().then((response) => {
-      if (response.status == "error") {
+      if (response.status === "error") {
         console.log(response.message);
         return;
       }
@@ -63,7 +69,7 @@ export function ChangeSchedule() {
               setChangeInput(false);
               let service = new ScheduleService();
               service.deleteSchedule(scheduleitem._id).then((response) => {
-                if (response.status == "error") {
+                if (response.status === "error") {
                   console.log(response.message);
                   return;
                 }
@@ -189,7 +195,7 @@ export function ChangeSchedule() {
                           .changeSchedule(scheduleValues)
                           .then((response) => {
                             console.log(response);
-                            if (response.status == "error") {
+                            if (response.status === "error") {
                               console.log(response.message);
                               return;
                             }

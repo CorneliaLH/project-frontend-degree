@@ -8,6 +8,10 @@ import { ChangeMedia } from "../ChangeMedia/ChangeMedia";
 import { ChangeSchedule } from "../ChangeSchedule/ChangeSchedule";
 import { ChangeRepertoire } from "../ChangeRepertoire/ChangeRepertoire";
 
+//Admin Component
+//Displays Logout-button and 5 action choises, 2 are creating new posts for media or schedule/repertoire
+//3 are change/delete media, schedule and repertoire posts.
+
 export function Admin() {
   const [newMediaPost, setNewMediaPost] = useState<boolean>(false);
   const [newSchedulePost, setNewSchedulePost] = useState<boolean>(false);
@@ -30,13 +34,6 @@ export function Admin() {
   //Logout function
   function logOut() {
     sessionStorage.removeItem("userId");
-    let header = document.querySelector<HTMLElement>(".header");
-    let footer = document.querySelector<HTMLElement>(".container-footer");
-
-    if (header !== null && footer !== null) {
-      header.style.display = "flex";
-      footer.style.display = "flex";
-    }
     navigation("/");
   }
 

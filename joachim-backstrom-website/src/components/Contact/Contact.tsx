@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IContact } from "../../models/IContact";
 import "./sass/contact.css";
+
+//Contact component
 
 export function Contact() {
   const [contactList, setContactList] = useState<IContact[]>([

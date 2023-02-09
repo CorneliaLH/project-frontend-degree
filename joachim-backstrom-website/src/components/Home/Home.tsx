@@ -1,5 +1,4 @@
 import "./sass/home.css";
-import imagelight from "../../images/logo-light2.svg";
 import arrowdown from "../../images/arrow-down.svg";
 import joachimBio from "../../images/joachimredigerad.webp";
 import { Link, useNavigate } from "react-router-dom";
@@ -10,6 +9,9 @@ import quoteImageJoachim from "../../images/peter-grimes-4-photo-by-marek-olbrzy
 import { MediaService } from "../../services/MediaService";
 import { IMedia } from "../../models/IMedia";
 
+//Home component
+//Gets schedule and media lists and renders three posts of each
+
 export function Home() {
   //Changing nav menu color to white
   const [scheduleList, setScheduleList] = useState<ISchedule[]>([]);
@@ -19,7 +21,7 @@ export function Home() {
   useEffect(() => {
     let service = new ScheduleService();
     service.getSchedule().then((response) => {
-      if (response.status == "error") {
+      if (response.status === "error") {
         console.log(response.message);
         return;
       }
@@ -31,7 +33,7 @@ export function Home() {
   useEffect(() => {
     let service = new MediaService();
     service.getMediaNews().then((response) => {
-      if (response.status == "error") {
+      if (response.status === "error") {
         console.log(response.message);
         return;
       }

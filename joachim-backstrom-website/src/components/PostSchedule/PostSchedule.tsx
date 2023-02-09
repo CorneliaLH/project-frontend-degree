@@ -5,6 +5,12 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { IScheduleOpera } from "../../models/IScheduleOpera";
 import { IScheduleConcert } from "../../models/IScheduleConcert";
 
+//PostSchedule Component
+//Posts both Schedule and Repertoire posts (opera or concert), since these are connected
+//There is a choise if repertoire should be published on site or not
+//Different views are shown based on if Opera or Concert chosen in select field.
+//Select options is used to always get the correct format of input when important
+
 export function PostSchedule() {
   const [repetoireChoice, setRepetoireChoice] = useState<string>("Choose one");
   const [disabledValue, setDisabledValue] = useState(true);
@@ -308,7 +314,7 @@ export function PostSchedule() {
                             .postSchedule(scheduleOperaValues)
                             .then((response) => {
                               console.log(response);
-                              if (response.status == "error") {
+                              if (response.status === "error") {
                                 console.log(response.message);
                                 return;
                               }
@@ -354,7 +360,7 @@ export function PostSchedule() {
                             .postSchedule(scheduleConcertValues)
                             .then((response) => {
                               console.log(response);
-                              if (response.status == "error") {
+                              if (response.status === "error") {
                                 console.log(response.message);
                                 return;
                               }

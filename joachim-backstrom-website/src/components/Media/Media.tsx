@@ -11,6 +11,11 @@ import audioimage from "../../images/audio.svg";
 import imagedark from "../../images/logo-dark2.svg";
 
 import "./sass/media.css";
+//Media Component
+//Uses get call to render the first four most recent posts from database
+//If selected, only the first four videos, audios or news are render
+//If more than four posts a see-more button is displayed
+//If more-button is pushed all posts are displayed
 
 export function Media() {
   //Sets select value from start
@@ -27,7 +32,7 @@ export function Media() {
     if (value === "Latest") {
       let service = new MediaService();
       service.getMedia().then((response) => {
-        if (response.status == "error") {
+        if (response.status === "error") {
           console.log(response.message);
           return;
         }
@@ -37,7 +42,7 @@ export function Media() {
     } else if (value === "Video") {
       let service = new MediaService();
       service.getMediaVideo().then((response) => {
-        if (response.status == "error") {
+        if (response.status === "error") {
           console.log(response.message);
           return;
         }
@@ -51,7 +56,7 @@ export function Media() {
     } else if (value === "Audio") {
       let service = new MediaService();
       service.getMediaAudio().then((response) => {
-        if (response.status == "error") {
+        if (response.status === "error") {
           console.log(response.message);
           return;
         }
@@ -65,7 +70,7 @@ export function Media() {
     } else if (value === "News") {
       let service = new MediaService();
       service.getMediaNews().then((response) => {
-        if (response.status == "error") {
+        if (response.status === "error") {
           console.log(response.message);
           return;
         }
@@ -84,7 +89,7 @@ export function Media() {
     if (valueFromSelect === "Latest") {
       let service = new MediaService();
       service.getMediaAll().then((response) => {
-        if (response.status == "error") {
+        if (response.status === "error") {
           console.log(response.message);
           return;
         }
@@ -94,7 +99,7 @@ export function Media() {
     } else if (valueFromSelect === "Video") {
       let service = new MediaService();
       service.getMediaVideoAll().then((response) => {
-        if (response.status == "error") {
+        if (response.status === "error") {
           console.log(response.message);
           return;
         }
@@ -104,7 +109,7 @@ export function Media() {
     } else if (valueFromSelect === "Audio") {
       let service = new MediaService();
       service.getMediaAudioAll().then((response) => {
-        if (response.status == "error") {
+        if (response.status === "error") {
           console.log(response.message);
           return;
         }
@@ -114,7 +119,7 @@ export function Media() {
     } else if (valueFromSelect === "News") {
       let service = new MediaService();
       service.getMediaNewsAll().then((response) => {
-        if (response.status == "error") {
+        if (response.status === "error") {
           console.log(response.message);
           return;
         }

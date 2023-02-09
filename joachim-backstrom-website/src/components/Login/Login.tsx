@@ -3,6 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { IUser } from "../../models/IUser";
 import { UserService } from "../../services/UserService";
 import "./sass/login.css";
+
+//Login Component
+//Handles post and get calls for validation of uservalues
+//Since only a few users there is no create user option, the
+//uservalues are put directly into the database.
+
 export function Login() {
   const [logInValues, setLogInValues] = useState<IUser>({
     userName: "",

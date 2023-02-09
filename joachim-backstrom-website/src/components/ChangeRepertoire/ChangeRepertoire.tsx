@@ -4,6 +4,12 @@ import { IOpera } from "../../models/IOpera";
 import { RepertoireService } from "../../services/RepertoireService";
 import "./sass/changerepertoire.css";
 
+//ChangeRepertoire component
+//Gets whole repertoire-list inkl. opera and concert (both displayed and not displayed on site)
+// and renders each post with a delete and change button
+//Each post kan be changed or deleted
+//Alert pops up with result
+
 export function ChangeRepertoire() {
   const [operaList, setOperaList] = useState<any[]>([]);
   const [concertList, setConcertList] = useState<any[]>([]);
@@ -33,7 +39,7 @@ export function ChangeRepertoire() {
     let service1 = new RepertoireService();
     service1.getRepertoireOperaAll().then((response) => {
       console.log(response);
-      if (response.status == "error") {
+      if (response.status === "error") {
         console.log(response.message);
         return;
       }
@@ -42,7 +48,7 @@ export function ChangeRepertoire() {
     let service2 = new RepertoireService();
     service2.getRepertoireConcertAll().then((response) => {
       console.log(response);
-      if (response.status == "error") {
+      if (response.status === "error") {
         console.log(response.message);
         return;
       }
@@ -104,7 +110,7 @@ export function ChangeRepertoire() {
                 service
                   .deleteRepertoireOpera(operaitem._id)
                   .then((response) => {
-                    if (response.status == "error") {
+                    if (response.status === "error") {
                       console.log(response.message);
                       alert("Something went wrong, try again");
                       return;
@@ -184,7 +190,7 @@ export function ChangeRepertoire() {
                 service
                   .deleteRepertoireConcert(concertitem._id)
                   .then((response) => {
-                    if (response.status == "error") {
+                    if (response.status === "error") {
                       alert("Something went wrong, try again");
                       console.log(response.message);
                       return;
@@ -316,7 +322,7 @@ export function ChangeRepertoire() {
             </ul>
           )}
         </div>
-        <div className='container-change-media-posts'>
+        <div className='container-change-repertoire-posts'>
           <div>
             <h3>Concert list in database</h3>
             {concertArray}

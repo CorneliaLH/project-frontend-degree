@@ -12,10 +12,13 @@ import imageAudio7 from "../../images/Audio-knowmore-image7.webp";
 import imageAudio8 from "../../images/Audio-knowmore-image8.webp";
 import { useEffect, useState } from "react";
 
-//Instructions on Post media page for adding video and audio url. This is the
-//child component of PostMedia, media is sent from parent to child and instructionsClose
-//from child to parent. This is done order to open and close the view + chosing the right one
-//of Audio and Video.
+//InstructionsPostMedia Component
+//Child component of PostMedia Component
+//Handles the instructions on Post media page for adding video and audio url.
+//"Media" is sent from parent to child and "instructionsClose"
+//from child to parent. This is done order to determine if audio or video should be displayed
+//and to toggle open/close of the view.
+
 export function InstructionsPostMedia({ media, instructionsClosed }: any) {
   const [buttonBackBoolean, setButtonBackBoolean] = useState<boolean>(false);
   const [buttonForwardBoolean, setButtonForwardBoolean] =

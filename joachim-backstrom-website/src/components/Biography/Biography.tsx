@@ -1,7 +1,6 @@
-import { useEffect } from "react";
 import "./sass/biography.css";
-import imagedark from "../../images/logo-dark2.svg";
 
+//Biography Component
 export function Biography() {
   return (
     <>

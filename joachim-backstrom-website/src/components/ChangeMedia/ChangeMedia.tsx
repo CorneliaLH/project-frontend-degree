@@ -3,6 +3,11 @@ import { IMedia } from "../../models/IMedia";
 import { MediaService } from "../../services/MediaService";
 import "./sass/changemedia.css";
 
+//ChangeMedia component
+//Gets whole media-list and renders each post with a delete and change button
+//Each post kan be changed or deleted
+//Alert pops up with result
+
 export function ChangeMedia() {
   const [mediaList, setMediaList] = useState<IMedia[]>([]);
   const [updateList, setUpdateList] = useState<boolean>(false);
@@ -20,7 +25,7 @@ export function ChangeMedia() {
   useEffect(() => {
     let service = new MediaService();
     service.getMediaAll().then((response) => {
-      if (response.status == "error") {
+      if (response.status === "error") {
         console.log(response.message);
         return;
       }
@@ -57,7 +62,7 @@ export function ChangeMedia() {
               setChangeInput(false);
               let service = new MediaService();
               service.deleteMedia(mediaitem._id).then((response) => {
-                if (response.status == "error") {
+                if (response.status === "error") {
                   console.log(response.message);
                   return;
                 }
@@ -176,7 +181,7 @@ export function ChangeMedia() {
                         let service = new MediaService();
                         service.changeMedia(mediaValues).then((response) => {
                           console.log(response);
-                          if (response.status == "error") {
+                          if (response.status === "error") {
                             console.log(response.message);
                             return;
                           }

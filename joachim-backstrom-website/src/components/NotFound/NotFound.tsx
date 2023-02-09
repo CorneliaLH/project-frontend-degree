@@ -1,25 +1,8 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./sass/notfound.css";
 
+//NotFound Component
 export function NotFound() {
-  useEffect(() => {
-    let headerDesktop = document.querySelector<HTMLElement>(".header-desktop");
-    let headerTabletMobile = document.querySelector<HTMLElement>(
-      ".header-tablet-mobile"
-    );
-    let footer = document.querySelector<HTMLElement>(".container-footer");
-    if (headerDesktop !== null) {
-      headerDesktop.style.display = "none";
-    }
-    if (headerTabletMobile !== null) {
-      headerTabletMobile.style.display = "none";
-    }
-
-    if (footer !== null) {
-      footer.style.display = "none";
-    }
-  }, []);
   return (
     <>
       <div className='container-notfound-page'>

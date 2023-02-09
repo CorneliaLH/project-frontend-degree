@@ -5,6 +5,11 @@ import { IMediaPost } from "../../models/IMediaPost";
 import "./sass/postmedia.css";
 import { InstructionsPostMedia } from "../InstructionsPostMedia/InstructionsPostMedia";
 
+//PostMedia Component
+//Post calls to insert new media into database.
+//Validation by button disabled until all fields are filled
+//Parent component to InstructionsPostMedia component
+
 export function PostMedia() {
   const [knowMoreVideo, setKnowMoreVideo] = useState<boolean>(false);
   const [knowMoreAudio, setKnowMoreAudio] = useState<boolean>(false);

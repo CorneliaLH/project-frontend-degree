@@ -38,8 +38,8 @@ root.render(
           <Route path='/Media' element={<Media />}></Route>
           <Route path='/Schedule' element={<Schedule />}></Route>
           <Route path='/Contact' element={<Contact />}></Route>
-          <Route path='*' element={<NotFound />}></Route>
         </Route>
+        <Route path='*' element={<NotFound />}></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

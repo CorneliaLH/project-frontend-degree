@@ -4,6 +4,10 @@ import { IOpera } from "../../models/IOpera";
 import { RepertoireService } from "../../services/RepertoireService";
 import "./sass/repetoire.css";
 
+//Repertoire Component
+//Get call to get all repertoire posts from database that are set to "true"
+//on display_repertoire.
+
 export function Repetoire() {
   const [operaList, setOperaList] = useState<IOpera[]>([]);
   const [concertList, setConcertList] = useState<IConcert[]>([]);

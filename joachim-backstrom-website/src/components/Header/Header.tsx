@@ -4,6 +4,11 @@ import logoImageLight from "../../images/logo-light2.svg";
 import logoImageDark from "../../images/logo-dark2.svg";
 import "./sass/header.css";
 
+//Header Component
+//Header content has different color based on the url
+//Resizing of the window sets different views based on window width
+//Below 900px the menu is displayed as a hamburger, above it is a navbar.
+
 export function Header() {
   const [isDesktop, setIsDesktop] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);

@@ -3,12 +3,14 @@ import { ISchedule } from "../../models/ISchedule";
 import { ScheduleService } from "../../services/ScheduleService";
 import "./sass/schedule.css";
 
+//Schedule Component
+//Get call to get the schedule list and displays the first three events,
+//If show-more button is pushed it shows three more
+
 export function Schedule() {
   const [scheduleList, setScheduleList] = useState<ISchedule[]>([]);
   const [renderedList, setRenderedList] = useState<ISchedule[]>([]);
   const [showMoreButton, setShowMoreButton] = useState<boolean>(true);
-
-  //Changes color navigation
 
   //Get first 3 schedule-items
   useEffect(() => {
