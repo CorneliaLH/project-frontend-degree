@@ -1,7 +1,7 @@
 import "./sass/instructionspostmedia.css";
-import imageYoutube1 from "../../images/youtube-embed-share1.png";
-import imageYoutube2 from "../../images/youtube-embed-button1.png";
-import imageYoutube3 from "../../images/youtube-embed-link1.png";
+import imageYoutube1 from "../../images/youtube-embed-share1.webp";
+import imageYoutube2 from "../../images/youtube-embed-button1.webp";
+import imageYoutube3 from "../../images/youtube-embed-link1.webp";
 import imageAudio1 from "../../images/Audio-knowmore-image1.webp";
 import imageAudio2 from "../../images/Audio-knowmore-image2.webp";
 import imageAudio3 from "../../images/Audio-knowmore-image3.webp";
