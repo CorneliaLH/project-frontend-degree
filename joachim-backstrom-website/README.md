@@ -34,6 +34,7 @@ Backend repo you find [here](https://github.com/CorneliaLH/project-backend-degre
 
 **Npm-packages:**
 
+- create-react-app
 - React-router-dom
 - Axios
 
